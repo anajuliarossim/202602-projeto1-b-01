@@ -24,14 +24,14 @@
 - **Medos e dúvidas:** [ "O que a empresa ganha com isso?" "O desconto vale mesmo a pena?" "Tenho que pagar duas contas?" ]
 - **Canais que usa:** [ Usa whatsapp apenas para mensagens importantes ou conversas com pessoas próximas e só visualiza questões de serviços e profissionais por email]
 
-- **Mapa de jornada:** [docs/jornada.md](docs/jornada.md)
-
 - **Persona 2:**
 - **Nome e idade**: [Maria, 39 anos]
 - **Contexto**: [Conheceu a Bulbe por meio de uma publicação nas redes sociais]
 - **Objetivo**: [Quer diminuir os gastos fixos da casa para conseguir guardar mais dinheiro todos os meses]
 - **Medos e dúvidas**: ["Essa empresa existe mesmo? Esse desconto é garantido?" "Como sei se realmente estou economizando?""Tem fidelidade ou multa para cancelar?"]
 - **Canais que usa**: [Usa WhatsApp para tudo, não entra no e-mail]
+
+- **Mapa de jornada:** [https://www.figma.com/board/QtmXTxq1ZB38Tb35QRAPcb/Sem-t%C3%ADtulo?node-id=0-1&t=5q6KIIVZqIHiBLmR-1]
 
 ## 3. Solução
 
