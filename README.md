@@ -1,9 +1,9 @@
-# [Nome da solução]
+# [Bulbe Jornada]
 
 > Projeto em Ciência de Dados I · Ibmec BH · 2º semestre de 2026
-> Cliente: **Bulbe Energia** · Turma **[A/B]** · Squad **[XX]**
+> Cliente: **Bulbe Energia** · Turma **[B]** · Squad **[01]**
 
-[Uma frase que resume a solução: o que ela faz e para quem. Exemplo: "Painel que acompanha o cliente novo da Bulbe da adesão ao pagamento da primeira fatura."]
+[Solução que orienta novos clientes da Bulbe desde a adesão até o início da economia, com informações claras sobre etapas, faturas e pagamentos]
 
 ---
 
@@ -72,10 +72,11 @@
 ## 8. Equipe
 
 | Integrante | GitHub | Papel principal |
-| --- | --- | --- |
-| [Nome] | [@usuario](https://github.com/usuario) | [ex.: Scrum Master, front-end, dados, documentação] |
-| [Nome] | [@usuario](https://github.com/usuario) | [ ] |
-| [Nome] | [@usuario](https://github.com/usuario) | [ ] |
+
+| [Ana Júlia Rossi] | [@anajuliarossim](https://github.com/anajuliarossim) | [Product Owner] |
+| [Luiz Balestrassi] | [@LuizBalestrassi](https://github.com/LuizBalestrassi) | [Scrum Master] |
+| [Bernardo Neto] | [@bernardogonacalvesdasilvaneto-cyber](https://github.com/bernardogoncalvesdasilvaneto-cyber) | [Developer] |
+| [Giovanni ] | [@GiovanniLZMG] (https://github.com/GiovanniLZMG) | [Developer] |
 
 ## 9. Entregas
 
