@@ -10,6 +10,7 @@
 | --- | --- | --- | --- | --- |
 | HU03 | Como Maria, quero receber minhas faturas de forma clara para entender os valores cobrados. | As faturas são confusas e não é explicito qual devo pagar. | Alta | #Adicionar ao onboarding uma explicação detalhada sobre o que ela está pagando ou deixando de pagar |
 | --- | --- | --- | --- | --- |
+| HU04| Como Maria, quero entender se a Bulbe realmente é confiável, para saber se a empresa é real. | O site/app não passa credibilidade e confiança para os clientes devido a interface. | Alta | #Adicionar no aplicativo  elementos que aumentem a credibilidade do cliente, como mapa de pertencimento e mapa das usinas. |
 
 ## Critérios de aceite
 
