@@ -8,7 +8,7 @@
 - **Canais que usa:** [Usa whatsapp apenas para mensagens importantes ou conversas com pessoas próximas e só visualiza questões de serviços e profissionais por email]
 
 ## Mapa
-![Mapa de jornada](midia/Jornada-Sérgio.png)
+![Mapa de jornada](wireframes/midia/Jornada-Sérgio.png)
 ## Oportunidades registradas como Issues
 
 - [ ] #[número] [título da oportunidade]
