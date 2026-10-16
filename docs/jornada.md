@@ -19,5 +19,5 @@
 - **Canais que usa**: [Usa WhatsApp para tudo, não entra no e-mail]
 
 ## Mapa
-![Mapa de jornada] (wireframes/midia/Jornada-Maria.png)
+![Mapa de jornada](wireframes/midia/Jornada-Maria.png)
 
