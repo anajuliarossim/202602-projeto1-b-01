@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -8,22 +9,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="telaOnboarding">
   <header class="topo">
   </header>
+  <div id="ContainerOnb">
   <main class="onboarding">
     <div class="onboardingImg">
         <img src="../assets/img/IlustracaoOnbHU01.png" alt="Ilustração placa solar">
     </div>
     <div class="onboardingContent" id="Onb05">
-        <h1>Como conseguimos te oferecer esse desconto?</h1>
-        <p>Produzimos energia solar e enviamos para a rede da CEMIG, gerando créditos e 
-            tendo um custo de produção menor que ajudam a reduzir o valor na sua conta.</p>
+        <h1>De onde vem seu desconto?</h1>
+        <p>  Nossa energia solar é enviada para a rede da CEMIG e gera <strong>créditos de energia</strong>, que usamos para
+            <strong>reduzir o valor da sua conta de luz</strong>.</p>
     </div>
   </main>
+      <div class="indicadorTelas"
+          role="img"
+          aria-label="Tela 1 de 5">
+        <span class="bolinha"></span>
+        <span class="bolinha"></span>
+        <span class="bolinha"></span>
+        <span class="bolinha"></span>
+        <span class="bolinha ativa"></span>
+        <span class="bolinha"></span>
+      </div>
   <footer class="rodapeOnboarding">
     <button class="onboardingButton" id="Voltar">Voltar</button>
     <button class="onboardingButton" id="Proximo">Próximo</button>
   </footer>
+  </div>
+  <div class="barraInferior" aria-hidden="true"></div>
 </body>
 </html>
