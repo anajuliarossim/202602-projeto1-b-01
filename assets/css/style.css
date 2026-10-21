@@ -229,3 +229,23 @@ p{
   flex-shrink: 0;
 }
 
+.topo-branco{
+  padding: 1ch;
+  padding-bottom: 2ch;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.topo-branco .seta-retorno{
+  width: 2.5em;
+}
+.topo-branco .logo-azul{
+  width: 6.5em;
+}
+.noticia{
+  width: 24em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10em;
+}
