@@ -1,6 +1,6 @@
 /* Variáveis de cor e tipografia: ajustem para a identidade da solução */
 :root {
-  --cor-primaria: #0a2558;
+  --cor-primaria: #08068D;
   --cor-destaque: #f2ae00;
   --cor-fundo: #f7f9fc;
   --cor-texto: #1f2937;
@@ -106,3 +106,126 @@ p{
   border-radius: 20px;
   background: #0a2558;
 }
+
+.telaOnboarding{
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.onboarding{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.onboardingImg img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.onboardingContent {
+  padding: 24px 24px 0;
+}
+
+.onboardingContent h1 {
+  max-width: 28ch;
+  margin: 0 auto 16px;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+
+  color: #191927;
+}
+
+.onboardingContent p {
+  max-width: 38ch;
+  margin: 0 auto;
+  padding: 0;
+
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.onboardingContent strong{
+  color: #485868;
+}
+
+.rodapeOnboarding {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 0 24px 32px;
+}
+
+.onboardingButton {
+  flex: 1;
+  min-width: 0;
+  max-width: 12rem;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+
+  border: 1px solid var(--cor-primaria);
+  border-radius: 12px;
+
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#Voltar {
+  background: transparent;
+  color: var(--cor-primaria);
+}
+
+#Proximo {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.indicadorTelas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0;
+  margin: 24px 0;
+}
+
+.bolinha {
+  width: 0.6rem;
+  height: 0.6rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+}
+
+.bolinha.ativa {
+  width: 1.5rem;
+  height: 0.6rem;
+  border-radius: 0.2rem;
+  background: var(--cor-primaria);
+}
+
+#ContainerOnb{
+  height: 90vh;
+}
+
+.telaOnboarding .barraInferior {
+  width: 100%;
+  height: 24px;
+  background: var(--cor-primaria);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
