@@ -4,11 +4,13 @@
 
 | ID | História | Oportunidade de origem | Prioridade | Issue |
 | --- | --- | --- | --- | --- |
-| HU01 | Como [persona], quero [ação] para [benefício]. | [ ] | [alta/média/baixa] | #[ ] |
-
-| ID | História | Oportunidade de origem | Prioridade | Issue |
+| HU01 | Como Sérgio, quero entender de onde vem o desconto para conseguir ter mais confiança no serviço. | Informações de origem do desconto ficam em locais menos vistos do site/app | [média] | #Adicionar ao onboarding uma parte explicando a origem daquele desconto|
 | --- | --- | --- | --- | --- |
-| HU03 | Como Maria, quero receber minhas faturas de forma clara para entender os valores cobrados. | [ ] | Alta | #Adicionar ao onboarding uma explicação detalhada sobre o que ela está pagando ou deixando de pagar |
+| HU02 | Como Sérgio, quero acompanhar o processo de economia, para que eu possa ficar ciente que essa redução vale a pena. |As informações são visiveis somente durante o processo.  | Média | #Adicionar ao onboarding uma parte que calcule o processo de economia desejado pelo cliente.|
+| --- | --- | --- | --- | --- |
+| HU03 | Como Maria, quero receber minhas faturas de forma clara para entender os valores cobrados. | As faturas são confusas e não é explicito qual devo pagar. | Alta | #Adicionar ao onboarding uma explicação detalhada sobre o que ela está pagando ou deixando de pagar |
+| --- | --- | --- | --- | --- |
+| HU04| Como Maria, quero entender se a Bulbe realmente é confiável, para saber se a empresa é real. | O site/app não passa credibilidade e confiança para os clientes devido a interface. | Alta | #Adicionar no aplicativo  elementos que aumentem a credibilidade do cliente, como mapa de pertencimento e mapa das usinas. |
 
 ## Critérios de aceite
 
