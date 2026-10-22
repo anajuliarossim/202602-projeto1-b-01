@@ -28,9 +28,10 @@ body {
 }
 
 #Calculadora{
+  margin: 0 auto;
   background-color: var(--cor-fundo);
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .topo {
@@ -81,9 +82,9 @@ p{
   align-items: center;
   justify-content: left;
   height: 50px;
-  width: 50%;
+  width: 75%;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #ConsumoMensal {
@@ -91,9 +92,9 @@ p{
   align-items: center;
   justify-content: right;
   height: 50px;
-  width: 50%;
+  width: 75%;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #Btn {
@@ -102,7 +103,7 @@ p{
   justify-content: center;
   margin: 0 auto;
   height: 50px;
-  width: 50%;
+  width: 75%;
   border-radius: 20px;
   background: #0a2558;
 }
