@@ -194,3 +194,10 @@ main {
   align-items: center;
   margin-bottom: 10em;
 }
+.barraSuperior{
+  width: 100%;
+  height: 24px;
+  background: var(--cor-primaria);
+  margin-top: 0;
+  flex-shrink: 0;
+}
