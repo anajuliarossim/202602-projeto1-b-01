@@ -18,6 +18,9 @@ body {
   background: var(--cor-fundo);
   line-height: 1.5;
 }
+body.telaComMenu {
+  padding-bottom: calc(60px + env(safe-area-inset-bottom));
+}
 
 .border{
   background-color: var(--cor-primaria);
@@ -33,13 +36,15 @@ body {
 }
 
 .topo {
-  background: var(--cor-primaria);
-  color: #fff;
-  padding: 1.5rem;
   display: grid;
-  grid-template-areas: 
-  "menu logo not perfil"
-  "faixa faixa faixa faixa"; 
+  grid-template-columns: 40px minmax(0, 1fr) 40px 40px;
+  grid-template-areas:
+    "menu logo not perfil"
+    "faixa faixa faixa faixa";
+
+  align-items: center;
+  gap: 24px 8px;
+  padding: 20px 16px 16px;
 }
 .topo a { color: var(--cor-destaque); }
 
@@ -52,73 +57,99 @@ main {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
-.menu-cabecalho{
-  background: transparent;
+.topo .menu-cabecalho,
+.topo .logo-cabecalho,
+.topo .notificacao-cabecalho,
+.topo .perfil-cabecalho,
+.topo .faixa-indique {
+  margin: 0;
+}
 
-  border: transparent;
-  margin: -0.5em;
-  margin-right: 0;
+.topo .button-template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  min-width: 0;
+}
 
-  color: white;
-  font-size: 2em;
-  font-weight: lighter;
+.topo .logo-cabecalho {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  justify-self: center;
+  margin-right: -50px;
+  grid-area: logo;
+}
+
+.topo .menu-cabecalho {
+  font-size: 28px;
+  line-height: 1;
 
   grid-area: menu;
 }
-.logo-cabecalho{
-  width: 8em;
-  margin: 0 4em;
-  grid-area: logo;
+
+.topo .notificacao-cabecalho img,
+.topo .perfil-cabecalho img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin: 0;
 }
-.notificacao-cabecalho{
-  background: transparent;
 
-  border: transparent;
-  margin: -1em;
-  margin-right: 0;
-
-  color: white;
-  font-size: 1.5em;
-  font-weight: lighter;
-
+.topo .notificacao-cabecalho {
   grid-area: not;
 }
-.notificacao-cabecalho img{
-  height: 1.2em;
-  margin-left: -2em;
-}
-.perfil-cabecalho{
-  background: transparent;
 
-  border: transparent;
-  margin: -1em;
-  margin-right: 0;
-
-  color: white;
-  font-size: 1.5em;
-  font-weight: lighter;
-
+.topo .perfil-cabecalho {
   grid-area: perfil;
 }
-.perfil-cabecalho img{
-  height: 1.2em;
-  margin-left: 0.5em;
+
+.topo .faixa-indique {
+  width: calc(100% + 32px);
+  margin-inline: -16px;
+  grid-area: faixa;
 }
-.faixa-indique{
+
+.topo .faixa-indique img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+.button-template{
   background: transparent;
 
   border: transparent;
-  margin-top: 1em;
-  margin-left: -1.2em;
 
   color: white;
   font-size: 1.5em;
   font-weight: lighter;
 
-  grid-area: faixa;
+  cursor: pointer;
 }
-.faixa-indique img{
-  width: 15.5em;
+.button-template img{
+  display: block;
+  height: 40px;
+  width: auto;
+}
+.menu-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: calc(60px + env(safe-area-inset-bottom));
+  padding: 4px 16px calc(4px + env(safe-area-inset-bottom));
+
+  background: var(--cor-fundo);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .aviso {
@@ -312,6 +343,7 @@ p{
 }
 .topo-branco .logo-azul{
   width: 6.5em;
+  height: auto;
 }
 .noticias{
   display: flex;
