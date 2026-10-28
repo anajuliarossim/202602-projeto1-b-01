@@ -7,32 +7,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    
 </head>
 
     <body>
+    <div class="corpo"></div>
     <header class="topo">
-        <h1>Bulbe</h1>
-        <p>sua próxima energia</p>
+        <button class="menu-cabecalho button-template">☰</button>
+        <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Logo Bulbe" class="logo-cabecalho">
+        <button class="notificacao-cabecalho button-template"><img src="../assets/img/SinoNot.png" alt="Notificações"></button>
+        <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
+        <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
     </header>
+    </div>
     <main>
 
-        <h1>Suas Faturas</h1>
+        <h1 class="suasfaturas">Suas Faturas</h1>
+        <ul class="numeroinst">
+            <li>Intalação:</li>
+            <li>0010349649</li>
+        </ul>
         <section class="central">
                 
             <ul class="nome">
-                <li>Bulbe - Energia Elétrica</li>
-                <li class="vencer">Vence em 4 dias</li>
+                <li class="faturaatual">Fatura Atual</li>
+                <li class="vencer">em aberto</li>
             </ul>
             
-            <div class="status">A pagar: Outubro/2026</div>
+            <ul class="status">
+                <li>Vencimento</li>
+                <li>18 de Outubro</li>
+            </ul>
 
             <div class="valor">R$ 187,42</div>
 
-            <div class="vence">Vencimento: 25/10/2026</div>
+            <section class="escolhapagamento">
+                <ul class="infor">
+                    <li class="titlepag"><h4>Como prefere pagar?</h4></li>
+                    <li class="desctitle">escolha a melhor opção para você</li>
+                </ul>
+                <ul class="pagpix">
+                    <li class="formapag">Pix</li>
+                    <li class="desc">Aprovação Imediata</li>
+                </ul>
+                <ul class="pagbol">
+                    <li class="formapag">Boleto</li>
+                    <li class="desc">Até 2 dias úteis</li>
+                </ul>
+                <ul class="pagcard">
+                    <li class="formapag">Cartão</li>
+                    <li class="desc">Débito ou Crédito</li>
+                </ul>
 
-            <button class="pix">PAGAR COM PIX</button>
-            <button class="cartao">PAGAR COM CARTÃO</button>
-
+            </section>
         </section>
 
         <section class="informacoes">
@@ -77,5 +104,10 @@
             
         </section>
     </main>
+    <footer class="menu-footer">
+      <button class="button-template"><img src="../assets/img/Icone-Inicio-Cinza.png" alt="Início"></button>
+      <button class="button-template"><img src="../assets/img/Icone-Fatura-Cinza.png" alt="Faturas"></button>
+      <button class="button-template"><img src="../assets/img/Icone-Consumo-Cinza.png" alt="Consumo"></button>
+    </footer>
 </body>
 </html>
