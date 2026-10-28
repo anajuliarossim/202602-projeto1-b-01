@@ -520,3 +520,68 @@ main h1{
 .corpo{
   background-color: var(--cor-primaria);
 }
+#Start-Top{
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+}
+#Start-Top img{
+  width: 100vw;
+  height: auto;
+  padding: 7vh;
+}
+#Start-Main{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+#Start-Main h1{
+  display: flex;
+  justify-content: center;
+
+  color: #3E4D5B;
+  font-weight: 500;
+
+  margin: 0;
+  margin-top: 15px;
+}
+#Start-Main p{
+  display: flex;
+  justify-content: center;
+
+  margin: 0;
+  margin-top: 10px;
+
+  color: #3E4D5B;
+
+  font-size: 0.9em;
+}
+#Corpo-Start{
+  background: linear-gradient(90deg, #2267e7, #08068D);
+}
+#Start-Main button{
+  margin: 10px auto;
+  width: 100%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+}
+#Enter{
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+}
+#Start-Main #First{
+  color: #3E4D5B;
+  background-color: var(--cor-fundo);
+
+  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+#Start-Main #Start-Calc{
+  color: var(--cor-fundo);
+  background-color: #26D07C;
+}
