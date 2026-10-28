@@ -30,65 +30,9 @@ body.telaComMenu {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-.calculadora {
-  background: var(--cor-fundo);
-  border-radius: 28px 28px 0 0;
-  padding: 32px 24px 40px;
-  flex: 1;
-  color: #e5e7eb;
-}
-
-.calculadora h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 28px;
-  color: #f3f4f6;
-}
-
-.avisoCalculadora {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: #9ca3af;
-  margin-bottom: 28px;
-}
-
-.campo { 
-  margin-bottom: 24px;
-}
-
-.campo label{
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  color: #d1d5db;
-}
-
-.campo input{
-  width: 100%;
-  height: 52px;
-  background: #2a2a3d;
-  border: 1px solid #3f3f5a;
-  border-radius: 12px;
-  padding: 0 16px;
-  font-size: 1rem;
-  color: #f3f4f6;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.campo input::placeholder {
-  color: #9ca3af;
-}
-
-.campo input:focus{
-  border-color : #f2ae00
-=======
 #Calculadora{
   background-color: var(--cor-fundo);
 
->>>>>>> 6c9d00f116467da49f1cf3500a1611f7afc4c859
 }
 
 .topo {
@@ -632,12 +576,6 @@ main h1{
   justify-content: center;
   align-items: center;
 }
-#Start-Main h1{
-  display: flex;
-  justify-content: center;
-
-<<<<<<< HEAD
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--fonte); background: #e4e8f1; color: var(--cor-texto); }
 a { color: inherit; text-decoration: none; }
@@ -723,7 +661,12 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   padding: 10px 0; font-size: .75rem; color: #9aa1b2; }
 .nav a[aria-current="page"] { color: var(--cor-primaria); font-weight: 600; box-shadow: inset 0 3px var(--cor-primaria); }
 .nav i { font-size: 1.1rem; }
-=======
+
+#Start-Main h1{
+  display: flex;
+  justify-content: center;
+
+
   color: #3E4D5B;
   font-weight: 500;
 
@@ -770,4 +713,3 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   color: var(--cor-fundo);
   background-color: #26D07C;
 }
->>>>>>> 6c9d00f116467da49f1cf3500a1611f7afc4c859
