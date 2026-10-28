@@ -396,15 +396,37 @@ p{
   cursor: pointer;
   color: var(--cor-primaria);
 }
+
+/*HU03*/
 main h1{
     font-size: 22px;
     margin: 8px 0 16px;
+}
+
+.suasfaturas{
+  font-size: 35px;
+}
+
+.numeroinst{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 100px ;
+  border-radius: 20px;
+  background: #e2e1e1;
 }
 .central{
     background: #14337f;
     color: #fff;
     padding: 20px;
     border-radius: 24px;
+}
+.faturaatual{
+  background: #a5c1f1;
+  color: #02025f;
+  padding: 10px;
+  border-radius: 24px;
+  font-size: 15px;
 }
 .nome {
     display: flex;
@@ -417,9 +439,9 @@ main h1{
 .vencer{
     background: #fff;
     color: #14337f;
-    padding: 2px 6px;
-    font-size: 11px;
-    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 20px;
 }
 .status{
     font-size: 12px;
@@ -427,7 +449,7 @@ main h1{
     margin-top: 16px;
 }
 .valor{
-    font-size: 32px;
+    font-size: 50px;
     font-weight: 700;
     margin: 4px 0;
 }
@@ -436,6 +458,34 @@ main h1{
     font-weight: 600;
     margin-bottom: 16px;
 }
+.escolhapagamento{
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 25px;
+}
+.escolhapagamento h4{
+  color: #191927;
+}
+.escolhapagamento .formapag{
+  color: #191927;
+  font-size: 16px;
+}
+.escolhapagamento .titlepag{
+  color: #000000;
+  font-size: 15px;
+  margin: -15px;
+  padding: 0 12px;
+}
+.escolhapagamento .desctitle{
+  color: #858585;
+  font-size: 10px;
+}
+.escolhapagamento .desc{
+  color: #868585;
+}
+
+
+
 .pix, .cartao{
     display: block;
     width: 80%;
