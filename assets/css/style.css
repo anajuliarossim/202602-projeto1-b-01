@@ -2,7 +2,7 @@
 :root {
   --cor-primaria: #08068D;
   --cor-destaque: #f2ae00;
-  --cor-fundo: #f7f9fc;
+  --cor-fundo: #fff;
   --cor-texto: #1f2937;
   --fonte: 'Poppins', sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
 }
@@ -21,7 +21,6 @@ body {
 body.telaComMenu {
   padding-bottom: calc(60px + env(safe-area-inset-bottom));
 }
-
 .border{
   background-color: var(--cor-primaria);
 }
@@ -328,13 +327,17 @@ width: 100%;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
+  background-color: var(--cor-fundo);
 }
 .topo-branco .seta-retorno{
+  margin-top: 8px;
   width: 2.5em;
+  height: 100%;
 }
 .topo-branco .logo-azul{
   width: 6.5em;
-  height: auto;
+  height: 100%;
+  margin-top: 9px;
 }
 .noticias{
   display: flex;
@@ -687,7 +690,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #Corpo-Start{
   background: linear-gradient(90deg, #2267e7, #08068D);
 }
-#Start-Main button{
+#Start-Main a{
   margin: 10px auto;
   width: 100%;
   padding: 15px;
@@ -697,6 +700,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 
   font-size: medium;
   font-weight: 700;
+  text-align: center;
 }
 #Enter{
   color: var(--cor-fundo);
@@ -712,4 +716,96 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #Start-Main #Start-Calc{
   color: var(--cor-fundo);
   background-color: #26D07C;
+}
+.topo-branco .logo-azul-center{
+  width: 7em;
+  height: 100%;
+  margin: 10px auto;
+  margin-left: 85px;
+  margin-bottom: 0;
+}
+.blank{
+  border-radius: 0;
+}
+#quero-economizar{
+  margin: 10px auto;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#cadastro-termos{
+  margin: 20px;
+  width: 90%;
+
+  color: #3E4D5B;
+
+  font-size: small;
+}
+#cadastro-termos a{
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+.body-blank{
+  background-color: var(--cor-fundo);
+}
+.body-blank input{
+  padding: 18px;
+  border: 1px solid rgb(160, 160, 160, 0.7);
+  border-radius: 5px;
+}
+.body-blank .topo-branco{
+  border-bottom: 5px solid #A4B3C1;
+}
+.titulo-cadastro{
+  display: flex;
+  justify-content: start;
+}
+.seguimento-cadastro{
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 20px;
+}
+.seguimento-cadastro p{
+  border: 1px solid var(--cor-primaria);
+  border-radius: 5px;
+
+  padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  font-size: large;
+  font-weight: 500;
+  color: var(--cor-primaria);
+}
+.seguimento-cadastro .seguimento-atual{
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+}
+.seguimento-cadastro .seta-avanço{
+  color: var(--cor-primaria);
+  font-size: x-large;
+}
+.requirido{
+  color: red;
+}
+.input-group{
+  position: relative;
+}
+.input-group label{
+  position: absolute;
+  left: 12px;
+  bottom: 36px;
 }

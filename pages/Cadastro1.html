@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulbe | Conexão Informativa</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="body-blank">
+  <header class="topo-branco">
+    <img src="../assets/img/Seta-Retorno.png" alt="Voltar para Inicial" class="seta-retorno">
+    <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center">
+  </header>
+  <main class="blank">
+    <div class="seguimento-cadastro">
+        <p class="seguimento-atual">1</p><span class="seta-avanço">→</span><p>2</p><span class="seta-avanço">→</span><p>3</p>
+    </div>
+    <h1 class="titulo-cadastro">Informe seus dados</h1>
+    <p>Vamos começar! Preencha seus dados 
+    para continuar</p>
+
+    <form action="">
+        <div class="input-group">
+        <label for="nome">Nome completo<i class="requirido">*</i></label>
+        <input type="text" id="nome" name="nome" placeholder="Nome e sobrenome" required>
+        </div>
+        <label for="email">E-mail<i class="requirido">*</i></label>
+        <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+        <label for="numero">Número de Contato<i class="requirido">*</i></label>
+        <input type="number" id="numero" name="numero" placeholder="(00) 90000-0000" required>
+        <label for="cpf">CPF<i class="requirido">*</i></label>
+        <input type="number" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+    </form>
+  </main>
+  <footer>
+    <p id="cadastro-termos">Ao submeter minhas respostas e clicar em <strong>“Quero economizar”</strong>, concordo com a <a href="">Política de Privacidade</a> da Bulbe energia.</p>
+    <a href="" id="quero-economizar">Quero Economizar</a>
+  </footer>
+</body>
+</html>
