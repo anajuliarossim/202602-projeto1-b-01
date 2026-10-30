@@ -146,7 +146,7 @@ formulario.addEventListener('submit', (evento) => {
     }
 
     if (!mapaLeaflet) {
-      mapaLeaflet = L.map(mapa, { scrollWheelZoom: false })
+      mapaLeaflet = L.map(mapa, { scrollWheelZoom: false, maxZoom: 15 })
         .setView([-19.932, -44.054], 12);
       mapaLeaflet.attributionControl.setPrefix(false);
 
@@ -156,6 +156,7 @@ formulario.addEventListener('submit', (evento) => {
       }).addTo(mapaLeaflet);
 
       pontosContagem = L.markerClusterGroup({
+        spiderfyOnMaxZoom: false,
         showCoverageOnHover: false,
         maxClusterRadius: 45,
         iconCreateFunction: (grupo) => L.divIcon({
@@ -184,6 +185,7 @@ formulario.addEventListener('submit', (evento) => {
       }
 
       pontosValadares = L.markerClusterGroup({
+        spiderfyOnMaxZoom: false,
         showCoverageOnHover: false,
         maxClusterRadius: 45,
         iconCreateFunction: (grupo) => L.divIcon({
@@ -207,6 +209,7 @@ formulario.addEventListener('submit', (evento) => {
       }
 
       pontosBeloHorizonte = L.markerClusterGroup({
+        spiderfyOnMaxZoom: false,
         showCoverageOnHover: false,
         maxClusterRadius: 45,
         iconCreateFunction: (grupo) => L.divIcon({
