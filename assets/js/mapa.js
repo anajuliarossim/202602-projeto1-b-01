@@ -4,6 +4,18 @@ const mensagem = document.querySelector('#mapa-mensagem');
 const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
 
+// Pontos ilustrativos: não representam endereços reais nem o total de clientes.
+const pontosDemonstracao = [
+  [-19.920, -44.067],
+  [-19.925, -44.050],
+  [-19.935, -44.075],
+  [-19.940, -44.055],
+  [-19.950, -44.040],
+  [-19.955, -44.065],
+  [-19.915, -44.040],
+  [-19.930, -44.030]
+];
+
 function normalizar(texto) {
   return texto
     .trim()
@@ -43,6 +55,18 @@ formulario.addEventListener('submit', (evento) => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
       }).addTo(mapaLeaflet);
 
+      pontosDemonstracao.forEach((coordenadas) => {
+        L.circleMarker(coordenadas, {
+          radius: 7,
+          color: '#ffffff',
+          weight: 2,
+          fillColor: '#4269ff',
+          fillOpacity: 1
+        })
+          .addTo(mapaLeaflet)
+          .bindPopup('Ponto ilustrativo de cliente em Contagem. Não representa um endereço real.');
+      });
+
       camada.on('tileerror', () => {
         mensagem.textContent = 'Não foi possível carregar parte do mapa. Confira sua conexão e pesquise novamente.';
       });
@@ -50,7 +74,10 @@ formulario.addEventListener('submit', (evento) => {
 
     requestAnimationFrame(() => {
       mapaLeaflet.invalidateSize();
-      mapaLeaflet.setView([-19.932, -44.054], 12);
+      mapaLeaflet.fitBounds(pontosDemonstracao, {
+        padding: [24, 24],
+        maxZoom: 13
+      });
     });
   } else {
     mensagem.textContent =
