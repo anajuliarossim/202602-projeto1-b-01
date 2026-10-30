@@ -95,8 +95,11 @@ formulario.addEventListener('submit', (evento) => {
         maxZoom: 13
       });
     });
+    } else if (cidade === 'governador valadares') {
+    mensagem.textContent =
+      'Governador Valadares — mapa em preparação.';
   } else {
     mensagem.textContent =
-      'Esta cidade ainda não está disponível nesta demonstração. Pesquise Contagem.';
+      'Cidade não disponível. Pesquise Contagem ou Governador Valadares.';
   }
 });
