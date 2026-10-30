@@ -59,31 +59,72 @@
 
         <main class="mapa-pertencimento">
 
-          <h1>Mapa de Pertencimento</h1>
+            <h1>Mapa de Pertencimento</h1>
 
-          <p class="mapa-descricao">
-            A energia da Bulbe está presente em todo Minas Gerais.
-          </p>
+            <p class="mapa-descricao">
+                A energia da Bulbe está presente em toda Minas Gerais.
+            </p>
 
-         <form class="mapa-pesquisa" role="search">
+            <form class="mapa-pesquisa" role="search">
 
-           <label for="cidade"> Pesquise clientes na sua cidade </label>
+                <label for="cidade">
+                    Pesquise clientes na sua cidade
+                </label>
 
-             <div class="mapa-campo">
+                <div class="mapa-campo">
 
-              <input
-                type="search"
-                id="cidade"
-                name="cidade"
-                placeholder="Digite o nome da cidade"
-                required
-              >
+                    <input
+                        type="search"
+                        id="cidade"
+                        name="cidade"
+                        placeholder="Digite o nome da cidade"
+                        required
+                    >
 
-              <button type="submit"> Buscar </button>
+                    <button type="submit">
+                        Buscar
+                    </button>
 
-            </div>
+                </div>
 
-          </form>
+            </form>
+
+            <section class="mapa-area" aria-label="Mapa de clientes">
+                <p>
+                    O mapa de clientes aparecerá aqui.
+                </p>
+            </section>
+
+            <p class="mapa-legenda">
+                Dados fictícios para demonstração.
+            </p>
+
+            <section
+                class="mapa-resumo"
+                aria-label="Resumo da comunidade"
+            >
+
+                <div class="mapa-indicador">
+
+                    <h2>Clientes na cidade</h2>
+
+                    <p id="total-clientes">
+                        —
+                    </p>
+
+                </div>
+
+                <div class="mapa-indicador">
+
+                    <h2>Cidades na base</h2>
+
+                    <p id="total-cidades">
+                        —
+                    </p>
+
+                </div>
+
+            </section>
 
         </main>
 

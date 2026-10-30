@@ -869,3 +869,49 @@ body.pagina-mapa {
   font-size: 13px;
   cursor: pointer;
 }
+
+/* Área do mapa e contadores */
+.pagina-mapa .mapa-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 24px;
+  background: #edf4f5;
+  text-align: center;
+  font-size: 13px;
+}
+
+.pagina-mapa .mapa-legenda {
+  margin: 8px 0 20px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-resumo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pagina-mapa .mapa-indicador {
+  padding: 12px;
+  border: 1px solid #a8c1ff;
+  border-radius: 10px;
+  background: #f0f5ff;
+  color: var(--cor-primaria);
+}
+
+.pagina-mapa .mapa-indicador h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.pagina-mapa .mapa-indicador p {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
