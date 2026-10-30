@@ -810,3 +810,11 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   bottom: 36px;
   color: #536679;
 }
+
+/* Mapa de pertencimento - iphone 16*/
+body.pagina-mapa {
+  width: 100%;
+  max-width: 393px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
