@@ -195,18 +195,28 @@ formulario.addEventListener('submit', (evento) => {
           .bindPopup('Ponto ilustrativo de cliente em Governador Valadares. Não representa um endereço real.');
       });
 
-      pontosBeloHorizonte = L.layerGroup();
-      coordenadasBeloHorizonte.forEach((coordenadas) => {
-        L.circleMarker(coordenadas, {
-          radius: 7,
-          color: '#ffffff',
-          weight: 2,
-          fillColor: '#4269ff',
-          fillOpacity: 1
+      pontosBeloHorizonte = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 45,
+        iconCreateFunction: (grupo) => L.divIcon({
+          html: `<span>${grupo.getChildCount()}</span>`,
+          className: 'mapa-grupo-clientes',
+          iconSize: [42, 42]
         })
-          .addTo(pontosBeloHorizonte)
-          .bindPopup('Ponto ilustrativo de cliente em Belo Horizonte. Não representa um endereço real.');
       });
+      // Posições fictícias e estáveis, distribuídas pelas referências de BH.
+      for (let indice = 0; indice < totalClientesBeloHorizonte; indice++) {
+        const base = coordenadasBeloHorizonte[indice % coordenadasBeloHorizonte.length];
+        const angulo = indice * 2.3999632297;
+        const raio = 0.004 * Math.sqrt(((indice * 37) % totalClientesBeloHorizonte + 1) / totalClientesBeloHorizonte);
+        const coordenadas = [
+          base[0] + Math.cos(angulo) * raio,
+          base[1] + Math.sin(angulo) * raio
+        ];
+        L.marker(coordenadas, { icon: iconeCliente, title: 'Cliente ilustrativo' })
+          .bindPopup('Cliente ilustrativo em Belo Horizonte. Localização fictícia para demonstração.')
+          .addTo(pontosBeloHorizonte);
+      }
 
       camada.on('tileerror', () => {
         mensagem.textContent = 'Não foi possível carregar parte do mapa. Confira sua conexão e pesquise novamente.';
@@ -235,7 +245,7 @@ formulario.addEventListener('submit', (evento) => {
       } else {
         pontosBeloHorizonte.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Belo Horizonte, Minas Gerais');
-        mapaLeaflet.fitBounds(coordenadasBeloHorizonte, {
+        mapaLeaflet.fitBounds(pontosBeloHorizonte.getBounds(), {
           padding: [24, 24],
           maxZoom: 13
         });
