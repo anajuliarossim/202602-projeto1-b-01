@@ -4,6 +4,27 @@ const mensagem = document.querySelector('#mapa-mensagem');
 const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
 let pontosContagem;
+let pontosValadares;
+
+// Distribuição fictícia para a apresentação, sem endereços de clientes reais.
+const coordenadasValadares = [
+  [-18.844, -41.955],
+  [-18.846, -41.948],
+  [-18.848, -41.940],
+  [-18.850, -41.958],
+  [-18.852, -41.951],
+  [-18.854, -41.943],
+  [-18.856, -41.954],
+  [-18.858, -41.946],
+  [-18.841, -41.950],
+  [-18.843, -41.941],
+  [-18.847, -41.961],
+  [-18.851, -41.936],
+  [-18.855, -41.960],
+  [-18.859, -41.951],
+  [-18.845, -41.935],
+  [-18.853, -41.947]
+];
 
 // Pontos ilustrativos: não representam endereços reais nem o total de clientes.
 const pontosDemonstracao = [
@@ -89,6 +110,19 @@ formulario.addEventListener('submit', (evento) => {
           .bindPopup('Ponto ilustrativo de cliente em Contagem. Não representa um endereço real.');
       });
 
+      pontosValadares = L.layerGroup();
+      coordenadasValadares.forEach((coordenadas) => {
+        L.circleMarker(coordenadas, {
+          radius: 7,
+          color: '#ffffff',
+          weight: 2,
+          fillColor: '#4269ff',
+          fillOpacity: 1
+        })
+          .addTo(pontosValadares)
+          .bindPopup('Ponto ilustrativo de cliente em Governador Valadares. Não representa um endereço real.');
+      });
+
       camada.on('tileerror', () => {
         mensagem.textContent = 'Não foi possível carregar parte do mapa. Confira sua conexão e pesquise novamente.';
       });
@@ -97,6 +131,7 @@ formulario.addEventListener('submit', (evento) => {
     requestAnimationFrame(() => {
       mapaLeaflet.invalidateSize();
       if (cidade === 'contagem') {
+        mapaLeaflet.removeLayer(pontosValadares);
         pontosContagem.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Contagem, Minas Gerais');
         mapaLeaflet.fitBounds(pontosDemonstracao, {
@@ -105,8 +140,12 @@ formulario.addEventListener('submit', (evento) => {
         });
       } else {
         mapaLeaflet.removeLayer(pontosContagem);
+        pontosValadares.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Governador Valadares, Minas Gerais');
-        mapaLeaflet.setView([-18.851, -41.949], 13);
+        mapaLeaflet.fitBounds(coordenadasValadares, {
+          padding: [24, 24],
+          maxZoom: 14
+        });
       }
     });
   } else {
