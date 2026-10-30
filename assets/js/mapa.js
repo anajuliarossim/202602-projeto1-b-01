@@ -24,7 +24,7 @@ formulario.addEventListener('submit', (evento) => {
   }
 
   if (cidade === 'contagem') {
-    mensagem.textContent = 'Contagem — MG: região de demonstração.';
+    mensagem.textContent ='Contagem — MG: 1.234 clientes na cidade (dados simulados).';
 
     if (!mapa.hasAttribute('src')) {
       mapa.src = mapa.dataset.src;
