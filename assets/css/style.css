@@ -817,6 +817,16 @@ body.pagina-mapa {
   max-width: 393px;
   min-height: 100dvh;
   margin: 0 auto;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+
+/* Mantém o rodapé dentro da largura da página do mapa. */
+.pagina-mapa .menu-footer {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 393px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
 }
 
 /* Conteúdo do mapa de pertencimento */
