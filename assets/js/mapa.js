@@ -5,6 +5,27 @@ const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
 let pontosContagem;
 let pontosValadares;
+let pontosBeloHorizonte;
+
+// Pontos fictícios para a demonstração de Belo Horizonte.
+const coordenadasBeloHorizonte = [
+  [-19.906, -43.948],
+  [-19.909, -43.935],
+  [-19.912, -43.923],
+  [-19.915, -43.955],
+  [-19.918, -43.943],
+  [-19.921, -43.931],
+  [-19.924, -43.919],
+  [-19.927, -43.949],
+  [-19.930, -43.937],
+  [-19.933, -43.925],
+  [-19.936, -43.945],
+  [-19.939, -43.933],
+  [-19.903, -43.930],
+  [-19.917, -43.965],
+  [-19.929, -43.960],
+  [-19.941, -43.951]
+];
 
 // Distribuição fictícia para a apresentação, sem endereços de clientes reais.
 const coordenadasValadares = [
@@ -125,6 +146,19 @@ formulario.addEventListener('submit', (evento) => {
           .bindPopup('Ponto ilustrativo de cliente em Governador Valadares. Não representa um endereço real.');
       });
 
+      pontosBeloHorizonte = L.layerGroup();
+      coordenadasBeloHorizonte.forEach((coordenadas) => {
+        L.circleMarker(coordenadas, {
+          radius: 7,
+          color: '#ffffff',
+          weight: 2,
+          fillColor: '#4269ff',
+          fillOpacity: 1
+        })
+          .addTo(pontosBeloHorizonte)
+          .bindPopup('Ponto ilustrativo de cliente em Belo Horizonte. Não representa um endereço real.');
+      });
+
       camada.on('tileerror', () => {
         mensagem.textContent = 'Não foi possível carregar parte do mapa. Confira sua conexão e pesquise novamente.';
       });
@@ -134,6 +168,7 @@ formulario.addEventListener('submit', (evento) => {
       mapaLeaflet.invalidateSize();
       mapaLeaflet.removeLayer(pontosContagem);
       mapaLeaflet.removeLayer(pontosValadares);
+      mapaLeaflet.removeLayer(pontosBeloHorizonte);
       if (cidade === 'contagem') {
         pontosContagem.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Contagem, Minas Gerais');
@@ -149,8 +184,12 @@ formulario.addEventListener('submit', (evento) => {
           maxZoom: 14
         });
       } else {
+        pontosBeloHorizonte.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Belo Horizonte, Minas Gerais');
-        mapaLeaflet.setView([-19.9208, -43.9378], 13);
+        mapaLeaflet.fitBounds(coordenadasBeloHorizonte, {
+          padding: [24, 24],
+          maxZoom: 13
+        });
       }
     });
   } else {
