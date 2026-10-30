@@ -915,3 +915,25 @@ body.pagina-mapa {
   font-size: 24px;
   font-weight: 700;
 }
+
+/* Mapa da região de demonstração */
+.pagina-mapa .mapa-area {
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.pagina-mapa .mapa-area p {
+  margin: 0;
+}
+
+.pagina-mapa #mapa-contagem {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: 16px;
+}
+
+.pagina-mapa #mapa-contagem[hidden] {
+  display: none;
+}

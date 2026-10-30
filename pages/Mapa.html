@@ -91,11 +91,22 @@
 
             <section
                 class="mapa-area"
-                aria-label="Mapa de clientes"
+                aria-label="Mapa da região pesquisada"
             >
-                <p>
-                    O mapa de clientes aparecerá aqui.
+
+                <p id="mapa-mensagem" role="status">
+                    Pesquise Contagem para visualizar a região de demonstração.
                 </p>
+
+                <iframe
+                    id="mapa-contagem"
+                    title="Mapa da região de Contagem, Minas Gerais"
+                    data-src="https://www.openstreetmap.org/export/embed.html?bbox=-44.15%2C-20.02%2C-43.98%2C-19.86&layer=mapnik"
+                    loading="lazy"
+                    hidden
+                >
+                </iframe>
+
             </section>
 
             <p class="mapa-legenda">
@@ -112,7 +123,7 @@
                     <h2>Clientes na Bulbe</h2>
 
                     <p>
-                        60.000
+                        +60.000
                     </p>
 
                 </div>
