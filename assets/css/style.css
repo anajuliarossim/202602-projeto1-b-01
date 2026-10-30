@@ -938,6 +938,10 @@ body.pagina-mapa {
   margin: 0;
 }
 
+.pagina-mapa #mapa-mensagem:empty {
+  display: none;
+}
+
 .pagina-mapa #mapa-contagem {
   z-index: 0;
   width: 100%;

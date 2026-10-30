@@ -118,33 +118,12 @@ function normalizar(texto) {
     .toLowerCase();
 }
 
-formulario.addEventListener('submit', (evento) => {
-  evento.preventDefault();
-
-  const cidade = normalizar(campoCidade.value);
-
-  mapa.hidden = true;
-
-  if (!cidade) {
-    mensagem.textContent = 'Digite o nome de uma cidade.';
-    return;
+function iniciarMapa() {
+  if (!window.L || !L.markerClusterGroup) {
+    mensagem.textContent = 'Não foi possível carregar o mapa. Confira a internet e atualize a página.';
+    return false;
   }
-
-  if (cidade === 'contagem' || cidade === 'governador valadares' || cidade === 'belo horizonte') {
-    if (!window.L || !L.markerClusterGroup) {
-      mensagem.textContent = 'Não foi possível carregar o mapa. Confira a internet e atualize a página.';
-      return;
-    }
-
-    mapa.hidden = false;
-    if (cidade === 'contagem') {
-      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesContagem}</strong> <span class="mapa-clientes">clientes ativos</span>`;
-    } else if (cidade === 'governador valadares') {
-      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesValadares}</strong> <span class="mapa-clientes">clientes ativos</span>`;
-    } else {
-      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesBeloHorizonte}</strong> <span class="mapa-clientes">clientes ativos</span>`;
-    }
-
+  mapa.hidden = false;
     if (!mapaLeaflet) {
       mapaLeaflet = L.map(mapa, { scrollWheelZoom: false, maxZoom: 15 })
         .setView([-19.932, -44.054], 12);
@@ -237,6 +216,46 @@ formulario.addEventListener('submit', (evento) => {
       });
     }
 
+  return true;
+}
+
+function mostrarMinas() {
+  if (!iniciarMapa()) return;
+  mapaLeaflet.removeLayer(pontosContagem);
+  mapaLeaflet.removeLayer(pontosValadares);
+  mapaLeaflet.removeLayer(pontosBeloHorizonte);
+  mapa.setAttribute('aria-label', 'Mapa de Minas Gerais');
+  mapaLeaflet.invalidateSize();
+  mapaLeaflet.fitBounds([[-22.92, -51.05], [-14.23, -39.85]], { padding: [8, 8] });
+}
+
+formulario.addEventListener('submit', (evento) => {
+  evento.preventDefault();
+
+  const cidade = normalizar(campoCidade.value);
+
+  mostrarMinas();
+
+  if (!cidade) {
+    mensagem.textContent = 'Digite o nome de uma cidade.';
+    return;
+  }
+
+  if (cidade === 'contagem' || cidade === 'governador valadares' || cidade === 'belo horizonte') {
+    if (!window.L || !L.markerClusterGroup) {
+      mensagem.textContent = 'Não foi possível carregar o mapa. Confira a internet e atualize a página.';
+      return;
+    }
+
+    mapa.hidden = false;
+    if (cidade === 'contagem') {
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesContagem}</strong> <span class="mapa-clientes">clientes ativos</span>`;
+    } else if (cidade === 'governador valadares') {
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesValadares}</strong> <span class="mapa-clientes">clientes ativos</span>`;
+    } else {
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesBeloHorizonte}</strong> <span class="mapa-clientes">clientes ativos</span>`;
+    }
+
     requestAnimationFrame(() => {
       mapaLeaflet.invalidateSize();
       mapaLeaflet.removeLayer(pontosContagem);
@@ -269,3 +288,5 @@ formulario.addEventListener('submit', (evento) => {
     mensagem.textContent = 'Cidade não disponível.';
   }
 });
+
+mostrarMinas();
