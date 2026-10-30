@@ -956,6 +956,23 @@ body.pagina-mapa {
 }
 
 /* Destaque do resultado da pesquisa */
+.pagina-mapa .mapa-grupo-clientes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #b9caff;
+  border-radius: 50%;
+  background: #08068d;
+  color: white;
+  font: 700 12px "Segoe UI", sans-serif;
+}
+
+.pagina-mapa .mapa-ponto-cliente {
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #4269ff;
+}
+
 .pagina-mapa .mapa-cidade,
 .pagina-mapa .mapa-quantidade,
 .pagina-mapa .mapa-clientes {

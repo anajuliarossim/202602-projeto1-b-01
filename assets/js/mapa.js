@@ -3,6 +3,7 @@ const campoCidade = document.querySelector('#cidade');
 const mensagem = document.querySelector('#mapa-mensagem');
 const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
+const totalClientesContagem = 1284;
 let pontosContagem;
 let pontosValadares;
 let pontosBeloHorizonte;
@@ -128,14 +129,14 @@ formulario.addEventListener('submit', (evento) => {
   }
 
   if (cidade === 'contagem' || cidade === 'governador valadares' || cidade === 'belo horizonte') {
-    if (!window.L) {
+    if (!window.L || !L.markerClusterGroup) {
       mensagem.textContent = 'Não foi possível carregar o mapa. Confira a internet e atualize a página.';
       return;
     }
 
     mapa.hidden = false;
     if (cidade === 'contagem') {
-      mensagem.innerHTML = '<strong class="mapa-quantidade">1284</strong> <span class="mapa-clientes">clientes ativos</span>';
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesContagem}</strong> <span class="mapa-clientes">clientes ativos</span>`;
     } else if (cidade === 'governador valadares') {
       mensagem.innerHTML = '<strong class="mapa-quantidade">652</strong> <span class="mapa-clientes">clientes ativos</span>';
     } else {
@@ -152,18 +153,33 @@ formulario.addEventListener('submit', (evento) => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
       }).addTo(mapaLeaflet);
 
-      pontosContagem = L.layerGroup();
-      pontosDemonstracao.forEach((coordenadas) => {
-        L.circleMarker(coordenadas, {
-          radius: 7,
-          color: '#ffffff',
-          weight: 2,
-          fillColor: '#4269ff',
-          fillOpacity: 1
+      pontosContagem = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 45,
+        iconCreateFunction: (grupo) => L.divIcon({
+          html: `<span>${grupo.getChildCount()}</span>`,
+          className: 'mapa-grupo-clientes',
+          iconSize: [42, 42]
         })
-          .addTo(pontosContagem)
-          .bindPopup('Ponto ilustrativo de cliente em Contagem. Não representa um endereço real.');
       });
+      const iconeCliente = L.divIcon({
+        className: 'mapa-ponto-cliente',
+        iconSize: [12, 12]
+      });
+      // Distribuição determinística fictícia ao redor dos pontos de referência.
+      // As mesmas posições são mantidas ao atualizar a página.
+      for (let indice = 0; indice < totalClientesContagem; indice++) {
+        const base = pontosDemonstracao[indice % pontosDemonstracao.length];
+        const angulo = indice * 2.3999632297;
+        const raio = 0.004 * Math.sqrt(((indice * 37) % totalClientesContagem + 1) / totalClientesContagem);
+        const coordenadas = [
+          base[0] + Math.cos(angulo) * raio,
+          base[1] + Math.sin(angulo) * raio
+        ];
+        L.marker(coordenadas, { icon: iconeCliente, title: 'Cliente ilustrativo' })
+          .bindPopup('Cliente ilustrativo em Contagem. Localização fictícia para demonstração.')
+          .addTo(pontosContagem);
+      }
 
       pontosValadares = L.layerGroup();
       coordenadasValadares.forEach((coordenadas) => {
@@ -204,7 +220,7 @@ formulario.addEventListener('submit', (evento) => {
       if (cidade === 'contagem') {
         pontosContagem.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Contagem, Minas Gerais');
-        mapaLeaflet.fitBounds(pontosDemonstracao, {
+        mapaLeaflet.fitBounds(pontosContagem.getBounds(), {
           padding: [24, 24],
           maxZoom: 13
         });
