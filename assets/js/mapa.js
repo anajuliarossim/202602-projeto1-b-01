@@ -148,8 +148,9 @@ formulario.addEventListener('submit', (evento) => {
         });
       }
     });
+  } else if (cidade === 'belo horizonte') {
+    mensagem.textContent = 'Belo Horizonte — mapa em preparação.';
   } else {
-    mensagem.textContent =
-      'Cidade não disponível.';
+    mensagem.textContent = 'Cidade não disponível.';
   }
 });
