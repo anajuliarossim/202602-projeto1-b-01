@@ -74,7 +74,7 @@ formulario.addEventListener('submit', (evento) => {
     return;
   }
 
-  if (cidade === 'contagem' || cidade === 'governador valadares') {
+  if (cidade === 'contagem' || cidade === 'governador valadares' || cidade === 'belo horizonte') {
     if (!window.L) {
       mensagem.textContent = 'Não foi possível carregar o mapa. Confira a internet e atualize a página.';
       return;
@@ -83,8 +83,10 @@ formulario.addEventListener('submit', (evento) => {
     mapa.hidden = false;
     if (cidade === 'contagem') {
       mensagem.innerHTML = '<strong class="mapa-quantidade">1284</strong> <span class="mapa-clientes">clientes ativos</span>';
-    } else {
+    } else if (cidade === 'governador valadares') {
       mensagem.innerHTML = '<strong class="mapa-quantidade">652</strong> <span class="mapa-clientes">clientes ativos</span>';
+    } else {
+      mensagem.textContent = 'Belo Horizonte — MG';
     }
 
     if (!mapaLeaflet) {
@@ -130,26 +132,27 @@ formulario.addEventListener('submit', (evento) => {
 
     requestAnimationFrame(() => {
       mapaLeaflet.invalidateSize();
+      mapaLeaflet.removeLayer(pontosContagem);
+      mapaLeaflet.removeLayer(pontosValadares);
       if (cidade === 'contagem') {
-        mapaLeaflet.removeLayer(pontosValadares);
         pontosContagem.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Contagem, Minas Gerais');
         mapaLeaflet.fitBounds(pontosDemonstracao, {
           padding: [24, 24],
           maxZoom: 13
         });
-      } else {
-        mapaLeaflet.removeLayer(pontosContagem);
+      } else if (cidade === 'governador valadares') {
         pontosValadares.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Governador Valadares, Minas Gerais');
         mapaLeaflet.fitBounds(coordenadasValadares, {
           padding: [24, 24],
           maxZoom: 14
         });
+      } else {
+        mapa.setAttribute('aria-label', 'Mapa da região de Belo Horizonte, Minas Gerais');
+        mapaLeaflet.setView([-19.9208, -43.9378], 13);
       }
     });
-  } else if (cidade === 'belo horizonte') {
-    mensagem.textContent = 'Belo Horizonte — mapa em preparação.';
   } else {
     mensagem.textContent = 'Cidade não disponível.';
   }
