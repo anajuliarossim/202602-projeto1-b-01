@@ -4,6 +4,7 @@ const mensagem = document.querySelector('#mapa-mensagem');
 const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
 const totalClientesContagem = 1284;
+const totalClientesBeloHorizonte = 4813;
 let pontosContagem;
 let pontosValadares;
 let pontosBeloHorizonte;
@@ -140,7 +141,7 @@ formulario.addEventListener('submit', (evento) => {
     } else if (cidade === 'governador valadares') {
       mensagem.innerHTML = '<strong class="mapa-quantidade">652</strong> <span class="mapa-clientes">clientes ativos</span>';
     } else {
-      mensagem.textContent = 'Belo Horizonte — MG';
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesBeloHorizonte}</strong> <span class="mapa-clientes">clientes ativos</span>`;
     }
 
     if (!mapaLeaflet) {
