@@ -111,6 +111,6 @@ formulario.addEventListener('submit', (evento) => {
     });
   } else {
     mensagem.textContent =
-      'Cidade não disponível. Pesquise Contagem ou Governador Valadares.';
+      'Cidade não disponível.';
   }
 });
