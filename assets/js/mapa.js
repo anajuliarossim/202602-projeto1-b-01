@@ -5,6 +5,7 @@ const mapa = document.querySelector('#mapa-contagem');
 let mapaLeaflet;
 const totalClientesContagem = 1284;
 const totalClientesBeloHorizonte = 4813;
+const totalClientesValadares = 652;
 let pontosContagem;
 let pontosValadares;
 let pontosBeloHorizonte;
@@ -139,7 +140,7 @@ formulario.addEventListener('submit', (evento) => {
     if (cidade === 'contagem') {
       mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesContagem}</strong> <span class="mapa-clientes">clientes ativos</span>`;
     } else if (cidade === 'governador valadares') {
-      mensagem.innerHTML = '<strong class="mapa-quantidade">652</strong> <span class="mapa-clientes">clientes ativos</span>';
+      mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesValadares}</strong> <span class="mapa-clientes">clientes ativos</span>`;
     } else {
       mensagem.innerHTML = `<strong class="mapa-quantidade">${totalClientesBeloHorizonte}</strong> <span class="mapa-clientes">clientes ativos</span>`;
     }
@@ -182,18 +183,28 @@ formulario.addEventListener('submit', (evento) => {
           .addTo(pontosContagem);
       }
 
-      pontosValadares = L.layerGroup();
-      coordenadasValadares.forEach((coordenadas) => {
-        L.circleMarker(coordenadas, {
-          radius: 7,
-          color: '#ffffff',
-          weight: 2,
-          fillColor: '#4269ff',
-          fillOpacity: 1
+      pontosValadares = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 45,
+        iconCreateFunction: (grupo) => L.divIcon({
+          html: `<span>${grupo.getChildCount()}</span>`,
+          className: 'mapa-grupo-clientes',
+          iconSize: [42, 42]
         })
-          .addTo(pontosValadares)
-          .bindPopup('Ponto ilustrativo de cliente em Governador Valadares. Não representa um endereço real.');
       });
+      // Posições fictícias e estáveis ao redor das referências de Valadares.
+      for (let indice = 0; indice < totalClientesValadares; indice++) {
+        const base = coordenadasValadares[indice % coordenadasValadares.length];
+        const angulo = indice * 2.3999632297;
+        const raio = 0.004 * Math.sqrt(((indice * 37) % totalClientesValadares + 1) / totalClientesValadares);
+        const coordenadas = [
+          base[0] + Math.cos(angulo) * raio,
+          base[1] + Math.sin(angulo) * raio
+        ];
+        L.marker(coordenadas, { icon: iconeCliente, title: 'Cliente ilustrativo' })
+          .bindPopup('Cliente ilustrativo em Governador Valadares. Localização fictícia para demonstração.')
+          .addTo(pontosValadares);
+      }
 
       pontosBeloHorizonte = L.markerClusterGroup({
         showCoverageOnHover: false,
@@ -238,7 +249,7 @@ formulario.addEventListener('submit', (evento) => {
       } else if (cidade === 'governador valadares') {
         pontosValadares.addTo(mapaLeaflet);
         mapa.setAttribute('aria-label', 'Mapa da região de Governador Valadares, Minas Gerais');
-        mapaLeaflet.fitBounds(coordenadasValadares, {
+        mapaLeaflet.fitBounds(pontosValadares.getBounds(), {
           padding: [24, 24],
           maxZoom: 14
         });
