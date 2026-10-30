@@ -323,7 +323,6 @@ width: 100%;
 
 .topo-branco{
   padding: 1ch;
-  padding-bottom: 2ch;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -333,6 +332,7 @@ width: 100%;
   margin-top: 8px;
   width: 2.5em;
   height: 100%;
+  max-height: fit-content;
 }
 .topo-branco .logo-azul{
   width: 6.5em;
@@ -764,6 +764,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   padding: 18px;
   border: 1px solid rgb(160, 160, 160, 0.7);
   border-radius: 5px;
+  width: 100%;
 }
 .body-blank .topo-branco{
   border-bottom: 5px solid #A4B3C1;
@@ -777,14 +778,13 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   justify-content: space-around;
 
   margin-bottom: 20px;
+  margin-top: -10px;
 }
 .seguimento-cadastro p{
-  border: 1px solid var(--cor-primaria);
-  border-radius: 5px;
+  border: 2px solid var(--cor-primaria);
+  border-radius: 10px;
 
-  padding: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 3px 20px 0 20px;
 
   font-size: large;
   font-weight: 500;
@@ -808,4 +808,5 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   position: absolute;
   left: 12px;
   bottom: 36px;
+  color: #536679;
 }
