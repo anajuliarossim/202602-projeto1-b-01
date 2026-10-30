@@ -84,7 +84,7 @@ formulario.addEventListener('submit', (evento) => {
     if (cidade === 'contagem') {
       mensagem.innerHTML = '<strong class="mapa-quantidade">1284</strong> <span class="mapa-clientes">clientes ativos</span>';
     } else {
-      mensagem.textContent = 'Governador Valadares — MG';
+      mensagem.innerHTML = '<strong class="mapa-quantidade">652</strong> <span class="mapa-clientes">clientes ativos</span>';
     }
 
     if (!mapaLeaflet) {
