@@ -818,3 +818,54 @@ body.pagina-mapa {
   min-height: 100dvh;
   margin: 0 auto;
 }
+
+/* Conteúdo do mapa de pertencimento */
+.pagina-mapa .mapa-pertencimento {
+  width: 100%;
+  padding: 24px 20px;
+}
+
+.pagina-mapa .mapa-pertencimento h1 {
+  margin: 0;
+  color: var(--cor-primaria);
+  font-size: 20px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-descricao {
+  margin: 12px 0 28px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-pesquisa label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.pagina-mapa .mapa-campo {
+  display: flex;
+  gap: 8px;
+}
+
+.pagina-mapa .mapa-campo input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #ccd5e3;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.pagina-mapa .mapa-campo button {
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--cor-primaria);
+  color: white;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
