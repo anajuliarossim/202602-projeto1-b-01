@@ -7,6 +7,7 @@
 
     <title>Bulbe | Mapa de Pertencimento</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,14 +99,13 @@
                     Pesquise Contagem para visualizar a região de demonstração.
                 </p>
 
-                <iframe
+                <div
                     id="mapa-contagem"
-                    title="Mapa da região de Contagem, Minas Gerais"
-                    data-src="https://www.openstreetmap.org/export/embed.html?bbox=-44.15%2C-20.02%2C-43.98%2C-19.86&layer=mapnik"
-                    loading="lazy"
+                    role="region"
+                    aria-label="Mapa da região de Contagem, Minas Gerais"
                     hidden
                 >
-                </iframe>
+                </div>
 
             </section>
 
@@ -169,6 +169,7 @@
 
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="module" src="../assets/js/mapa.js"></script>
 </body>
 
