@@ -729,6 +729,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #Enter{
   color: var(--cor-fundo);
   background-color: var(--cor-primaria);
+  text-decoration: none;
 }
 #Start-Main #First{
   color: #3E4D5B;
@@ -736,10 +737,13 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 
   border: 1px solid gray;
   margin-bottom: 10px;
+
+  text-decoration: none;
 }
 #Start-Main #Start-Calc{
   color: var(--cor-fundo);
   background-color: #26D07C;
+  text-decoration: none;
 }
 .topo-branco .logo-azul-center{
   width: 7em;
@@ -762,9 +766,53 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   font-size: medium;
   font-weight: 700;
   text-align: center;
+  text-decoration: none;
   
   color: var(--cor-fundo);
   background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#footer2-cadastro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#next-cadastro{
+  margin: 10px auto;
+  width: 45%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#back-cadastro{
+  margin: 10px auto;
+  width: 45%;
+  padding: 15px;
+
+  border: 1px solid #868585;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-primaria);
+  background-color: var(--cor-fundo);
 
   display: flex;
   justify-content: center;
@@ -821,6 +869,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 .seguimento-cadastro .seta-avanço{
   color: var(--cor-primaria);
   font-size: x-large;
+  margin-top: 15px;
 }
 .requirido{
   color: red;
@@ -833,6 +882,9 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   left: 12px;
   bottom: 36px;
   color: #536679;
+
+  background-color: var(--cor-fundo);
+  padding: 1px;
 }
 
 /* Mapa de pertencimento - iphone 16*/
