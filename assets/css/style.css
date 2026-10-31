@@ -774,6 +774,26 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   display: flex;
   justify-content: center;
 }
+#contratar{
+  margin: 10px auto;
+  margin-top: 100px;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
 #footer2-cadastro{
   display: flex;
   justify-content: center;
@@ -817,6 +837,77 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   display: flex;
   justify-content: center;
 }
+.CreditCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+#ExCard{
+  width: 95%;
+}
+#outroCard{
+  border: none;
+
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+#card-cadastro{
+  margin: 10px auto;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#pular-card{
+    margin: 10px auto;
+  width: 95%;
+  padding: 15px;
+
+  border: 1px solid #868585;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-primaria);
+  background-color: var(--cor-fundo);
+
+  display: flex;
+  justify-content: center;
+}
+.benefits-card{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 20px 10px;
+  box-shadow: 0px 3px 8px rgb(133, 197, 197, 0.8);
+}
+.benefits-card img{
+  width: 7%;
+  height: max-content;
+  margin-top: 10px;
+}
+.benefits-card p{
+  color: var(--cor-primaria);
+  font-weight: 600;
+  font-size: small;
+}
 #cadastro-termos{
   margin: 20px;
   width: 90%;
@@ -828,6 +919,17 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #cadastro-termos a{
   color: var(--cor-primaria);
   text-decoration: underline;
+}
+
+.contrato-box{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
+  margin-bottom: 10px;
 }
 .body-blank{
   background-color: var(--cor-fundo);
@@ -844,13 +946,19 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 .titulo-cadastro{
   display: flex;
   justify-content: start;
+  margin-top: -20px;
+
+  font-size: x-large;
+}
+.subtitulo-cadastro{
+  font-size: small;
 }
 .seguimento-cadastro{
   display: flex;
   justify-content: space-around;
 
   margin-bottom: 20px;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 .seguimento-cadastro p{
   border: 2px solid var(--cor-primaria);
