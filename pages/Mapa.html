@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bulbe | Mapa de Pertencimento</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body class="pagina-mapa">
+
+    <div class="corpo">
+
+        <header class="topo">
+
+            <button class="menu-cabecalho button-template">
+                ☰
+            </button>
+
+            <img
+                src="../assets/img/Logo-Bulbe-Branca.png"
+                alt="Logo Bulbe"
+                class="logo-cabecalho"
+            >
+
+            <button class="notificacao-cabecalho button-template">
+                <img
+                    src="../assets/img/SinoNot.png"
+                    alt="Notificações"
+                >
+            </button>
+
+            <button class="perfil-cabecalho button-template">
+                <img
+                    src="../assets/img/Avatar.png"
+                    alt="Perfil"
+                >
+            </button>
+
+            <button class="faixa-indique button-template">
+                <img
+                    src="../assets/img/Faixa-Indique.png"
+                    alt="Indique e Ganhe"
+                >
+            </button>
+
+        </header>
+
+        <main class="mapa-pertencimento">
+
+            <h1>Mapa de Pertencimento</h1>
+
+            <p class="mapa-descricao">
+                A energia da Bulbe está presente em toda Minas Gerais.
+            </p>
+
+            <form class="mapa-pesquisa" role="search">
+
+                <label for="cidade">
+                    Pesquise clientes na sua cidade
+                </label>
+
+                <div class="mapa-campo">
+
+                    <input
+                        type="search"
+                        id="cidade"
+                        name="cidade"
+                        placeholder="Digite o nome da cidade"
+                        required
+                    >
+
+                    <button type="submit">
+                        Buscar
+                    </button>
+
+                </div>
+
+            </form>
+
+            <section
+                class="mapa-area"
+                aria-label="Mapa da região pesquisada"
+            >
+
+                <p id="mapa-mensagem" role="status"></p>
+
+                <div
+                    id="mapa-contagem"
+                    role="region"
+                    aria-label="Mapa da região de Contagem, Minas Gerais"
+                    hidden
+                >
+                </div>
+
+            </section>
+
+            <section
+                class="mapa-resumo"
+                aria-label="Resumo da comunidade"
+            >
+
+                <div class="mapa-indicador">
+
+                    <h2>Clientes na Bulbe</h2>
+
+                    <p>
+                        +60.000
+                    </p>
+
+                </div>
+
+                <div class="mapa-indicador">
+
+                    <h2>Cidades atendidas</h2>
+
+                    <p>
+                        713
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer class="menu-footer">
+
+        <button class="button-template">
+            <img
+                src="../assets/img/Icone-Inicio-Cinza.png"
+                alt="Início"
+            >
+        </button>
+
+        <button class="button-template">
+            <img
+                src="../assets/img/Icone-Fatura-Cinza.png"
+                alt="Faturas"
+            >
+        </button>
+
+        <button class="button-template">
+            <img
+                src="../assets/img/Icone-Consumo-Cinza.png"
+                alt="Consumo"
+            >
+        </button>
+
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script type="module" src="../assets/js/mapa.js"></script>
+</body>
+
+</html>

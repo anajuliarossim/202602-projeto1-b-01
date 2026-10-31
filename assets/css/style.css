@@ -834,3 +834,193 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   bottom: 36px;
   color: #536679;
 }
+
+/* Mapa de pertencimento - iphone 16*/
+body.pagina-mapa {
+  width: 100%;
+  max-width: 393px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+
+/* Mantém o rodapé dentro da largura da página do mapa. */
+.pagina-mapa .menu-footer {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 393px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Conteúdo do mapa de pertencimento */
+.pagina-mapa .mapa-pertencimento {
+  width: 100%;
+  padding: 24px 20px;
+}
+
+.pagina-mapa .mapa-pertencimento h1 {
+  margin: 0;
+  color: var(--cor-primaria);
+  font-size: 20px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-descricao {
+  margin: 12px 0 28px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-pesquisa label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.pagina-mapa .mapa-campo {
+  display: flex;
+  gap: 8px;
+}
+
+.pagina-mapa .mapa-campo input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #ccd5e3;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.pagina-mapa .mapa-campo button {
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--cor-primaria);
+  color: white;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Área do mapa e contadores */
+.pagina-mapa .mapa-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 24px;
+  background: #edf4f5;
+  text-align: center;
+  font-size: 13px;
+}
+
+.pagina-mapa .mapa-legenda {
+  margin: 8px 0 20px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.pagina-mapa .mapa-resumo {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pagina-mapa .mapa-indicador {
+  padding: 12px;
+  border: 1px solid #a8c1ff;
+  border-radius: 10px;
+  background: #f0f5ff;
+  color: var(--cor-primaria);
+}
+
+.pagina-mapa .mapa-indicador h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.pagina-mapa .mapa-indicador p {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Mapa da região de demonstração */
+.pagina-mapa .mapa-area {
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.pagina-mapa .mapa-area p {
+  margin: 0;
+}
+
+.pagina-mapa #mapa-mensagem:empty {
+  display: none;
+}
+
+.pagina-mapa #mapa-contagem {
+  z-index: 0;
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: 16px;
+}
+
+.pagina-mapa #mapa-contagem .leaflet-control-attribution {
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.pagina-mapa #mapa-contagem[hidden] {
+  display: none;
+}
+
+/* Destaque do resultado da pesquisa */
+.pagina-mapa .mapa-grupo-clientes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #b9caff;
+  border-radius: 50%;
+  background: #08068d;
+  color: white;
+  font: 700 12px "Segoe UI", sans-serif;
+}
+
+.pagina-mapa .mapa-ponto-cliente {
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #4269ff;
+}
+
+.pagina-mapa .mapa-cidade,
+.pagina-mapa .mapa-quantidade,
+.pagina-mapa .mapa-clientes {
+  display: inline;
+  color: var(--cor-primaria);
+}
+
+.pagina-mapa .mapa-cidade {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pagina-mapa .mapa-quantidade {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.pagina-mapa .mapa-clientes {
+  font-size: 14px;
+  font-weight: 600;
+}
