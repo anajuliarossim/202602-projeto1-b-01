@@ -774,6 +774,26 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   display: flex;
   justify-content: center;
 }
+#contratar{
+  margin: 10px auto;
+  margin-top: 100px;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
 #footer2-cadastro{
   display: flex;
   justify-content: center;
@@ -829,6 +849,17 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   color: var(--cor-primaria);
   text-decoration: underline;
 }
+
+.contrato-box{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
+  margin-bottom: 10px;
+}
 .body-blank{
   background-color: var(--cor-fundo);
 }
@@ -844,13 +875,19 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 .titulo-cadastro{
   display: flex;
   justify-content: start;
+  margin-top: -20px;
+
+  font-size: x-large;
+}
+.subtitulo-cadastro{
+  font-size: small;
 }
 .seguimento-cadastro{
   display: flex;
   justify-content: space-around;
 
   margin-bottom: 20px;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 .seguimento-cadastro p{
   border: 2px solid var(--cor-primaria);
