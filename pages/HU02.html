@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bulbe | Página Calculadora</title>
   <link rel="stylesheet" href="../assets/css/style.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="../assets/js/calculadora.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
@@ -21,20 +22,21 @@
       </header>
       <main class="calculadora">
         <h3>Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</h3>
+      <form id="formCalculadora">
         <div class="campo"> 
           <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES: </label>
-          <input id="TempoDeCalculo" type="number" placeholder="Ex:48 meses" min="1" required></input><br>
+          <input id="TempoDeCalculo" name="tempo"type="number" placeholder="Ex:48 meses" min="1" required></input><br>
         </div> 
         <div class="campo"> 
           <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
-          <input id="ConsumoMensal" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
+          <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
         </div> 
       <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
         dessa forma pode sofrer alterações devido fatores externos
         (descontos, cupons, etc.)</p>
-        <button class="btn-confirmar">Confirmar</button>
+        <button type ="submit" class="btn-confirmar">Confirmar</button>
+      </form>
       </main>
-    </div>
   </div>
 </body>
 </html>
