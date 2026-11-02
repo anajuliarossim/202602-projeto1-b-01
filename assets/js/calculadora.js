@@ -157,3 +157,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('main[data-tela]');
   if (main) iniciarResultado(main.dataset.tela);
 });
+
+/* ---------- Carrossel dos cartões ---------- */
+function iniciarCarrossel() {
+  const trilho = document.querySelector('.resumo');
+  const pontos = document.getElementById('pontos');
+  if (!trilho || !pontos) return;
+
+  const cards = [...trilho.children];
+  const margem = parseFloat(getComputedStyle(trilho).paddingLeft) || 0;
+
+  const botoes = cards.map((card, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Ver cartão ${i + 1} de ${cards.length}`);
+    b.addEventListener('click', () =>
+      card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }));
+    return b;
+  });
+  pontos.replaceChildren(...botoes);
+
+  const marcar = () => {
+    const base = trilho.getBoundingClientRect().left + margem;
+    let ativo = 0, menor = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.getBoundingClientRect().left - base);
+      if (d < menor) { menor = d; ativo = i; }
+    });
+    // No fim da rolagem, o último cartão não chega ao início: marca ele
+    if (trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 2) ativo = cards.length - 1;
+    botoes.forEach((b, i) => b.setAttribute('aria-current', String(i === ativo)));
+  };
+
+  trilho.addEventListener('scroll', marcar, { passive: true });
+  marcar();
+}
+const main = document.querySelector('main[data-tela]');
+if (main) { iniciarResultado(main.dataset.tela); iniciarCarrossel(); }

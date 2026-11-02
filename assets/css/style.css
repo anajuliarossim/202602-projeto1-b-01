@@ -1192,3 +1192,63 @@ body.pagina-mapa {
   font-size: 14px;
   font-weight: 600;
 }
+
+.btn-recalcular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-recalcular:hover { filter: brightness(1.15); }
+.btn-recalcular:focus-visible { outline: 3px solid var(--cor-destaque); outline-offset: 2px; }
+
+/* Carrossel dos cartões de resumo */
+.resumo {
+  display: flex;
+  gap: 12px;
+  margin: 16px -20px 0;            /* "sangra" até a borda da tela */
+  padding: 4px 20px 10px;          /* o padding lateral deve ser igual ao do main */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.resumo::-webkit-scrollbar { display: none; }
+
+.resumo .stat,
+.resumo .stat.destaque {
+  flex: 0 0 78%;                   /* o próximo cartão aparece um pouco ao lado */
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Pontos indicadores */
+.carrossel-pontos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.carrossel-pontos button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--cor-borda);
+  cursor: pointer;
+  transition: width .2s, background .2s;
+}
+.carrossel-pontos button[aria-current="true"] {
+  width: 22px;
+  background: var(--cor-primaria);
+}
