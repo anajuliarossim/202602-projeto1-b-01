@@ -3,29 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bulbe | Página de Calculadora</title>
+  <title>Bulbe | Página Calculadora</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/calculadora.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="border">
-    <header class="topo">
-      <img src="../assets/img/Cabe%C3%A7alho%20Bulbe%20com%20Banner%20Promocional.png" alt="Imagem Banner Promocional Bulbe" class="BackgourndImg">
-    </header>  
-    <main class="calculadora">
-      <h3>Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</h3>
-      <div class="campo"> 
-        <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES: </label>
-        <input id="TempoDeCalculo" type="number" placeholder="Ex:48 meses" min="1" required></input><br>
-      </div> 
-      <div class="campo"> 
-        <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
-        <input id="ConsumoMensal" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
-      </div> 
-    <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
-      dessa forma pode sofrer alterações devido fatores externos
-      (descontos, cupons, etc.)</p>
-      <button class="btn-confirmar">Confirmar</button>
-    </main>
+  <div class="corpo">
+    <div class="corpo TelaCheia">
+      <header class="topo">
+          <button class="menu-cabecalho button-template">☰</button>
+          <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Logo Bulbe" class="logo-cabecalho">
+          <button class="notificacao-cabecalho button-template"><img src="../assets/img/SinoNot.png" alt="Notificações"></button>
+          <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
+          <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
+      </header>
+      <main class="calculadora">
+        <h3>Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</h3>
+      <form id="formCalculadora">
+        <div class="campo"> 
+          <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES: </label>
+          <input id="TempoDeCalculo" name="tempo"type="number" placeholder="Ex:48 meses" min="1" required></input><br>
+        </div> 
+        <div class="campo"> 
+          <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
+          <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
+        </div> 
+      <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
+        dessa forma pode sofrer alterações devido fatores externos
+        (descontos, cupons, etc.)</p>
+        <button type ="submit" class="btn-confirmar">Confirmar</button>
+      </form>
+      </main>
+    <nav class="nav" aria-label="Navegação principal">
+    <a href="HU02.html"><i class="fa-solid fa-house"></i>Início</a>
+    <a href="#"><i class="fa-regular fa-file-lines"></i>Faturas</a>
+    <a href="HU02-consumo.html" aria-current="page"><i class="fa-solid fa-bolt"></i>Consumo</a>
+  </nav>
   </div>
 </body>
 </html>

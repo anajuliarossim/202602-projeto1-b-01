@@ -6,56 +6,41 @@
 <title>Sua economia anual</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/calculadora.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="app">
-  <header class="cabecalho">
-    <div class="barra">
-      <a href="#" aria-label="Menu"><i class="fa-solid fa-bars"></i></a>
-      <a href="HU02.html" class="logo">Bulbe<span>.</span></a>
-      <div class="acoes">
-        <i class="fa-regular fa-bell" aria-label="Notificações"></i>
-        <span class="avatar"><i class="fa-solid fa-user"></i></span>
-      </div>
-    </div>
-    <a href="#" class="banner">
-      <span><strong>Indique e ganhe</strong></span>
-      <span><strong>R$ 50</strong> na próxima fatura</span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-  </header>
-  <main>
-    <h1>Sua economia anual</h1>
+  <div class="corpo">
+    <header class="topo">
+        <button class="menu-cabecalho button-template">☰</button>
+        <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Logo Bulbe" class="logo-cabecalho">
+        <button class="notificacao-cabecalho button-template"><img src="../assets/img/SinoNot.png" alt="Notificações"></button>
+        <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
+        <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
+    </header>
+  <main data-tela="economia">
+    <h1 data-campo="titulo">Sua economia estimada</h1>
     <nav class="abas" aria-label="Tipo de gráfico">
-      <a href="HU02-Consumo.html">Energia</a>
-      <a href="HU02-Economia.html" aria-current="page">Economia</a>
+      <a href="HU02-consumo.html" aria-current="page">Energia</a>
+      <a href="HU02-Economia.html">Economia</a>
     </nav>
-
-    <section class="painel economia">
-      <div class="area">
-        <div class="grafico">
-          <div class="col"><div class="b" style="--h:59%" data-v="R$ 38,18"></div></div>
-          <div class="col"><div class="b" style="--h:100%" data-v="R$ 64,37"></div></div>
-          <div class="col"><div class="b" style="--h:38%" data-v="R$ 24,50"></div></div>
-          <div class="col"><div class="b" style="--h:54%" data-v="R$ 34,60"></div></div>
-          <div class="col"><div class="b" style="--h:50%" data-v="R$ 32,20"></div></div>
-          <div class="col"><div class="b" style="--h:88%" data-v="R$ 56,95"></div></div>
-        </div>
-        <div class="media" style="--m:50%"></div>
-      </div>
-      <div class="meses"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span></div>
-      <div class="legenda">
-        <span><i class="tracejado"></i>Média de Consumo</span>
-        <span><i class="quadro"></i>Economia</span>
-      </div>
-    </section>
-
+  <section class="painel economia">
+    <div class="area"><div class="grafico" id="grafico"></div></div>
+    <div class="meses" id="rotulos"></div>
+    <div class="legenda"><span><i class="quadro"></i>Economia acumulada (kWh)</span></div>
+  </section>
     <section class="resumo" aria-label="Resumo da economia">
-      <div class="stat destaque"><i class="fa-solid fa-thumbs-up"></i><div><small>Melhor mês</small><b>R$ 64,37</b><small>fevereiro</small></div></div>
-      <div class="stat"><i class="fa-solid fa-chart-simple"></i><div><small>Média mensal</small><b>R$ 41,80</b><small>últimos 6 meses</small></div></div>
-      <div class="stat"><i class="fa-solid fa-piggy-bank"></i><div><small>Economia mensal</small><b>R$ 37,40</b><small>este mês</small></div></div>
+      <div class="stat destaque"><i class="fa-solid fa-thumbs-up"></i><div><small>Economia mensal</small><b>R$ 64,37</b><small>fevereiro</small></div></div>
+      <div class="stat"><i class="fa-solid fa-chart-simple"></i><div><small>Economia total</small><b>R$ 41,80</b><small>últimos 6 meses</small></div></div>
+      <div class="stat"><i class="fa-solid fa-piggy-bank"></i><div><small>Fatura com desconto</small><b>R$ 37,40</b><small>este mês</small></div></div>
     </section>
+  <div class="carrossel-pontos" id="pontos"></div>
+  <p class="aviso" data-campo="premissas"></p>
   </main>
+  </div>
   <nav class="nav" aria-label="Navegação principal">
     <a href="HU02.html"><i class="fa-solid fa-house"></i>Início</a>
     <a href="#"><i class="fa-regular fa-file-lines"></i>Faturas</a>
