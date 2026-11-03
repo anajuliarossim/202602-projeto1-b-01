@@ -423,174 +423,289 @@ width: 100%;
 }
 
 /*HU03*/
+
+main ul, main li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+main h4{
+  margin: 0;
+}
 main h1{
-    font-size: 22px;
-    margin: 8px 0 16px;
+  margin: 8px 0 16px;
 }
 
 .suasfaturas{
-  font-size: 35px;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  text-align: center;
 }
 
 .numeroinst{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 100px ;
-  border-radius: 20px;
-  background: #e2e1e1;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid #d4d4d4;
+  color: #02025f;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
+.numeroinst li:last-child{
+  margin-left: auto;
+  margin-right: 12px;
+}
+.numeroinst::after{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #02025f;
+  border-bottom: 2px solid #02025f;
+  transform: rotate(45deg);
+  margin-top: -4px;
+}
+.numeroinst li:first-child{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icone-casa{
+  width: 32px;
+  height: 32px;
+}
+.banner-cemig{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Fatura atual */
 .central{
-    background: #14337f;
-    color: #fff;
-    padding: 20px;
-    border-radius: 24px;
+  background: #14337f;
+  color: #fff;
+  padding: 20px;
+  border-radius: 24px;
+  border: 4px solid #0b2a7a;
+}
+.nome{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
 }
 .faturaatual{
   background: #a5c1f1;
   color: #02025f;
-  padding: 10px;
+  padding: 8px 20px;
   border-radius: 24px;
-  font-size: 15px;
-}
-.nome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #f7f7f7;
+  font-size: 14px;
 }
 .vencer{
-    background: #fff;
-    color: #14337f;
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 20px;
+  background: #fff;
+  color: #14337f;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 20px;
 }
 .status{
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 16px;
+  line-height: 1.4;
+}
+.status li:first-child{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #a5c1f1;
+  font-weight: 400;
+  font-size: 12px;
+}
+.icone-cal{
+  width: 18px;
+  height: 18px;
 }
 .valor{
-    font-size: 50px;
-    font-weight: 700;
-    margin: 4px 0;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 8px 0 16px;
 }
-.vence{
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
+
+/* Forma de pagamento */
 .escolhapagamento{
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 10px 25px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
 }
 .escolhapagamento h4{
-  color: #191927;
-}
-.escolhapagamento .formapag{
-  color: #191927;
+  color: #02025f;
   font-size: 16px;
 }
-.escolhapagamento .titlepag{
-  color: #000000;
-  font-size: 15px;
-  margin: -15px;
-  padding: 0 12px;
+.escolhapagamento .infor{
+  margin-bottom: 12px;
 }
 .escolhapagamento .desctitle{
   color: #858585;
-  font-size: 10px;
+  font-size: 11px;
+}
+.pagpix, .pagbol, .pagcard{
+  background: #eef2fb;
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+.icone-pag{
+  grid-row: 1 / span 2;
+}
+.icone-pag img{
+  width: 32px;
+  height: 32px;
+}
+.escolhapagamento .formapag{
+  color: #02025f;
+  font-size: 16px;
+  font-weight: 700;
 }
 .escolhapagamento .desc{
-  color: #868585;
+  color: #858585;
+  font-size: 11px;
+  font-weight: 600;
 }
 
-
-
-.pix, .cartao{
-    display: block;
-    width: 80%;
-    margin: 10px auto 0;
-    padding: 10px;
-    border: none;
-    border-radius: 999px;
-    background: #fff;
-    color:#14337f;
-    font-family: inherit;
-    font-size: 12px;
-    cursor: pointer;
-}
+/* O que você está pagando */
 .informacoes{
-    background: #f3f3f3;
-    margin: 16px 0;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 12px;
+  background: #f3f3f3;
+  margin: 16px 0;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 13px;
 }
 .informacoes .title h4{
-    font-size: 12px;
-    margin-bottom: 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
 }
 .consumo, .imposto, .iluminacao{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 .total{
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #333;
-    padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #333;
+  padding-top: 12px;
 }
 .total h4{
-    font-size: 12px;
+  font-size: 14px;
+}
+.descbulbe{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #12a150;
 }
 
+/* A pagar / Pagas */
 .pagar, .pagas{
-    display: inline-block;
-    width: 45%;
-    margin: 8px 2% 24px;
-    padding: 10x;
-    border: none;
-    border-radius: 999px;
-    font-family: inherit;
-    font-size: 15px;
-    cursor: pointer;
+  display: inline-block;
+  width: 47%;
+  margin: 8px 1% 24px;
+  padding: 10px;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
 }
 .pagar{
-    background: #05058a;
-    color: #fff;
+  background: #05058a;
+  color: #fff;
 }
 .pagas{
-    background: #d9d9d9;
-    color: #333;
+  background: #d9d9d9;
+  color: #333;
 }
 
+/* Histórico */
+.historico{
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+  padding: 16px;
+}
 .titulo h4{
-    font-size: 14px;
-    margin-bottom: 12px;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 .setembro, .agosto{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #d9d9d9;
-    border-radius: 16px;
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #d9d9d9;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 13px;
 }
 .setembro li, .agosto li{
-    font-weight: 700;
-    font-size: 15px;
+  font-weight: 700;
+  font-size: 14px;
 }
 .setembro p, .agosto p{
-    font-size: 11px;
-    color: #666;
+  font-size: 11px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+}
+
+/* Você economizou */
+.economia{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e8fbf0;
+  border: 2px solid #8fe3b0;
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin: 16px 0;
+}
+.icone-folha{
+  width: 48px;
+  height: 48px;
+  flex: none;
+}
+.economia-texto{
+  flex: 1;
+  font-size: 13px;
+  color: #191927;
+  margin: 0;
+  line-height: 1.3;
+}
+.economia-texto strong{
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #12a150;
+}
+.economia-texto span{
+  font-size: 15px;
+  font-weight: 400;
+  color: #191927;
+}
+.economia-grafico{
+  width: 70px;
+  height: auto;
+  flex: none;
 }
 .corpo{
   background-color: var(--cor-primaria);
