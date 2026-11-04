@@ -27,9 +27,15 @@ function carregarCheckins() {
         return [];
     }
 
-    const checkins = JSON.parse(dadosSalvos);
+    let checkins;
 
-    if (!Array.isArray(checkins) || !checkins.every((data) => typeof data === 'string')) {
+    try {
+        checkins = JSON.parse(dadosSalvos);
+    } catch (erro) {
+        throw new Error('Os dados salvos do check-in não puderam ser lidos.', { cause: erro });
+    }
+
+    if (!Array.isArray(checkins) || !checkins.every((data) => typeof data === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(data))) {
         throw new Error('Os dados salvos do check-in estão inválidos.');
     }
 
@@ -127,8 +133,16 @@ function atualizarTela(checkins) {
     }
 }
 
-let checkinsRegistrados = carregarCheckins();
-atualizarTela(checkinsRegistrados);
+let checkinsRegistrados = [];
+
+try {
+    checkinsRegistrados = carregarCheckins();
+    atualizarTela(checkinsRegistrados);
+} catch (erro) {
+    console.error('Não foi possível carregar os check-ins salvos.', erro);
+    mensagemStatusCheckin.textContent = 'Não foi possível carregar seus check-ins salvos. Verifique o armazenamento do navegador.';
+    botaoCheckin.disabled = true;
+}
 
 botaoCheckin.addEventListener('click', () => {
     if (checkinsRegistrados.includes(obterDataDeHoje()) || checkinsRegistrados.length >= LIMITE_CHECKINS) {
