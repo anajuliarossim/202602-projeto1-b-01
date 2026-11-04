@@ -138,7 +138,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 90;
 
   display: flex;
   justify-content: space-around;
@@ -150,7 +150,117 @@ main {
   background: var(--cor-fundo);
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
 }
+.fundoModal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 999;
 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.fundoModal.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+.modalLateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 65%;
+    max-width: 300px;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--cor-primaria);
+    border-radius: 0 8px 0 0;
+
+    z-index: 1000;
+
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.3s, visibility 0.3s;
+}
+
+.modalLateral.ativo {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.cabecalhoModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+#logoLateral {
+    width: 125px;
+    max-width: 75%;
+    height: auto;
+    object-fit: contain;
+}
+
+#fecharModal {
+    background: transparent;
+    border: none;
+    color: white;
+
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.opcoesModal {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    gap: 4px;
+}
+.BotaoModal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 2px;
+
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.BotaoModal img {
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.BotaoModal span {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.BotaoModal:hover {
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+#Sair {
+    margin-top: auto;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+}
 .aviso {
   background: #fff4d6;
   padding: 0.75rem 1rem;
@@ -189,6 +299,12 @@ width: 100%;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+}
+
+.avisoCalculadora{
+  font-size: 0.875rem;
+  text-align: center;
+  padding-top: 25px ;
 }
 
 .btn-confirmar :hover{
@@ -345,14 +461,39 @@ width: 100%;
   align-items: center;
   gap: 16px;
   width: 100%;
-  padding: 24px;
 }
 .noticia{
-  display: block;
-  width: 100%;
+  width: 90vw;
   height: auto;
+
+  background-color: var(--cor-fundo);
+
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 30px;
+
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.5);
 }
-.noticias button {
+.noticia img{
+  width: 100%;
+  padding: 3%;
+  border: transparent;
+  border-radius: 30px;
+
+  margin-bottom: 0;
+}
+.noticia p{
+  color: var(--cor-primaria);
+  font-weight: 600;
+  text-shadow: 0 0 1px rgb(0, 0, 0, 0.5);
+
+  padding-left: 5%;
+  padding-right: 5%;
+
+  font-size: 1.8ch;
+
+  margin-top: 0;
+}
+.noticias a {
   display: block;
   width: 100%;
   max-width: 384px;
@@ -361,6 +502,7 @@ width: 100%;
   border: none;
   background: transparent;
   cursor: pointer;
+  text-decoration: none;
 }
 
 #InfoFooter{
@@ -368,6 +510,7 @@ width: 100%;
   justify-content: center;
   align-items: center;
   gap: 20%;
+  padding-top: 20px;
 }
 .barraSuperior{
   width: 100%;
@@ -392,175 +535,880 @@ width: 100%;
 }
 
 /*HU03*/
-main h1{
-    font-size: 22px;
-    margin: 8px 0 16px;
+
+
+/* CENTRAL DE FATURAS - HU03 */
+
+/* 1. CONFIGURACAO GERAL */
+
+.pagina-faturas {
+  margin: 0;
+  padding: 0 0 68px;
+  min-width: 270px;
+  background: #f1f2f5;
+  color: #092b70;
+  font-family: 'Poppins', sans-serif;
 }
 
-.suasfaturas{
-  font-size: 35px;
+.pagina-faturas * {
+  box-sizing: border-box;
 }
 
-.numeroinst{
-  display: flex;
-  justify-content: space-between;
+.pagina-faturas button {
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.pagina-faturas a {
+  font-family: 'Poppins', sans-serif;
+}
+
+.pagina-faturas [hidden] {
+  display: none;
+}
+
+.pagina-faturas .aplicativo {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  margin: auto;
+  background: white;
+}
+
+/* ICONES */
+
+.pagina-faturas .simbolos {
+  display: none;
+}
+
+.pagina-faturas .icone,
+.pagina-faturas .hu03-icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* 2. CABECALHO */
+
+.pagina-faturas .cabecalho {
+  max-width: 430px;
+  margin: auto;
+  background: #08068d;
+  position: relative;
+}
+
+.pagina-faturas .topo {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px 30px;
+  grid-template-areas:
+    "menu logo not perfil"
+    "faixa faixa faixa faixa";
   align-items: center;
-  padding: 15px 100px ;
-  border-radius: 20px;
-  background: #e2e1e1;
+  gap: 4px 8px;
+  padding: 5px 12px 0;
+  background: #08068d;
 }
-.central{
-    background: #14337f;
-    color: #fff;
-    padding: 20px;
-    border-radius: 24px;
+
+.pagina-faturas .topo .button-template {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 0;
 }
-.faturaatual{
-  background: #a5c1f1;
-  color: #02025f;
+
+.pagina-faturas .topo .menu-cabecalho {
+  grid-area: menu;
+  font-size: 24px;
+}
+
+.pagina-faturas .topo .logo-cabecalho {
+  grid-area: logo;
+  width: 100%;
+  max-width: 155px;
+  height: 52px;
+  object-fit: contain;
+  object-position: left;
+  margin: 0;
+  justify-self: start;
+}
+
+.pagina-faturas .topo .notificacao-cabecalho {
+  grid-area: not;
+}
+
+.pagina-faturas .topo .perfil-cabecalho {
+  grid-area: perfil;
+}
+
+.pagina-faturas .topo .notificacao-cabecalho img,
+.pagina-faturas .topo .perfil-cabecalho img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.pagina-faturas .topo .faixa-indique {
+  grid-area: faixa;
+  width: calc(100% + 24px);
+  margin: 0 -12px;
+  display: block;
+}
+
+.pagina-faturas .topo .faixa-indique img {
+  width: 100%;
+  height: 38px;
+  display: block;
+}
+
+/* MENU DO CABECALHO */
+
+.pagina-faturas .painel-menu {
+  position: absolute;
+  top: 58px;
+  left: 7px;
+  right: 7px;
+  background: white;
+  color: #07357a;
+  border: 1px solid #cbd6ec;
+  border-radius: 9px;
   padding: 10px;
-  border-radius: 24px;
-  font-size: 15px;
+  z-index: 10;
+  font-size: 12px;
 }
-.nome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: #f7f7f7;
+
+.pagina-faturas .painel-menu a {
+  color: #07357a;
+  margin-right: 15px;
 }
-.vencer{
-    background: #fff;
-    color: #14337f;
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 20px;
+
+/* 3. TITULO E INSTALACAO */
+
+.pagina-faturas .conteudo {
+  margin: 0;
+  padding: 7px 13px 26px;
+  background: white;
+  color: #092b70;
+  border-radius: 0;
 }
-.status{
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 16px;
+
+.pagina-faturas .conteudo h1 {
+  color: #03428d;
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 6px;
 }
-.valor{
-    font-size: 50px;
-    font-weight: 700;
-    margin: 4px 0;
+
+.pagina-faturas .conteudo h2,
+.pagina-faturas .conteudo h3 {
+  margin: 0;
 }
-.vence{
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 16px;
+
+.pagina-faturas .instalacao {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 36px;
+  padding: 3px 7px;
+  border: 1px solid #cad4e6;
+  border-radius: 7px;
+  background: white;
+  color: #001f6d;
+  font-size: 12px;
+  font-weight: bold;
 }
-.escolhapagamento{
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 10px 25px;
+
+.pagina-faturas .circulo-casa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #b9cdf5;
 }
-.escolhapagamento h4{
-  color: #191927;
+
+.pagina-faturas .instalacao strong {
+  margin-left: auto;
+  font-size: 12px;
 }
-.escolhapagamento .formapag{
-  color: #191927;
-  font-size: 16px;
+
+.pagina-faturas .seta {
+  width: 16px;
+  height: 16px;
 }
-.escolhapagamento .titlepag{
-  color: #000000;
-  font-size: 15px;
-  margin: -15px;
-  padding: 0 12px;
+
+.pagina-faturas .info-instalacao {
+  margin: 5px 0;
+  padding: 9px;
+  background: #f3f6ff;
+  border-radius: 8px;
+  font-size: 11px;
 }
-.escolhapagamento .desctitle{
-  color: #858585;
+
+/* 4. AVISO DA CEMIG */
+
+.pagina-faturas .aviso-cemig {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 18px 7px 16px;
+  padding: 9px 8px;
+  min-height: 75px;
+  border-radius: 18px;
+  background: #eaf4ff;
+}
+
+.pagina-faturas .desenho-contas {
+  position: relative;
+  width: 91px;
+  min-width: 91px;
+  height: 68px;
+}
+
+.pagina-faturas .sol {
+  position: absolute;
+  top: -6px;
+  color: orange;
+}
+
+.pagina-faturas .folha {
+  position: absolute;
+  top: 10px;
+  width: 49px;
+  height: 60px;
+  padding: 9px 5px;
+  border: 1px solid #d8e5fa;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 3px 7px #cccccc;
+}
+
+.pagina-faturas .folha-cemig {
+  left: 8px;
+  transform: rotate(-12deg);
+}
+
+.pagina-faturas .folha-bulbe {
+  left: 40px;
+  top: 13px;
+  transform: rotate(6deg);
+}
+
+.pagina-faturas .folha span {
+  font-size: 10px;
+  color: #04725e;
+  font-weight: bold;
+}
+
+.pagina-faturas .folha-bulbe span {
+  color: #0b58ad;
+}
+
+.pagina-faturas .folha i {
+  display: block;
+  width: 80%;
+  height: 3px;
+  margin: 4px 0;
+  background: #c6d6f0;
+}
+
+.pagina-faturas .folha b {
+  position: absolute;
+  right: -4px;
+  bottom: 7px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  text-align: center;
+  background: #0ac078;
+  color: white;
+}
+
+.pagina-faturas .texto-cemig {
+  min-width: 0;
+}
+
+.pagina-faturas .etiqueta {
+  background: #b8d7fb;
+  color: #2052a2;
+  padding: 2px 7px;
+  border-radius: 15px;
+  font-size: 8px;
+}
+
+.pagina-faturas .texto-cemig strong {
+  display: block;
+  color: #0453a4;
+  font-size: 12px;
+  margin: 4px 0 2px;
+  line-height: 1.2;
+}
+
+.pagina-faturas .texto-cemig p {
+  color: #255181;
+  font-size: 9px;
+  margin: 0;
+}
+
+/* 5. FATURA ATUAL */
+
+.pagina-faturas .fatura-atual {
+  padding: 10px 7px 7px;
+  border: 4px solid #062d71;
+  border-radius: 21px;
+  background: #06347b;
+  color: white;
+}
+
+.pagina-faturas .cabecalho-fatura,
+.pagina-faturas .vencimento {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagina-faturas .cabecalho-fatura {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.pagina-faturas .titulo-fatura {
+  padding: 4px 17px;
+  border-radius: 20px;
+  background: #a7bcf0;
+  color: #163478;
+  font-size: 11px;
+}
+
+.pagina-faturas .situacao {
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: #e6efff;
+  color: #0754a0;
+  font-size: 12px;
+}
+
+.pagina-faturas .vencimento {
+  margin: 0 5px 7px;
+}
+
+.pagina-faturas .icone-data {
+  display: flex;
+  padding: 4px;
+  background: #99b6fa;
+  color: #0d3482;
+  border-radius: 5px;
+}
+
+.pagina-faturas .vencimento small {
+  display: block;
+  font-size: 10px;
+  color: #b9cdf0;
+}
+
+.pagina-faturas .vencimento strong {
+  display: block;
+  font-size: 11px;
+  color: white;
+}
+
+.pagina-faturas .valor-fatura {
+  margin: 0 3px 8px;
+  font-size: 39px;
+  font-weight: bold;
+  color: white;
+}
+
+/* 6. PAGAMENTOS */
+
+.pagina-faturas .pagamento {
+  padding: 9px;
+  border-radius: 15px;
+  background: white;
+  color: #09286e;
+}
+
+.pagina-faturas .pagamento h3 {
+  font-size: 12px;
+}
+
+.pagina-faturas .pagamento > p {
+  margin: 2px 0 10px;
+  color: #7a8294;
+  font-size: 8px;
+}
+
+.pagina-faturas .metodos {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pagina-faturas .metodo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 5px 9px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #eef2fb;
+  color: #0b2c78;
+  text-align: left;
+}
+
+.pagina-faturas .metodo:hover {
+  background: #e1eaff;
+}
+
+.pagina-faturas .metodo[aria-pressed="true"] {
+  border-color: #3458ad;
+  background: #e0eaff;
+}
+
+.pagina-faturas .icone-pagamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  background: white;
+}
+
+.pagina-faturas .metodo .icone {
+  width: 16px;
+  height: 16px;
+}
+
+.pagina-faturas .icone-pix img {
+  width: 23px;
+  height: 23px;
+}
+
+.pagina-faturas .metodo strong {
+  display: block;
+  font-size: 11px;
+}
+
+.pagina-faturas .metodo small {
+  display: block;
+  color: #606d8a;
+  font-size: 8px;
+}
+
+.pagina-faturas .mensagem-pagamento {
+  font-size: 9px;
+  color: #5a6881;
+  margin: 7px 2px 0;
+}
+
+/* 7. ECONOMIA */
+
+.pagina-faturas .economia-fatura {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  margin: 13px 7px 11px;
+  border: 1px solid #6ae1a5;
+  border-radius: 11px;
+  background: #e7fff1;
+}
+
+.pagina-faturas .circulo-folha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #19b360;
+  color: white;
+}
+
+.pagina-faturas .economia-fatura p {
+  margin: 0;
+  flex: 1;
   font-size: 10px;
 }
-.escolhapagamento .desc{
-  color: #868585;
+
+.pagina-faturas .economia-fatura p strong {
+  display: block;
+  color: #03994b;
+  font-size: 16px;
 }
 
-
-
-.pix, .cartao{
-    display: block;
-    width: 80%;
-    margin: 10px auto 0;
-    padding: 10px;
-    border: none;
-    border-radius: 999px;
-    background: #fff;
-    color:#14337f;
-    font-family: inherit;
-    font-size: 12px;
-    cursor: pointer;
-}
-.informacoes{
-    background: #f3f3f3;
-    margin: 16px 0;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 12px;
-}
-.informacoes .title h4{
-    font-size: 12px;
-    margin-bottom: 16px;
-}
-.consumo, .imposto, .iluminacao{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-.total{
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #333;
-    padding-top: 12px;
-}
-.total h4{
-    font-size: 12px;
+.pagina-faturas .economia-fatura p strong span:last-child {
+  color: #22365c;
+  font-size: 10px;
+  font-weight: normal;
 }
 
-.pagar, .pagas{
-    display: inline-block;
-    width: 45%;
-    margin: 8px 2% 24px;
-    padding: 10x;
-    border: none;
-    border-radius: 999px;
-    font-family: inherit;
-    font-size: 15px;
-    cursor: pointer;
-}
-.pagar{
-    background: #05058a;
-    color: #fff;
-}
-.pagas{
-    background: #d9d9d9;
-    color: #333;
+.pagina-faturas .grafico-economia {
+  width: 65px;
+  height: 43px;
 }
 
-.titulo h4{
+/* 8. DETALHAMENTO */
+
+.pagina-faturas .detalhamento {
+  margin: 0 8px 10px;
+  padding: 10px 11px;
+  border: 1px solid #b9ddff;
+  border-radius: 13px;
+  background: #f8fbff;
+}
+
+.pagina-faturas .detalhamento summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pagina-faturas .titulo-detalhes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagina-faturas .conteudo-detalhes {
+  padding-top: 6px;
+}
+
+.pagina-faturas .subtitulo-detalhes {
+  margin: 0 0 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #b4cff3;
+  color: #355b95;
+  font-size: 9px;
+}
+
+.pagina-faturas .valores {
+  margin: 0;
+  padding: 0;
+}
+
+.pagina-faturas .valores > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pagina-faturas .valores dd {
+  margin: 0;
+}
+
+.pagina-faturas .valores .desconto {
+  color: #0a9f47;
+}
+
+.pagina-faturas .total-detalhes {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 9px;
+  border-radius: 6px;
+  background: #08068d;
+  color: white;
+  font-size: 10px;
+}
+
+.pagina-faturas .explicacao {
+  margin: 9px 0 0;
+  color: #305487;
+  font-size: 9px;
+}
+
+.pagina-faturas .observacao {
+  margin: 9px 0 1px;
+  color: #929bac;
+  font-size: 9px;
+  text-align: center;
+}
+
+/* 9. CALCULADORA */
+
+.pagina-faturas .link-calculadora {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 8px 12px;
+  padding: 8px 10px;
+  min-height: 54px;
+  border: 1px solid #c9d0d8;
+  border-radius: 7px;
+  color: #06277e;
+  text-decoration: none;
+}
+
+.pagina-faturas .icone-calculadora {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 9px;
+  background: #0aa154;
+  color: white;
+}
+
+.pagina-faturas .link-calculadora strong {
+  display: block;
+  font-size: 11px;
+}
+
+.pagina-faturas .link-calculadora small {
+  display: block;
+  color: #3464af;
+  font-size: 9px;
+}
+
+.pagina-faturas .seta-calculadora {
+  margin-left: auto;
+  font-size: 29px;
+}
+
+/* 10. HISTORICO */
+
+.pagina-faturas .historico {
+  margin: 0 8px;
+  padding: 13px 12px 10px;
+  border: 1px solid #dedede;
+  border-radius: 9px;
+}
+
+.pagina-faturas .historico h2 {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+/* FILTROS */
+
+.pagina-faturas .filtros {
+  display: flex;
+  background: #dedede;
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.pagina-faturas .filtro {
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  padding: 6px 3px;
+  color: #666;
+  font-size: 9px;
+}
+
+.pagina-faturas .filtro[aria-selected="true"] {
+  background: #0b167f;
+  color: white;
+}
+
+/* LISTA DE FATURAS */
+
+/* Essas classes são criadas pelo JS original. */
+
+.pagina-faturas .lista-faturas {
+  padding-top: 4px;
+}
+
+.pagina-faturas .hu03-history-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 0;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.pagina-faturas .hu03-history-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  background: #edf2fb;
+}
+
+.pagina-faturas .hu03-history-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.pagina-faturas .hu03-history-main strong {
+  font-size: 10px;
+}
+
+.pagina-faturas .hu03-history-main small {
+  color: #999;
+  font-size: 8px;
+}
+
+.pagina-faturas .hu03-history-status {
+  background: #ffdae0;
+  color: #b43d4a;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 8px;
+}
+
+.pagina-faturas .hu03-history-status.is-paid {
+  background: #d9f8e7;
+  color: #11854a;
+}
+
+.pagina-faturas .hu03-history-value {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.pagina-faturas .hu03-history-empty,
+.pagina-faturas .carregando {
+  font-size: 11px;
+  color: #607087;
+}
+
+/* 11. MENU INFERIOR */
+
+.pagina-faturas .menu-footer.rodape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 64px;
+  max-width: 430px;
+  margin: auto;
+  padding: 5px 12px;
+  background: white;
+  border-top: 1px solid #dfe6f2;
+}
+
+.pagina-faturas .rodape a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  color: #8b96a7;
+  font-size: 9px;
+}
+
+.pagina-faturas .rodape a[aria-current="page"] {
+  color: #073f9c;
+  font-weight: bold;
+}
+
+.pagina-faturas .rodape img {
+  width: 23px;
+  height: 23px;
+}
+
+/* 12. CELULARES MENORES */
+
+@media (max-width: 320px) {
+
+  .pagina-faturas .conteudo {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .pagina-faturas .conteudo h1 {
+    font-size: 21px;
+  }
+
+  .pagina-faturas .instalacao {
+    gap: 5px;
+    padding: 3px 5px;
+    font-size: 10px;
+  }
+
+  .pagina-faturas .instalacao strong {
+    font-size: 10px;
+  }
+
+  .pagina-faturas .circulo-casa {
+    width: 23px;
+    height: 23px;
+  }
+
+  .pagina-faturas .aviso-cemig {
+    gap: 7px;
+    margin: 15px 2px;
+    padding: 7px 6px;
+  }
+
+  .pagina-faturas .desenho-contas {
+    width: 83px;
+    min-width: 83px;
+  }
+
+  .pagina-faturas .folha-bulbe {
+    left: 36px;
+  }
+
+  .pagina-faturas .texto-cemig strong {
+    font-size: 10px;
+  }
+
+  .pagina-faturas .texto-cemig p {
+    font-size: 7px;
+  }
+
+  .pagina-faturas .etiqueta {
+    font-size: 7px;
+  }
+
+  .pagina-faturas .fatura-atual {
+    padding: 8px 5px 5px;
+  }
+
+  .pagina-faturas .valor-fatura {
+    font-size: 29px;
+  }
+
+  .pagina-faturas .pagamento {
+    padding: 7px;
+  }
+
+  .pagina-faturas .metodo {
+    min-height: 31px;
+    padding: 3px 7px;
+  }
+
+  .pagina-faturas .grafico-economia {
+    width: 48px;
+  }
+
+  .pagina-faturas .economia-fatura p strong {
     font-size: 14px;
-    margin-bottom: 12px;
+  }
+
+  .pagina-faturas .valores > div {
+    padding: 7px 0;
+  }
 }
-.setembro, .agosto{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #d9d9d9;
-    border-radius: 16px;
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    font-size: 13px;
-}
-.setembro li, .agosto li{
-    font-weight: 700;
-    font-size: 15px;
-}
-.setembro p, .agosto p{
-    font-size: 11px;
-    color: #666;
-}
+
 .corpo{
   background-color: var(--cor-primaria);
 }
@@ -579,27 +1427,16 @@ main h1{
   justify-content: center;
   align-items: center;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--fonte); background: #e4e8f1; color: var(--cor-texto); }
-a { color: inherit; text-decoration: none; }
+
+#TempoDeCalculo, #ConsumoMensal{
+  width: 350px;
+  height: 50px;
+}
 
 /* Moldura do app (celular) */
 .app { max-width: 420px; min-height: 100vh; margin: 0 auto; background: #fff;
   display: flex; flex-direction: column; box-shadow: 0 0 30px rgba(8,6,141,.12); }
 main { flex: 1; padding: 24px 20px 28px; }
-
-/* Cabeçalho */
-.cabecalho { background: var(--cor-primaria); color: #fff; padding: 12px 16px 14px; }
-.barra { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.logo { font-size: 1.75rem; font-weight: 800; letter-spacing: -.5px; }
-.logo span { color: var(--cor-destaque); }
-.acoes { display: flex; align-items: center; gap: 16px; font-size: 1.1rem; }
-.avatar { width: 34px; height: 34px; border-radius: 50%; background: #cbd0ff;
-  color: var(--cor-primaria); display: grid; place-items: center; font-size: .95rem; }
-.banner { display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  padding: 10px 14px; border-radius: 6px; font-size: .85rem;
-  background: linear-gradient(90deg, #7a4a12, #c9781b 55%, #f2ae00); }
-.banner strong { font-size: .95rem; }
 
 /* Tipografia e cartões */
 h1 { font-size: 1.4rem; color: var(--cor-primaria); text-align: center; margin-bottom: 8px; }
@@ -612,8 +1449,7 @@ h1 { font-size: 1.4rem; color: var(--cor-primaria); text-align: center; margin-b
 .card-info span { font-size: .8rem; color: #5b6477; }
 
 /* Formulário */
-form { display: grid; gap: 18px; margin: 24px 0; }
-label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display: block; margin-bottom: 6px; }
+label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display: block; margin-bottom: 6px; }
 .obrig { color: #d92d20; }
 .input { display: flex; align-items: center; gap: 10px; border: 1px solid #d6dbe6;
   border-radius: 8px; padding: 0 12px; background: #fff; }
@@ -705,6 +1541,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #Enter{
   color: var(--cor-fundo);
   background-color: var(--cor-primaria);
+  text-decoration: none;
 }
 #Start-Main #First{
   color: #3E4D5B;
@@ -712,10 +1549,13 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 
   border: 1px solid gray;
   margin-bottom: 10px;
+
+  text-decoration: none;
 }
 #Start-Main #Start-Calc{
   color: var(--cor-fundo);
   background-color: #26D07C;
+  text-decoration: none;
 }
 .topo-branco .logo-azul-center{
   width: 7em;
@@ -738,12 +1578,147 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   font-size: medium;
   font-weight: 700;
   text-align: center;
+  text-decoration: none;
   
   color: var(--cor-fundo);
   background-color: var(--cor-primaria);
 
   display: flex;
   justify-content: center;
+}
+#contratar{
+  margin: 10px auto;
+  margin-top: 100px;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#footer2-cadastro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#next-cadastro{
+  margin: 10px auto;
+  width: 45%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#back-cadastro{
+  margin: 10px auto;
+  width: 45%;
+  padding: 15px;
+
+  border: 1px solid #868585;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-primaria);
+  background-color: var(--cor-fundo);
+
+  display: flex;
+  justify-content: center;
+}
+.CreditCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+#ExCard{
+  width: 95%;
+}
+#outroCard{
+  border: none;
+
+  color: var(--cor-primaria);
+  font-weight: 700;
+}
+#card-cadastro{
+  margin: 10px auto;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+}
+#pular-card{
+    margin: 10px auto;
+  width: 95%;
+  padding: 15px;
+
+  border: 1px solid #868585;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-primaria);
+  background-color: var(--cor-fundo);
+
+  display: flex;
+  justify-content: center;
+}
+.benefits-card{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 20px 10px;
+  box-shadow: 0px 3px 8px rgb(133, 197, 197, 0.8);
+}
+.benefits-card img{
+  width: 7%;
+  height: max-content;
+  margin-top: 10px;
+}
+.benefits-card p{
+  color: var(--cor-primaria);
+  font-weight: 600;
+  font-size: small;
 }
 #cadastro-termos{
   margin: 20px;
@@ -756,6 +1731,17 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 #cadastro-termos a{
   color: var(--cor-primaria);
   text-decoration: underline;
+}
+
+.contrato-box{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
+  margin-bottom: 10px;
 }
 .body-blank{
   background-color: var(--cor-fundo);
@@ -772,13 +1758,19 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 .titulo-cadastro{
   display: flex;
   justify-content: start;
+  margin-top: -20px;
+
+  font-size: x-large;
+}
+.subtitulo-cadastro{
+  font-size: small;
 }
 .seguimento-cadastro{
   display: flex;
   justify-content: space-around;
 
   margin-bottom: 20px;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 .seguimento-cadastro p{
   border: 2px solid var(--cor-primaria);
@@ -797,6 +1789,7 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 .seguimento-cadastro .seta-avanço{
   color: var(--cor-primaria);
   font-size: x-large;
+  margin-top: 15px;
 }
 .requirido{
   color: red;
@@ -812,6 +1805,23 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
 }
 
 /* Telas mobile dimensionadas para a largura do iPhone SE. */
+.telaCheia {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.telaCheia main {
+  flex: 1;             
+  width: 100%;
+  max-width: none;      
+  margin: 0;            
+  background-color: var(--cor-fundo);
+  padding: 1px;
+}
+
+/* Mapa de pertencimento - iphone 16*/
 body.pagina-mapa {
   width: 100%;
   max-width: 375px;
@@ -1276,4 +2286,87 @@ body.tela-checkin {
   .checkin-etapa {
     font-size: 9px;
   }
+.btn-recalcular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn-recalcular:hover { filter: brightness(1.15); }
+.btn-recalcular:focus-visible { outline: 3px solid var(--cor-destaque); outline-offset: 2px; }
+
+/* Carrossel dos cartões de resumo */
+.resumo {
+  display: flex;
+  gap: 12px;
+  margin: 16px -20px 0;            /* "sangra" até a borda da tela */
+  padding: 4px 20px 10px;          /* o padding lateral deve ser igual ao do main */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.resumo::-webkit-scrollbar { display: none; }
+
+.resumo .stat,
+.resumo .stat.destaque {
+  flex: 0 0 78%;                   /* o próximo cartão aparece um pouco ao lado */
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Pontos indicadores */
+.carrossel-pontos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.carrossel-pontos button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--cor-borda);
+  cursor: pointer;
+  transition: width .2s, background .2s;
+}
+.carrossel-pontos button[aria-current="true"] {
+  width: 22px;
+  background: var(--cor-primaria);
+}
+
+.BannerBulbe {
+  padding-top: 20px;
+  width: 350px;
+  height: 200px;
+}
+
+.btn-voltar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 25px;
+  height: 25px;
+  
+}
+
+.texto_calculadora{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.0rem;
 }
