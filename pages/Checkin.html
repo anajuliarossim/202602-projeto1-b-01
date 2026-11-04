@@ -24,7 +24,13 @@
 
         <header class="topo">
 
-            <button class="menu-cabecalho button-template">
+            <button
+                class="menu-cabecalho button-template"
+                id="abrirModal"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="modalLateral"
+            >
                 ☰
             </button>
 
@@ -58,6 +64,62 @@
         </header>
 
         <main class="pagina-checkin">
+
+            <div class="fundoModal" id="fundoModal"></div>
+
+            <aside
+                class="modalLateral"
+                id="modalLateral"
+                aria-label="Menu principal"
+                aria-hidden="true"
+            >
+                <div class="cabecalhoModal">
+                    <img
+                        src="../assets/img/Logo-bulbe-inicial.png"
+                        alt="Logo Bulbe"
+                        id="logoLateral"
+                    >
+
+                    <button id="fecharModal" aria-label="Fechar menu">×</button>
+                </div>
+
+                <nav class="opcoesModal">
+                    <a href="Mapa.html" class="BotaoModal">
+                        <img src="../assets/img/Icon-Map.png" alt="">
+                        <span>Mapa da Bulbe</span>
+                    </a>
+
+                    <a href="HU01-Info.html" class="BotaoModal">
+                        <img src="../assets/img/Icon-Blog.png" alt="">
+                        <span>Blog</span>
+                    </a>
+
+                    <a href="#" class="BotaoModal">
+                        <img src="../assets/img/Icon-Question.png" alt="">
+                        <span>Perguntas Frequentes</span>
+                    </a>
+
+                    <a href="#" class="BotaoModal">
+                        <img src="../assets/img/Icon-Indique.png" alt="">
+                        <span>Indique e ganhe</span>
+                    </a>
+
+                    <a href="#" class="BotaoModal">
+                        <img src="../assets/img/Icon-Chat.png" alt="">
+                        <span>Fale conosco</span>
+                    </a>
+
+                    <a href="#" class="BotaoModal">
+                        <img src="../assets/img/Icon-Terms.png" alt="">
+                        <span>Termos</span>
+                    </a>
+                </nav>
+
+                <a href="#" class="BotaoModal" id="Sair">
+                    <img src="../assets/img/Icon-Leave.png" alt="">
+                    <span>Sair</span>
+                </a>
+            </aside>
 
             <section class="checkin-introducao" aria-labelledby="titulo-checkin">
                 <h1 id="titulo-checkin">Seu check-in diário</h1>
@@ -133,6 +195,7 @@
 
     </footer>
 
+    <script src="../assets/js/template.js"></script>
     <script src="../assets/js/checkin.js"></script>
 </body>
 
