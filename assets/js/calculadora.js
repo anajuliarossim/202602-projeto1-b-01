@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 const CHAVE = 'bulbe:simulacao';
-const PAGINAS = { calculadora: 'HU02.html', consumo: 'HU02-consumo.html' };
+const PAGINAS = { calculadora: 'HU02.html', calculadoraInicial: 'HU02-Calculadora_Inicial.html', consumo: 'HU02-consumo.html', consumo_Inicial: 'Consumo_Inicial.html' };
 
 /* ---------- Formatação ---------- */
 const fmtNum = (v) => Math.round(v).toLocaleString('pt-BR');
@@ -78,7 +78,7 @@ function iniciarCalculadora(form) {
     if (!valido) { form.reportValidity(); return; }
 
     salvar({ meses: Math.round(meses), consumo });
-    window.location.href = PAGINAS.consumo;
+    window.location.href = form.dataset.destino || PAGINAS.consumo;
   });
 }
 
@@ -152,10 +152,16 @@ function iniciarResultado(tela) {
 /* ---------- Início ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formCalculadora');
-  if (form) { iniciarCalculadora(form); return; }
+  if (form) {
+    iniciarCalculadora(form);
+    return;
+  }
 
   const main = document.querySelector('main[data-tela]');
-  if (main) iniciarResultado(main.dataset.tela);
+  if (main) {
+    iniciarResultado(main.dataset.tela);
+    iniciarCarrossel();
+  }
 });
 
 /* ---------- Carrossel dos cartões ---------- */
