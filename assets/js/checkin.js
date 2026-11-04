@@ -9,6 +9,7 @@ const diasCheckin = document.querySelector('#dias-checkin');
 const barraProgresso = document.querySelector('#barra-progresso');
 const listaCheckins = document.querySelector('#lista-checkins');
 const mensagemMotivacional = document.querySelector('.checkin-motivacao p');
+const mensagemStatusCheckin = document.querySelector('#mensagem-status-checkin');
 
 function obterDataDeHoje() {
     const hoje = new Date();
@@ -135,7 +136,17 @@ botaoCheckin.addEventListener('click', () => {
         return;
     }
 
-    checkinsRegistrados = [...checkinsRegistrados, obterDataDeHoje()];
-    localStorage.setItem(CHAVE_CHECKINS, JSON.stringify(checkinsRegistrados));
+    const novosCheckins = [...checkinsRegistrados, obterDataDeHoje()];
+
+    try {
+        localStorage.setItem(CHAVE_CHECKINS, JSON.stringify(novosCheckins));
+    } catch (erro) {
+        console.error('Não foi possível salvar o check-in no navegador.', erro);
+        mensagemStatusCheckin.textContent = 'Não foi possível salvar seu check-in. Verifique o armazenamento do navegador e tente novamente.';
+        return;
+    }
+
+    checkinsRegistrados = novosCheckins;
+    mensagemStatusCheckin.textContent = '';
     atualizarTela(checkinsRegistrados);
 });
