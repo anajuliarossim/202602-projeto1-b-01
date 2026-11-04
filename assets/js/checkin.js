@@ -173,6 +173,7 @@ try {
 } catch (erro) {
     console.error('Não foi possível carregar os check-ins salvos.', erro);
     mensagemStatusCheckin.textContent = 'Não foi possível carregar seus check-ins salvos. Verifique o armazenamento do navegador.';
+    mensagemStatusCheckin.className = 'checkin-erro';
     botaoCheckin.disabled = true;
 }
 
@@ -193,10 +194,12 @@ botaoCheckin.addEventListener('click', () => {
     } catch (erro) {
         console.error('Não foi possível salvar o check-in no navegador.', erro);
         mensagemStatusCheckin.textContent = 'Não foi possível salvar seu check-in. Verifique o armazenamento do navegador e tente novamente.';
+        mensagemStatusCheckin.className = 'checkin-erro';
         return;
     }
 
     checkinsRegistrados = novosCheckins;
     mensagemStatusCheckin.textContent = 'Check-in realizado! R$ 0,50 adicionados ao seu saldo.';
+    mensagemStatusCheckin.className = 'checkin-sucesso';
     atualizarTela(checkinsRegistrados);
 });
