@@ -22,7 +22,15 @@
           <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
       </header>
       <main class="calculadora">
-        <h3>Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</h3>
+        <div class="titulo-pagina">
+        <a href="../index.html" class="btn-voltar" onclick="history.back(); return false;" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <h1>Calculadora de Economia</h1>
+        <p class="texto_calculadora">Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</p>
       <form id="formCalculadora">
         <div class="campo"> 
           <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES: </label>
@@ -32,6 +40,7 @@
           <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
           <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
         </div> 
+        <img src="../assets/img/UtsX1.jpg" alt="Banner Bulbe calculadora" class="BannerBulbe">
       <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
         dessa forma pode sofrer alterações devido fatores externos
         (descontos, cupons, etc.)</p>
