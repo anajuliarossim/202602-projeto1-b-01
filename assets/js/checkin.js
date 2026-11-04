@@ -11,6 +11,15 @@ const listaCheckins = document.querySelector('#lista-checkins');
 const mensagemMotivacional = document.querySelector('.checkin-motivacao p');
 const mensagemStatusCheckin = document.querySelector('#mensagem-status-checkin');
 
+function dataDeCheckinValida(data) {
+    if (typeof data !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(data)) {
+        return false;
+    }
+
+    const dataConvertida = new Date(`${data}T00:00:00Z`);
+    return !Number.isNaN(dataConvertida.getTime()) && dataConvertida.toISOString().slice(0, 10) === data;
+}
+
 function obterDataDeHoje() {
     const hoje = new Date();
     const ano = hoje.getFullYear();
@@ -35,11 +44,11 @@ function carregarCheckins() {
         throw new Error('Os dados salvos do check-in não puderam ser lidos.', { cause: erro });
     }
 
-    if (!Array.isArray(checkins) || !checkins.every((data) => typeof data === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(data))) {
+    if (!Array.isArray(checkins) || !checkins.every(dataDeCheckinValida)) {
         throw new Error('Os dados salvos do check-in estão inválidos.');
     }
 
-    return [...new Set(checkins)].slice(0, LIMITE_CHECKINS);
+    return [...new Set(checkins)].sort().slice(-LIMITE_CHECKINS);
 }
 
 function formatarSaldoEmReais(valorEmCentavos) {
