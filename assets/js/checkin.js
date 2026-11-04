@@ -116,9 +116,11 @@ function atualizarTela(checkins) {
     valorSequencia.textContent = `${sequencia} ${sequencia === 1 ? 'dia seguido' : 'dias seguidos'}`;
     diasCheckin.textContent = `${quantidadeCheckins} de ${LIMITE_CHECKINS} dias`;
     barraProgresso.value = quantidadeCheckins;
-    mensagemMotivacional.textContent = sequencia > 0
-        ? `Continue assim! Você está há ${sequencia} ${sequencia === 1 ? 'dia' : 'dias'} sem perder um check-in.`
-        : 'Faça seu check-in hoje para começar sua sequência.';
+    mensagemMotivacional.textContent = checkinsCompletos
+        ? 'Parabéns! Você completou os 90 check-ins e acumulou R$ 45,00.'
+        : sequencia > 0
+            ? `Continue assim! Você está há ${sequencia} ${sequencia === 1 ? 'dia' : 'dias'} sem perder um check-in.`
+            : 'Faça seu check-in hoje para começar sua sequência.';
     atualizarHistorico(checkins);
 
     if (checkinsCompletos) {
