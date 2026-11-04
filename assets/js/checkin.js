@@ -7,7 +7,6 @@ const valorSaldo = document.querySelector('#valor-saldo');
 const valorSequencia = document.querySelector('#valor-sequencia');
 const diasCheckin = document.querySelector('#dias-checkin');
 const barraProgresso = document.querySelector('#barra-progresso');
-const listaCheckins = document.querySelector('#lista-checkins');
 const mensagemMotivacional = document.querySelector('.checkin-motivacao p');
 const mensagemStatusCheckin = document.querySelector('#mensagem-status-checkin');
 
@@ -90,43 +89,6 @@ function calcularSequencia(checkins) {
     return sequencia;
 }
 
-function formatarDataHistorico(dataCheckin) {
-    const hoje = obterDataDeHoje();
-    const ontem = new Date(`${hoje}T00:00:00Z`);
-    ontem.setUTCDate(ontem.getUTCDate() - 1);
-    const dataDeOntem = ontem.toISOString().slice(0, 10);
-
-    if (dataCheckin === hoje) {
-        return 'Hoje ✓';
-    }
-
-    if (dataCheckin === dataDeOntem) {
-        return 'Ontem ✓';
-    }
-
-    const [ano, mes, dia] = dataCheckin.split('-');
-    return `${dia}/${mes} ✓`;
-}
-
-function atualizarHistorico(checkins) {
-    const ultimosCheckins = [...checkins].sort().reverse().slice(0, 4);
-    listaCheckins.replaceChildren();
-
-    if (ultimosCheckins.length === 0) {
-        const mensagemVazia = document.createElement('li');
-        mensagemVazia.textContent = 'Seus check-ins aparecerão aqui.';
-        listaCheckins.append(mensagemVazia);
-        return;
-    }
-
-    for (const dataCheckin of ultimosCheckins) {
-        const item = document.createElement('li');
-        item.className = 'checkin-realizado';
-        item.textContent = formatarDataHistorico(dataCheckin);
-        listaCheckins.append(item);
-    }
-}
-
 function atualizarTela(checkins) {
     const quantidadeCheckins = checkins.length;
     const jaFezCheckinHoje = checkins.includes(obterDataDeHoje());
@@ -148,8 +110,6 @@ function atualizarTela(checkins) {
     } else {
         mensagemMotivacional.textContent = 'Faça seu check-in hoje para começar sua sequência.';
     }
-
-    atualizarHistorico(checkins);
 
     if (checkinsCompletos) {
         botaoCheckin.textContent = 'Você completou os 90 check-ins!';

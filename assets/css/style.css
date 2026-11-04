@@ -1183,44 +1183,6 @@ body.pagina-mapa {
   color: #087c5a;
 }
 
-.checkin-historico {
-  margin-bottom: 18px;
-}
-
-.checkin-historico h2 {
-  margin: 0 0 10px;
-  color: #34384a;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.checkin-historico ul {
-  display: flex;
-  gap: 8px;
-  margin: 0;
-  padding: 0 0 4px;
-  overflow-x: auto;
-  list-style: none;
-}
-
-.checkin-historico li {
-  flex: 1 0 auto;
-  padding: 9px 10px;
-  border: 1px solid #e8eaf2;
-  border-radius: 12px;
-  background: #fff;
-  color: #667085;
-  font-size: 12px;
-  text-align: center;
-}
-
-.checkin-historico li.checkin-realizado {
-  border-color: #bcebd9;
-  background: #f0fbf6;
-  color: #087c5a;
-  font-weight: 600;
-}
-
 .checkin-motivacao {
   margin: 0;
   padding: 12px 14px;
