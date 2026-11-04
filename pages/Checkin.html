@@ -76,10 +76,27 @@
 
             <section class="checkin-progresso" aria-labelledby="titulo-progresso">
                 <div class="checkin-progresso-cabecalho">
-                    <h2 id="titulo-progresso">Seu progresso</h2>
-                    <p id="dias-checkin">0 de 90 dias</p>
+                    <h2 id="titulo-progresso">Seus primeiros 90 dias</h2>
                 </div>
-                <progress id="barra-progresso" value="0" max="90" aria-label="Progresso dos 90 dias">0 de 90 dias</progress>
+                <ol class="checkin-etapas" aria-label="Etapas da jornada Bulbe">
+                    <li class="checkin-etapa concluida">
+                        <span class="checkin-etapa-icone" aria-hidden="true">✓</span>
+                        <span>Cadastro<br>aprovado</span>
+                    </li>
+                    <li class="checkin-etapa atual" aria-current="step">
+                        <span class="checkin-etapa-icone" aria-hidden="true"></span>
+                        <span>Aguardando<br>a conexão</span>
+                    </li>
+                    <li class="checkin-etapa">
+                        <span class="checkin-etapa-icone" aria-hidden="true"></span>
+                        <span>Energia<br>ativa</span>
+                    </li>
+                    <li class="checkin-etapa">
+                        <span class="checkin-etapa-icone" aria-hidden="true"></span>
+                        <span>Economizando<br>com a Bulbe</span>
+                    </li>
+                </ol>
+                <p id="dias-checkin" class="checkin-progresso-contagem">0 de 90 check-ins realizados</p>
                 <p class="checkin-progresso-ajuda">Complete até 90 check-ins e acumule no máximo R$ 45,00</p>
             </section>
 

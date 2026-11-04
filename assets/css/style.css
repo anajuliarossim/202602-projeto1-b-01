@@ -1094,32 +1094,81 @@ body.pagina-mapa {
   color: #5b6475;
 }
 
-.checkin-progresso progress {
-  display: block;
-  width: 100%;
-  height: 10px;
-  overflow: hidden;
-  border: 0;
-  border-radius: 999px;
-  background: #e9eaf2;
-  color: #00a879;
-  appearance: none;
-  -webkit-appearance: none;
+.checkin-etapas {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 15px 0 12px;
+  padding: 0;
+  list-style: none;
 }
 
-.checkin-progresso progress::-webkit-progress-bar {
-  border-radius: 999px;
-  background: #e9eaf2;
+.checkin-etapas::before,
+.checkin-etapas::after {
+  position: absolute;
+  top: 11px;
+  left: 12.5%;
+  height: 3px;
+  content: "";
 }
 
-.checkin-progresso progress::-webkit-progress-value {
-  border-radius: 999px;
+.checkin-etapas::before {
+  right: 12.5%;
+  background: #cbd5e1;
+}
+
+.checkin-etapas::after {
+  width: 12.5%;
   background: #00a879;
 }
 
-.checkin-progresso progress::-moz-progress-bar {
-  border-radius: 999px;
+.checkin-etapa {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.checkin-etapa-icone {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 3px solid #cbd5e1;
+  border-radius: 50%;
+  background: #fff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.checkin-etapa.concluida {
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+.checkin-etapa.concluida .checkin-etapa-icone {
+  border-color: #00a879;
   background: #00a879;
+}
+
+.checkin-etapa.atual .checkin-etapa-icone {
+  border-color: #cbd5e1;
+  box-shadow: inset 0 0 0 4px #fff;
+  background: #cbd5e1;
+}
+
+.checkin-progresso .checkin-progresso-contagem {
+  margin: 0 0 4px;
+  color: #5b6475;
+  font-size: 11px;
 }
 
 .checkin-progresso .checkin-progresso-ajuda {
@@ -1238,5 +1287,9 @@ body.tela-checkin {
 
   .checkin-progresso-cabecalho {
     gap: 6px;
+  }
+
+  .checkin-etapa {
+    font-size: 9px;
   }
 }

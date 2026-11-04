@@ -6,7 +6,6 @@ const botaoCheckin = document.querySelector('#botao-checkin');
 const valorSaldo = document.querySelector('#valor-saldo');
 const valorSequencia = document.querySelector('#valor-sequencia');
 const diasCheckin = document.querySelector('#dias-checkin');
-const barraProgresso = document.querySelector('#barra-progresso');
 const mensagemMotivacional = document.querySelector('.checkin-motivacao p');
 const mensagemStatusCheckin = document.querySelector('#mensagem-status-checkin');
 
@@ -98,8 +97,7 @@ function atualizarTela(checkins) {
 
     valorSaldo.textContent = formatarSaldoEmReais(quantidadeCheckins * VALOR_POR_CHECKIN);
     valorSequencia.textContent = `${sequencia} ${sequencia === 1 ? 'dia seguido' : 'dias seguidos'}`;
-    diasCheckin.textContent = `${quantidadeCheckins} de ${LIMITE_CHECKINS} dias`;
-    barraProgresso.value = quantidadeCheckins;
+    diasCheckin.textContent = `${quantidadeCheckins} de ${LIMITE_CHECKINS} check-ins realizados`;
     if (checkinsCompletos) {
         mensagemMotivacional.textContent = 'Parabéns! Você completou os 90 check-ins e acumulou R$ 45,00.';
     } else if (periodoEncerrado) {
