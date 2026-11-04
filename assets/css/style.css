@@ -1019,3 +1019,25 @@ body.pagina-mapa {
   font-size: 14px;
   line-height: 1.5;
 }
+
+.checkin-saldo {
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.checkin-saldo h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkin-saldo p {
+  margin: 0;
+  color: inherit;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
