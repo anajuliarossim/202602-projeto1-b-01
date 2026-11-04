@@ -1122,6 +1122,12 @@ body.pagina-mapa {
   background: #00a879;
 }
 
+.checkin-progresso .checkin-progresso-ajuda {
+  margin: 6px 0 0;
+  color: #667085;
+  font-size: 11px;
+}
+
 .checkin-acao {
   margin-bottom: 22px;
   text-align: center;
