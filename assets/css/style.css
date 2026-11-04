@@ -302,7 +302,9 @@ width: 100%;
 }
 
 .avisoCalculadora{
-  padding-top: 100px ;
+  font-size: 0.875rem;
+  text-align: center;
+  padding-top: 25px ;
 }
 
 .btn-confirmar :hover{
@@ -2066,4 +2068,29 @@ body.pagina-mapa {
 .carrossel-pontos button[aria-current="true"] {
   width: 22px;
   background: var(--cor-primaria);
+}
+
+.BannerBulbe {
+  padding-top: 20px;
+  width: 350px;
+  height: 200px;
+}
+
+.btn-voltar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 25px;
+  height: 25px;
+  
+}
+
+.texto_calculadora{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.0rem;
 }
