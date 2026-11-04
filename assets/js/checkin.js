@@ -131,8 +131,7 @@ try {
     atualizarTela(checkinsRegistrados);
 } catch (erro) {
     console.error('Não foi possível carregar os check-ins salvos.', erro);
-    mensagemStatusCheckin.textContent = 'Não foi possível carregar seus check-ins salvos. Verifique o armazenamento do navegador.';
-    mensagemStatusCheckin.className = 'checkin-erro';
+    botaoCheckin.textContent = 'Check-in indisponível';
     botaoCheckin.disabled = true;
 }
 
