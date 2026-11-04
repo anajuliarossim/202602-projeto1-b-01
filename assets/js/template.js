@@ -3,6 +3,9 @@ const abrirModal = document.getElementById("abrirModal");
 const fecharModal = document.getElementById("fecharModal");
 const modal = document.getElementById("modalLateral");
 const fundo = document.getElementById("fundoModal");
+const btnInicio = document.getElementById("btnInicio");
+const btnFaturas = document.getElementById("btnFaturas");
+const btnConsumo = document.getElementById("btnConsumo");
 
 function mostrarModal() {
     modal.classList.add("ativo");
@@ -31,4 +34,16 @@ document.addEventListener("keydown", function(event) {
         modal.classList.contains("ativo")) {
         esconderModal();
     }
+});
+
+btnInicio.addEventListener("click", function() {
+    window.location.href = "Home.html";
+});
+
+btnFaturas.addEventListener("click", function() {
+    window.location.href = "Fatura.html";
+});
+
+btnConsumo.addEventListener("click", function() {
+    window.location.href = "Consumo.html";
 });
