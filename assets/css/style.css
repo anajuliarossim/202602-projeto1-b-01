@@ -1227,3 +1227,8 @@ body.pagina-mapa {
   font-size: 12px;
   line-height: 1.5;
 }
+
+main.pagina-checkin {
+  width: 100%;
+  max-width: 520px;
+}
