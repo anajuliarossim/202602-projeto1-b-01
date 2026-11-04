@@ -179,6 +179,16 @@ try {
 }
 
 botaoCheckin.addEventListener('click', () => {
+    try {
+        checkinsRegistrados = carregarCheckins();
+    } catch (erro) {
+        console.error('Não foi possível verificar os check-ins salvos.', erro);
+        mensagemStatusCheckin.textContent = 'Não foi possível verificar seus check-ins. Tente novamente.';
+        mensagemStatusCheckin.className = 'checkin-erro';
+        botaoCheckin.disabled = true;
+        return;
+    }
+
     if (
         checkinsRegistrados.includes(obterDataDeHoje())
         || checkinsRegistrados.length >= LIMITE_CHECKINS
@@ -203,6 +213,22 @@ botaoCheckin.addEventListener('click', () => {
     mensagemStatusCheckin.textContent = 'Check-in realizado! R$ 0,50 adicionados ao seu saldo.';
     mensagemStatusCheckin.className = 'checkin-sucesso';
     atualizarTela(checkinsRegistrados);
+});
+
+window.addEventListener('storage', (evento) => {
+    if (evento.key !== CHAVE_CHECKINS && evento.key !== null) {
+        return;
+    }
+
+    try {
+        checkinsRegistrados = carregarCheckins();
+        atualizarTela(checkinsRegistrados);
+    } catch (erro) {
+        console.error('Não foi possível sincronizar os check-ins salvos.', erro);
+        mensagemStatusCheckin.textContent = 'Não foi possível sincronizar seus check-ins. Verifique o armazenamento do navegador.';
+        mensagemStatusCheckin.className = 'checkin-erro';
+        botaoCheckin.disabled = true;
+    }
 });
 
 function atualizarNaViradaDoDia() {
