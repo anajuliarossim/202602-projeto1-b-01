@@ -29,6 +29,17 @@ function obterDataDeHoje() {
     return `${ano}-${mes}-${dia}`;
 }
 
+function periodoDeCheckinEncerrado(checkins) {
+    if (checkins.length === 0) {
+        return false;
+    }
+
+    const primeiroCheckin = checkins[0];
+    const diasDesdeInicio = (Date.parse(`${obterDataDeHoje()}T00:00:00Z`) - Date.parse(`${primeiroCheckin}T00:00:00Z`)) / 86400000;
+
+    return diasDesdeInicio >= LIMITE_CHECKINS;
+}
+
 function carregarCheckins() {
     const dadosSalvos = localStorage.getItem(CHAVE_CHECKINS);
 
@@ -119,21 +130,31 @@ function atualizarTela(checkins) {
     const quantidadeCheckins = checkins.length;
     const jaFezCheckinHoje = checkins.includes(obterDataDeHoje());
     const checkinsCompletos = quantidadeCheckins >= LIMITE_CHECKINS;
+    const periodoEncerrado = periodoDeCheckinEncerrado(checkins);
     const sequencia = calcularSequencia(checkins);
 
     valorSaldo.textContent = formatarSaldoEmReais(quantidadeCheckins * VALOR_POR_CHECKIN);
     valorSequencia.textContent = `${sequencia} ${sequencia === 1 ? 'dia seguido' : 'dias seguidos'}`;
     diasCheckin.textContent = `${quantidadeCheckins} de ${LIMITE_CHECKINS} dias`;
     barraProgresso.value = quantidadeCheckins;
-    mensagemMotivacional.textContent = checkinsCompletos
-        ? 'Parabéns! Você completou os 90 check-ins e acumulou R$ 45,00.'
-        : sequencia > 0
-            ? `Continue assim! Você está há ${sequencia} ${sequencia === 1 ? 'dia' : 'dias'} sem perder um check-in.`
-            : 'Faça seu check-in hoje para começar sua sequência.';
+    if (checkinsCompletos) {
+        mensagemMotivacional.textContent = 'Parabéns! Você completou os 90 check-ins e acumulou R$ 45,00.';
+    } else if (periodoEncerrado) {
+        const saldoAtual = formatarSaldoEmReais(quantidadeCheckins * VALOR_POR_CHECKIN);
+        mensagemMotivacional.textContent = `Seu período de 90 dias terminou. Você acumulou ${saldoAtual}.`;
+    } else if (sequencia > 0) {
+        mensagemMotivacional.textContent = `Continue assim! Você está há ${sequencia} ${sequencia === 1 ? 'dia' : 'dias'} sem perder um check-in.`;
+    } else {
+        mensagemMotivacional.textContent = 'Faça seu check-in hoje para começar sua sequência.';
+    }
+
     atualizarHistorico(checkins);
 
     if (checkinsCompletos) {
         botaoCheckin.textContent = 'Você completou os 90 check-ins!';
+        botaoCheckin.disabled = true;
+    } else if (periodoEncerrado) {
+        botaoCheckin.textContent = 'Período de 90 dias encerrado';
         botaoCheckin.disabled = true;
     } else if (jaFezCheckinHoje) {
         botaoCheckin.textContent = 'Check-in realizado hoje ✓';
@@ -156,7 +177,11 @@ try {
 }
 
 botaoCheckin.addEventListener('click', () => {
-    if (checkinsRegistrados.includes(obterDataDeHoje()) || checkinsRegistrados.length >= LIMITE_CHECKINS) {
+    if (
+        checkinsRegistrados.includes(obterDataDeHoje())
+        || checkinsRegistrados.length >= LIMITE_CHECKINS
+        || periodoDeCheckinEncerrado(checkinsRegistrados)
+    ) {
         atualizarTela(checkinsRegistrados);
         return;
     }
