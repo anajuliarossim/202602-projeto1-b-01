@@ -811,21 +811,21 @@ label { font-size: .85rem; font-weight: 600; color: var(--cor-primaria); display
   color: #536679;
 }
 
-/* Mapa de pertencimento - iphone 16*/
+/* Telas mobile dimensionadas para a largura do iPhone SE. */
 body.pagina-mapa {
   width: 100%;
-  max-width: 393px;
+  max-width: 375px;
   min-height: 100dvh;
   margin: 0 auto;
   padding-bottom: calc(76px + env(safe-area-inset-bottom));
 }
 
-/* Mantém o rodapé dentro da largura da página do mapa. */
+/* Mantém o rodapé fixo dentro da largura da tela mobile. */
 .pagina-mapa .menu-footer {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 393px;
+  max-width: 375px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
 }
 
@@ -1238,6 +1238,21 @@ body.pagina-mapa {
 main.pagina-checkin {
   width: 100%;
   max-width: 520px;
+}
+
+body.tela-checkin {
+  width: 100%;
+  max-width: 375px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
+
+.tela-checkin .menu-footer {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 375px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 360px) {
