@@ -1239,3 +1239,27 @@ main.pagina-checkin {
   width: 100%;
   max-width: 520px;
 }
+
+@media (max-width: 360px) {
+  main.pagina-checkin {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .checkin-sequencia {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .checkin-sequencia h2 {
+    font-size: 12px;
+  }
+
+  .checkin-sequencia p {
+    font-size: 15px;
+  }
+
+  .checkin-progresso-cabecalho {
+    gap: 6px;
+  }
+}
