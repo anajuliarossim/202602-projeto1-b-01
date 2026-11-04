@@ -1197,3 +1197,17 @@ body.pagina-mapa {
   font-size: 12px;
   text-align: center;
 }
+
+.checkin-motivacao {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #edfaf5;
+  color: #176f56;
+}
+
+.checkin-motivacao p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
