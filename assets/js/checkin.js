@@ -5,7 +5,6 @@ const CHAVE_CHECKINS = 'bulbe-checkins-diarios';
 const botaoCheckin = document.querySelector('#botao-checkin');
 const valorSaldo = document.querySelector('#valor-saldo');
 const valorSequencia = document.querySelector('#valor-sequencia');
-const mensagemMotivacional = document.querySelector('.checkin-motivacao p');
 const mensagemStatusCheckin = document.querySelector('#mensagem-status-checkin');
 
 function dataDeCheckinValida(data) {
@@ -96,16 +95,6 @@ function atualizarTela(checkins) {
 
     valorSaldo.textContent = formatarSaldoEmReais(quantidadeCheckins * VALOR_POR_CHECKIN);
     valorSequencia.textContent = `${sequencia} ${sequencia === 1 ? 'dia seguido' : 'dias seguidos'}`;
-    if (checkinsCompletos) {
-        mensagemMotivacional.textContent = 'Parabéns! Você completou os 90 check-ins e acumulou R$ 45,00.';
-    } else if (periodoEncerrado) {
-        const saldoAtual = formatarSaldoEmReais(quantidadeCheckins * VALOR_POR_CHECKIN);
-        mensagemMotivacional.textContent = `Seu período de 90 dias terminou. Você acumulou ${saldoAtual}.`;
-    } else if (sequencia > 0) {
-        mensagemMotivacional.textContent = `Continue assim! Você está há ${sequencia} ${sequencia === 1 ? 'dia' : 'dias'} sem perder um check-in.`;
-    } else {
-        mensagemMotivacional.textContent = 'Faça seu check-in hoje para começar sua sequência.';
-    }
 
     if (checkinsCompletos) {
         botaoCheckin.textContent = 'Você completou os 90 check-ins!';

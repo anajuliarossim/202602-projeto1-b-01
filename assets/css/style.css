@@ -1165,12 +1165,6 @@ body.pagina-mapa {
   background: #cbd5e1;
 }
 
-.checkin-progresso .checkin-progresso-ajuda {
-  margin: 6px 0 0;
-  color: #667085;
-  font-size: 11px;
-}
-
 .checkin-acao {
   margin-bottom: 22px;
   text-align: center;
@@ -1224,17 +1218,6 @@ body.pagina-mapa {
 .checkin-acao #mensagem-status-checkin.checkin-sucesso:not(:empty) {
   margin-top: 10px;
   color: #087c5a;
-}
-
-.checkin-motivacao {
-  margin: 12px 0 0;
-  color: #5b6475;
-}
-
-.checkin-motivacao p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
 }
 
 main.pagina-checkin {
