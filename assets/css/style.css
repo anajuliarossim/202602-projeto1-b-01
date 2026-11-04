@@ -1121,3 +1121,48 @@ body.pagina-mapa {
   border-radius: 999px;
   background: #00a879;
 }
+
+.checkin-acao {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.checkin-acao button {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.checkin-acao button:hover:not(:disabled) {
+  background: #1513a8;
+}
+
+.checkin-acao button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.checkin-acao button:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+.checkin-acao button:disabled {
+  background: #e8f7f1;
+  color: #087c5a;
+  cursor: not-allowed;
+}
+
+.checkin-acao p {
+  margin: 8px 0 0;
+  color: #5b6475;
+  font-size: 12px;
+}
