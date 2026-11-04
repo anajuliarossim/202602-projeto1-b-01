@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 const CHAVE = 'bulbe:simulacao';
-const PAGINAS = { calculadora: 'HU02.html', consumo: 'HU02-consumo.html' };
+const PAGINAS = { calculadora: 'Calculadora.html', consumo: 'Consumo.html' };
 
 /* ---------- Formatação ---------- */
 const fmtNum = (v) => Math.round(v).toLocaleString('pt-BR');
