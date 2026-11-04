@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="telaComMenu pagina-home">
   <div class="corpo">
     <header class="topo">
         <button class="menu-cabecalho button-template"
@@ -22,7 +22,7 @@
         <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
         <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
     </header>
-    <main>
+    <main class="home-conteudo">
       <div class="fundoModal" id="fundoModal"></div>
 
       <aside class="modalLateral" id="modalLateral"
@@ -43,7 +43,7 @@
 
               <a href="Blog.html" class="BotaoModal">
                   <img src="../assets/img/Icon-Blog.png" alt="">
-                  <span>Blog</span>
+                  <span>Nossas Usinas</span>
               </a>
 
               <a href="#" class="BotaoModal">
@@ -73,7 +73,74 @@
           </a>
 
       </aside>
-      <p>Cada tela da solução fica em um arquivo desta pasta. Repare que os caminhos começam com <code>../</code>.</p>
+      <section class="home-fatura" aria-labelledby="titulo-fatura">
+        <div class="home-linha-titulo">
+          <h1 id="titulo-fatura">Fatura do mês</h1>
+          <span class="home-status">em aberto</span>
+        </div>
+        <p class="home-legenda">Valor da fatura:</p>
+        <p class="home-valor"><span>R$</span> 148,90 <span class="home-raios" aria-hidden="true"></span></p>
+        <p class="home-vencimento"><span class="home-calendario" aria-hidden="true"></span>Vencimento: 25/10</p>
+
+        <div class="home-economia-mes">
+          <img src="../assets/img/Home-Economizou.png" alt="" class="home-icone-economia">
+          <p>Você economizou <strong>R$ 37,40 esse mês</strong></p>
+          <span class="home-confete" aria-hidden="true">✦</span>
+        </div>
+        <div class="home-saldo">
+          <span class="home-moedas" aria-hidden="true"></span>
+          <div><p>Saldo de desconto do check-in</p><strong>R$ 10,00</strong></div>
+          <!-- Conecte este botão à sua lógica de desconto. -->
+          <button type="button" id="aplicarDescontoHome" class="home-pill">Aplicar desconto <span aria-hidden="true">›</span></button>
+        </div>
+        <div class="home-acoes">
+          <button type="button" id="pagarPixHome" class="home-botao home-botao-azul"><img src="../assets/img/Home-Pix.png" alt="" class="home-icone-pix">Pagar com Pix</button>
+          <a href="Fatura.html" class="home-botao home-botao-borda"><span class="home-codigo" aria-hidden="true"></span>Ver detalhes</a>
+        </div>
+      </section>
+
+      <section class="home-aviso" aria-labelledby="titulo-aviso">
+        <img src="../assets/img/Home-Contas.png" alt="Faturas da Cemig e da Bulbe" class="home-img-faturas">
+        <div class="home-aviso-texto">
+          <span class="home-etiqueta">✦ Desconto direto na fatura</span>
+          <h2 id="titulo-aviso">Você continuará recebendo<br>as faturas da CEMIG.</h2>
+          <p>Não é necessário pagar. A Bulbe realiza o pagamento e você recebe o desconto na sua fatura da Bulbe.</p>
+        </div>
+      </section>
+
+      <section class="home-economia" aria-labelledby="titulo-economia">
+        <div class="home-economia-topo">
+          <img src="../assets/img/Home-Sua_Economia.png" alt="" class="home-img-porquinho">
+          <div class="home-economia-total"><h2 id="titulo-economia">Sua economia</h2><strong>R$ 532,40</strong><p>acumulada</p></div>
+          <div class="home-crescimento"><strong>↗ +12%</strong><span>em relação ao<br>mês anterior</span></div>
+        </div>
+        <figure class="home-grafico" aria-label="Economia mensal ilustrativa: janeiro 60 reais, fevereiro 75 reais, março 84 reais, abril 90 reais, maio 105 reais e junho 118 reais e 40 centavos.">
+          <div class="home-barras">
+            <div class="home-coluna"><span class="home-barra" style="--altura: 51%"><small>R$ 12</small></span><span>Jan</span></div>
+            <div class="home-coluna"><span class="home-barra" style="--altura: 63%"><small>R$ 18</small></span><span>Fev</span></div>
+            <div class="home-coluna"><span class="home-barra" style="--altura: 71%"><small>R$ 25</small></span><span>Mar</span></div>
+            <div class="home-coluna"><span class="home-barra" style="--altura: 76%"><small>R$ 22</small></span><span>Abr</span></div>
+            <div class="home-coluna"><span class="home-barra" style="--altura: 89%"><small>R$ 31</small></span><span>Mai</span></div>
+            <div class="home-coluna home-coluna-atual"><span class="home-barra" style="--altura: 100%"><small>R$ 37,40</small></span><span>Jun</span></div>
+          </div>
+        </figure>
+        <div class="home-grafico-rodape"><a href="Consumo.html" class="home-pill">Ver economia anual <span aria-hidden="true">›</span></a></div>
+      </section>
+
+      <section class="home-checkin" aria-labelledby="titulo-checkin">
+        <div class="home-checkin-texto"><h2 id="titulo-checkin">Check-in diário</h2><p>Venha e economize de novo e ganhe saldo de desconto.</p><a href="Checkin.html" class="home-botao home-botao-branco">Fazer check-in <span aria-hidden="true">›</span></a></div>
+        <img src="../assets/img/Home-CheckIn.png" alt="" class="home-img-checkin">
+      </section>
+
+      <article class="home-usina" aria-labelledby="titulo-usina">
+        <div class="home-usina-foto"><img src="../assets/img/Home-Foto.png" alt="Painéis solares em uma usina ao pôr do sol"></div>
+        <div class="home-usina-conteudo"><div><h2 id="titulo-usina">Conheça de onde vem sua energia</h2><p>As usinas solares próximas que geram os créditos usados no seu consumo.</p></div><a href="Blog.html" class="home-pill">Ver usinas <span aria-hidden="true">›</span></a></div>
+      </article>
+
+      <aside class="home-dica" aria-labelledby="titulo-dica">
+        <img src="../assets/img/Home-Lamp.png" alt=" class="home-img-lampada">
+        <div><h2 id="titulo-dica">Dica do mês</h2><p>Use lâmpadas de LED e reduza o consumo da sua casa sem abrir mão da iluminação.</p><strong>Seu bolso agradece.</strong></div>
+      </aside>
     </main>
   </div>
     <footer class="menu-footer">
@@ -91,4 +158,4 @@
     </footer>
     <script src="../assets/js/template.js"></script>
 </body>
-</html>
+</html> 
