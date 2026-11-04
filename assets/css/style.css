@@ -1214,6 +1214,13 @@ body.pagina-mapa {
   text-align: center;
 }
 
+.checkin-historico li.checkin-realizado {
+  border-color: #bcebd9;
+  background: #f0fbf6;
+  color: #087c5a;
+  font-weight: 600;
+}
+
 .checkin-motivacao {
   margin: 0;
   padding: 12px 14px;

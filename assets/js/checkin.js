@@ -121,6 +121,7 @@ function atualizarHistorico(checkins) {
 
     for (const dataCheckin of ultimosCheckins) {
         const item = document.createElement('li');
+        item.className = 'checkin-realizado';
         item.textContent = formatarDataHistorico(dataCheckin);
         listaCheckins.append(item);
     }
