@@ -204,3 +204,21 @@ botaoCheckin.addEventListener('click', () => {
     mensagemStatusCheckin.className = 'checkin-sucesso';
     atualizarTela(checkinsRegistrados);
 });
+
+function atualizarNaViradaDoDia() {
+    const proximaVirada = new Date();
+    proximaVirada.setHours(24, 0, 0, 0);
+
+    window.setTimeout(() => {
+        atualizarTela(checkinsRegistrados);
+        atualizarNaViradaDoDia();
+    }, proximaVirada.getTime() - Date.now());
+}
+
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+        atualizarTela(checkinsRegistrados);
+    }
+});
+
+atualizarNaViradaDoDia();
