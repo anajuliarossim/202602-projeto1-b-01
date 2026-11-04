@@ -1000,3 +1000,22 @@ body.pagina-mapa {
   font-size: 14px;
   font-weight: 600;
 }
+
+.checkin-introducao {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.checkin-introducao h1 {
+  margin: 0 0 8px;
+  color: var(--cor-primaria);
+  font-size: 22px;
+}
+
+.checkin-introducao p {
+  max-width: 38ch;
+  margin: 0 auto;
+  color: #5b6475;
+  font-size: 14px;
+  line-height: 1.5;
+}
