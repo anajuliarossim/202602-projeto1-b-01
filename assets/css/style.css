@@ -1041,3 +1041,28 @@ body.pagina-mapa {
   font-weight: 700;
   line-height: 1.2;
 }
+
+.checkin-sequencia {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid #f4dfc7;
+  border-radius: 16px;
+  background: #fffaf4;
+}
+
+.checkin-sequencia h2 {
+  margin: 0;
+  color: #7a4b16;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkin-sequencia p {
+  margin: 2px 0 0;
+  color: #382d23;
+  font-size: 17px;
+  font-weight: 700;
+}
