@@ -1167,6 +1167,11 @@ body.pagina-mapa {
   font-size: 12px;
 }
 
+.checkin-acao #mensagem-status-checkin:not(:empty) {
+  margin-top: 10px;
+  color: #b42318;
+}
+
 .checkin-historico {
   margin-bottom: 18px;
 }
