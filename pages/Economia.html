@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seu consumo anual</title>
+<title>Sua economia anual</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script src="../assets/js/calculadora.js" defer></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="app">
-      <div class="corpo">
+  <div class="corpo">
     <header class="topo">
         <button class="menu-cabecalho button-template">☰</button>
         <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Logo Bulbe" class="logo-cabecalho">
@@ -21,35 +21,33 @@
         <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
         <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
     </header>
-  <main data-tela="consumo">
-    <h1 data-campo="titulo">Seu consumo estimado</h1>
+  <main data-tela="economia">
+    <h1 data-campo="titulo">Sua economia estimada</h1>
     <nav class="abas" aria-label="Tipo de gráfico">
-      <a href="HU02-consumo.html" aria-current="page">Energia</a>
-      <a href="HU02-Economia.html">Economia</a>
+      <a href="Consumo.html">Energia</a>
+      <a href="Economia.html" aria-current="page">Economia</a>
     </nav>
-
-
-  <section class="painel">
+  <section class="painel economia">
     <div class="area"><div class="grafico" id="grafico"></div></div>
     <div class="meses" id="rotulos"></div>
-    <div class="legenda"><span><i class="quadro"></i>Consumo acumulado (kWh)</span></div>
+    <div class="legenda"><span><i class="quadro"></i>Economia acumulada (kWh)</span></div>
   </section>
-  <section class="resumo" aria-label="Resumo do consumo">
-    <div class="stat destaque"><i class="fa-solid fa-bolt"></i><div><small>Média mensal</small><b data-campo="valor1"></b></div></div>
-    <div class="stat"><i class="fa-solid fa-chart-simple"></i><div><small>Total no período</small><b data-campo="valor2"></b></div></div>
-    <div class="stat"><i class="fa-regular fa-calendar"></i><div><small>Período</small><b data-campo="valor3"></b></div></div>
-  </section>
+    <section class="resumo" aria-label="Resumo da economia">
+      <div class="stat destaque"><i class="fa-solid fa-thumbs-up"></i><div><small>Economia mensal</small><b data-campo="valor1"></b></div></div>
+      <div class="stat"><i class="fa-solid fa-chart-simple"></i><div><small>Economia total</small><b data-campo="valor2"></b></div></div>
+      <div class="stat"><i class="fa-solid fa-piggy-bank"></i><div><small>Fatura com desconto</small><b data-campo="valor3"></b></div></div>
+    </section>
   <div class="carrossel-pontos" id="pontos"></div>
-    <a href="HU02.html" class="btn-recalcular">
+    <a href="Calculadora.html" class="btn-recalcular">
     <i class="fa-solid fa-rotate-right"></i> Calcular novamente
   </a>
   <p class="aviso" data-campo="premissas"></p>
   </main>
   </div>
   <nav class="nav" aria-label="Navegação principal">
-    <a href="HU02.html"><i class="fa-solid fa-house"></i>Início</a>
+    <a href="Calculadora.html"><i class="fa-solid fa-house"></i>Início</a>
     <a href="#"><i class="fa-regular fa-file-lines"></i>Faturas</a>
-    <a href="HU02-consumo.html" aria-current="page"><i class="fa-solid fa-bolt"></i>Consumo</a>
+    <a href="Consumo.html" aria-current="page"><i class="fa-solid fa-bolt"></i>Consumo</a>
   </nav>
 </div>
 </body>

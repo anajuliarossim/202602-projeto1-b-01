@@ -1,27 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Bulbe | Central de Faturas</title>
 
   <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- CSS do grupo -->
   <link rel="stylesheet" href="../assets/css/style.css">
 
-  <!-- JavaScript das faturas -->
+  <!-- JavaScript da HU03 -->
   <script type="module" src="../assets/js/hu03.js"></script>
+
 </head>
 
 <body class="pagina-faturas telaComMenu">
 
-  <!-- Icones -->
+  <!-- ICONES UTILIZADOS NA TELA -->
+
   <svg class="simbolos" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
     <symbol id="hu03-icon-house" viewBox="0 0 24 24">
       <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
       <path d="M9 21v-8h6v8"/>
@@ -56,29 +62,42 @@
       <rect x="10" y="7" width="4" height="14" rx="1"/>
       <rect x="17" y="3" width="4" height="18" rx="1"/>
     </symbol>
+
   </svg>
+
 
   <div class="aplicativo">
 
-    <!-- CABECALHO -->
+    <!-- ======================================
+         CABECALHO
+         ====================================== -->
 
     <div class="corpo cabecalho">
+
       <header class="topo">
+
+        <!-- Botao do novo menu lateral -->
 
         <button
           type="button"
           class="menu-cabecalho button-template"
-          id="hu03-menu-button"
+          id="abrirModal"
           aria-label="Abrir menu"
           aria-expanded="false"
-          aria-controls="hu03-quick-menu">
+          aria-controls="modalLateral">
+
           ☰
+
         </button>
+
+        <!-- Logo Bulbe -->
 
         <img
           src="../assets/img/Logo-Bulbe-Branca.png"
           alt="Bulbe Energia"
           class="logo-cabecalho">
+
+        <!-- Notificacoes -->
 
         <button
           type="button"
@@ -87,49 +106,179 @@
           aria-label="Notificações"
           aria-expanded="false"
           aria-controls="hu03-notifications">
+
           <img src="../assets/img/SinoNot.png" alt="">
+
         </button>
+
+        <!-- Perfil -->
 
         <a
           class="perfil-cabecalho button-template"
           href="Acesso.html"
           aria-label="Acessar perfil">
+
           <img src="../assets/img/Avatar.png" alt="">
+
         </a>
+
+        <!-- Banner indique e ganhe -->
 
         <a
           class="faixa-indique button-template"
           href="Acesso.html">
+
           <img
             src="../assets/img/Faixa-Indique.png"
             alt="Indique e ganhe">
+
         </a>
+
       </header>
 
-      <nav id="hu03-quick-menu" class="painel-menu" hidden>
-        <a href="Acesso.html">Início</a>
-        <a href="HU03.html">Faturas</a>
-        <a href="HU02-consumo.html">Consumo</a>
-      </nav>
+      <!-- Painel de notificacoes -->
 
       <div
         class="painel-menu"
         id="hu03-notifications"
         role="status"
         hidden>
+
         Não há notificações nesta demonstração.
+
       </div>
+
     </div>
 
-    <!-- CONTEUDO PRINCIPAL -->
+
+    <!-- ======================================
+         NOVO MENU LATERAL DO GRUPO
+         ====================================== -->
+
+    <!-- Fundo escuro -->
+
+    <div
+      class="fundoModal"
+      id="fundoModal">
+    </div>
+
+    <!-- Menu lateral -->
+
+    <aside
+      class="modalLateral"
+      id="modalLateral"
+      aria-label="Menu principal"
+      aria-hidden="true">
+
+      <!-- Cabecalho do menu -->
+
+      <div class="cabecalhoModal">
+
+        <img
+          src="../assets/img/Logo-bulbe-inicial.png"
+          alt="Logo Bulbe"
+          id="logoLateral">
+
+        <button
+          type="button"
+          id="fecharModal"
+          aria-label="Fechar menu">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <!-- Opcoes do menu -->
+
+      <nav class="opcoesModal">
+
+        <a href="Mapa.html" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Map.png" alt="">
+
+          <span>Mapa da Bulbe</span>
+
+        </a>
+
+
+        <a href="HU01-Info.html" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Blog.png" alt="">
+
+          <span>Blog</span>
+
+        </a>
+
+
+        <a href="#" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Question.png" alt="">
+
+          <span>Perguntas Frequentes</span>
+
+        </a>
+
+
+        <a href="#" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Indique.png" alt="">
+
+          <span>Indique e ganhe</span>
+
+        </a>
+
+
+        <a href="#" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Chat.png" alt="">
+
+          <span>Fale conosco</span>
+
+        </a>
+
+
+        <a href="#" class="BotaoModal">
+
+          <img src="../assets/img/Icon-Terms.png" alt="">
+
+          <span>Termos</span>
+
+        </a>
+
+      </nav>
+
+
+      <!-- Opcao sair -->
+
+      <a href="#" class="BotaoModal" id="Sair">
+
+        <img src="../assets/img/Icon-Leave.png" alt="">
+
+        <span>Sair</span>
+
+      </a>
+
+    </aside>
+
+
+    <!-- ======================================
+         CONTEUDO PRINCIPAL
+         ====================================== -->
 
     <main class="conteudo">
 
       <h1>Suas Faturas</h1>
 
-      <!-- INSTALACAO -->
+
+      <!-- ======================================
+           INSTALACAO
+           ====================================== -->
 
       <div class="grupo-instalacao">
+
         <button
           type="button"
           class="instalacao"
@@ -138,43 +287,77 @@
           aria-controls="hu03-installation-info">
 
           <span class="circulo-casa">
+
             <svg class="icone">
               <use href="#hu03-icon-house"/>
             </svg>
+
           </span>
 
-          <span class="texto-instalacao">Instalação:</span>
-          <strong id="hu03-installation-number">30014365849</strong>
+          <span class="texto-instalacao">
+            Instalação:
+          </span>
+
+          <strong id="hu03-installation-number">
+            30014365849
+          </strong>
 
           <svg class="icone seta">
             <use href="#hu03-icon-chevron"/>
           </svg>
+
         </button>
 
-        <p class="info-instalacao" id="hu03-installation-info" hidden>
+
+        <p
+          class="info-instalacao"
+          id="hu03-installation-info"
+          hidden>
+
           Instalação fictícia utilizada nesta demonstração.
+
         </p>
+
       </div>
 
-      <!-- AVISO CEMIG -->
+
+      <!-- ======================================
+           AVISO CEMIG
+           ====================================== -->
 
       <aside class="aviso-cemig">
+
         <div class="desenho-contas" aria-hidden="true">
+
           <div class="sol">✦</div>
 
           <div class="folha folha-cemig">
+
             <span>CEMIG</span>
-            <i></i><i></i><i></i>
+
+            <i></i>
+            <i></i>
+            <i></i>
+
           </div>
 
           <div class="folha folha-bulbe">
+
             <span>bulbe</span>
-            <i></i><i></i><i></i>
+
+            <i></i>
+            <i></i>
+            <i></i>
+
             <b>✓</b>
+
           </div>
+
         </div>
 
+
         <div class="texto-cemig">
+
           <span class="etiqueta">
             Durante os primeiros meses
           </span>
@@ -184,45 +367,81 @@
           </strong>
 
           <p>
-            Não precisa pagar as duas! A Bulbe já paga essa energia.
+            Não precisa pagar as duas!
+            A Bulbe já paga essa energia.
             Veja os detalhes da sua fatura.
           </p>
+
         </div>
+
       </aside>
 
-      <!-- FATURA ATUAL -->
+
+      <!-- ======================================
+           FATURA ATUAL
+           ====================================== -->
 
       <section class="fatura-atual">
 
         <div class="cabecalho-fatura">
-          <h2 class="titulo-fatura">Fatura Atual</h2>
-          <span class="situacao" id="hu03-status">em aberto</span>
+
+          <h2 class="titulo-fatura">
+            Fatura Atual
+          </h2>
+
+          <span class="situacao" id="hu03-status">
+            em aberto
+          </span>
+
         </div>
 
+
+        <!-- Vencimento -->
+
         <div class="vencimento">
+
           <span class="icone-data">
+
             <svg class="icone">
               <use href="#hu03-icon-calendar"/>
             </svg>
+
           </span>
 
           <span>
+
             <small>Vencimento</small>
-            <strong id="hu03-due-date">18 de outubro</strong>
+
+            <strong id="hu03-due-date">
+              18 de outubro
+            </strong>
+
           </span>
+
         </div>
+
+
+        <!-- Valor da fatura -->
 
         <p class="valor-fatura" id="hu03-total-current">
           R$ 187,42
         </p>
 
-        <!-- FORMAS DE PAGAMENTO -->
+
+        <!-- ======================================
+             FORMAS DE PAGAMENTO
+             ====================================== -->
 
         <div class="pagamento">
+
           <h3>Como prefere pagar?</h3>
+
           <p>Escolha a melhor opção para você</p>
 
+
           <div class="metodos">
+
+            <!-- PIX -->
 
             <button
               type="button"
@@ -231,18 +450,27 @@
               aria-pressed="false">
 
               <span class="icone-pagamento icone-pix">
+
                 <img
                   src="../assets/img/Icone-Pix.png"
                   alt=""
                   width="23"
                   height="23">
+
               </span>
 
               <span>
+
                 <strong>Pix</strong>
+
                 <small>Aprovação imediata</small>
+
               </span>
+
             </button>
+
+
+            <!-- BOLETO -->
 
             <button
               type="button"
@@ -251,16 +479,25 @@
               aria-pressed="false">
 
               <span class="icone-pagamento">
+
                 <svg class="icone">
                   <use href="#hu03-icon-bill"/>
                 </svg>
+
               </span>
 
               <span>
+
                 <strong>Boleto</strong>
+
                 <small>Até 2 dias úteis</small>
+
               </span>
+
             </button>
+
+
+            <!-- CARTAO -->
 
             <button
               type="button"
@@ -269,17 +506,27 @@
               aria-pressed="false">
 
               <span class="icone-pagamento">
+
                 <svg class="icone">
                   <use href="#hu03-icon-card"/>
                 </svg>
+
               </span>
 
               <span>
+
                 <strong>Cartão</strong>
+
                 <small>Débito ou crédito</small>
+
               </span>
+
             </button>
+
           </div>
+
+
+          <!-- Mensagem ao selecionar pagamento -->
 
           <p
             class="mensagem-pagamento"
@@ -287,51 +534,92 @@
             role="status"
             aria-live="polite">
           </p>
+
         </div>
+
       </section>
 
-      <!-- ECONOMIA -->
+
+      <!-- ======================================
+           ECONOMIA
+           ====================================== -->
 
       <section class="economia-fatura">
+
         <span class="circulo-folha">
+
           <svg class="icone">
             <use href="#hu03-icon-leaf"/>
           </svg>
+
         </span>
 
+
         <p>
+
           Você economizou
+
           <strong>
-            <span id="hu03-savings-value">R$ 37,40</span>
+
+            <span id="hu03-savings-value">
+              R$ 37,40
+            </span>
+
             <span>nesta fatura</span>
+
           </strong>
+
         </p>
 
-        <svg class="grafico-economia" viewBox="0 0 78 44" aria-hidden="true">
+
+        <!-- Grafico ilustrativo -->
+
+        <svg
+          class="grafico-economia"
+          viewBox="0 0 78 44"
+          aria-hidden="true">
+
           <rect x="1" y="3" width="45" height="4" rx="2" fill="#9de6bc"/>
+
           <rect x="1" y="12" width="30" height="4" rx="2" fill="#bfeecf"/>
+
           <rect x="18" y="31" width="11" height="13" rx="2" fill="#8cdbb2"/>
+
           <rect x="34" y="23" width="11" height="21" rx="2" fill="#72d89f"/>
+
           <rect x="50" y="14" width="11" height="30" rx="2" fill="#54d68e"/>
+
           <rect x="66" y="3" width="11" height="41" rx="2" fill="#34ca7a"/>
+
         </svg>
+
       </section>
 
-      <!-- DETALHAMENTO DA FATURA -->
+
+      <!-- ======================================
+           DETALHAMENTO DA FATURA
+           ====================================== -->
 
       <details class="detalhamento" open>
+
         <summary>
+
           <span class="titulo-detalhes">
+
             <svg class="icone">
               <use href="#hu03-icon-bill"/>
             </svg>
+
             Entenda a sua fatura
+
           </span>
 
           <svg class="icone seta-detalhes">
             <use href="#hu03-icon-chevron"/>
           </svg>
+
         </summary>
+
 
         <div class="conteudo-detalhes">
 
@@ -339,67 +627,147 @@
             Energia, impostos e iluminação
           </p>
 
+
           <dl class="valores">
-            <div>
-              <dt>Energia Consumida (<span id="hu03-energy-kwh">320</span> kWh)</dt>
-              <dd id="hu03-energy-cost">R$ 214,10</dd>
-            </div>
+
+            <!-- Energia -->
 
             <div>
+
+              <dt>
+                Energia Consumida
+                (<span id="hu03-energy-kwh">320</span> kWh)
+              </dt>
+
+              <dd id="hu03-energy-cost">
+                R$ 214,10
+              </dd>
+
+            </div>
+
+
+            <!-- Impostos -->
+
+            <div>
+
               <dt>Impostos</dt>
-              <dd id="hu03-taxes">R$ 31,40</dd>
+
+              <dd id="hu03-taxes">
+                R$ 31,40
+              </dd>
+
             </div>
 
+
+            <!-- Iluminacao -->
+
             <div>
+
               <dt>Iluminação Pública</dt>
-              <dd id="hu03-lighting">R$ 12,60</dd>
+
+              <dd id="hu03-lighting">
+                R$ 12,60
+              </dd>
+
             </div>
+
+
+            <!-- Desconto -->
 
             <div class="desconto">
+
               <dt>Desconto Bulbe</dt>
-              <dd id="hu03-discount">−R$ 70,68</dd>
+
+              <dd id="hu03-discount">
+                −R$ 70,68
+              </dd>
+
             </div>
+
           </dl>
 
+
+          <!-- Total -->
+
           <div class="total-detalhes">
+
             <span>Total com desconto</span>
-            <strong id="hu03-breakdown-total">R$ 187,42</strong>
+
+            <strong id="hu03-breakdown-total">
+              R$ 187,42
+            </strong>
+
           </div>
 
+
+          <!-- Explicacao -->
+
           <p class="explicacao hu03-breakdown-explain">
+
             O desconto Bulbe é subtraído dos demais valores
             para chegar ao total desta conta.
+
           </p>
+
 
           <p class="observacao">
+
             Essa é uma fatura fictícia da Bulbe Energia.
+
           </p>
+
         </div>
+
       </details>
 
-      <!-- CALCULADORA -->
+
+      <!-- ======================================
+           CALCULADORA DE ECONOMIA
+           ====================================== -->
 
       <a class="link-calculadora" href="HU02.html">
+
         <span class="icone-calculadora">
+
           <svg class="icone">
             <use href="#hu03-icon-chart"/>
           </svg>
+
         </span>
 
         <span>
-          <strong>Calculadora de Economia</strong>
-          <small>Veja quanto você pode economizar</small>
+
+          <strong>
+            Calculadora de Economia
+          </strong>
+
+          <small>
+            Veja quanto você pode economizar
+          </small>
+
         </span>
 
         <span class="seta-calculadora">›</span>
+
       </a>
 
-      <!-- HISTORICO DE FATURAS -->
+
+      <!-- ======================================
+           HISTORICO DE FATURAS
+           ====================================== -->
 
       <section class="historico">
+
         <h2>Histórico de Faturas</h2>
 
-        <div class="filtros" role="tablist" aria-label="Filtrar faturas">
+
+        <!-- Filtros -->
+
+        <div
+          class="filtros"
+          role="tablist"
+          aria-label="Filtrar faturas">
+
 
           <button
             type="button"
@@ -407,8 +775,11 @@
             data-filter="todas"
             role="tab"
             aria-selected="true">
+
             Todas
+
           </button>
+
 
           <button
             type="button"
@@ -416,8 +787,11 @@
             data-filter="pendentes"
             role="tab"
             aria-selected="false">
+
             Pendentes
+
           </button>
+
 
           <button
             type="button"
@@ -425,9 +799,15 @@
             data-filter="pagas"
             role="tab"
             aria-selected="false">
+
             Pagas
+
           </button>
+
         </div>
+
+
+        <!-- Lista criada pelo JavaScript -->
 
         <div
           class="lista-faturas"
@@ -438,30 +818,62 @@
           <p class="carregando">
             Carregando faturas de demonstração...
           </p>
+
         </div>
+
       </section>
+
     </main>
 
-    <!-- MENU INFERIOR -->
 
-    <nav class="menu-footer rodape" aria-label="Navegação principal">
+    <!-- ======================================
+         MENU INFERIOR
+         ====================================== -->
+
+    <nav
+      class="menu-footer rodape"
+      aria-label="Navegação principal">
 
       <a href="Acesso.html" aria-label="Início">
-        <img src="../assets/img/Icone-Inicio-Cinza.png" alt="">
+
+        <img
+          src="../assets/img/Icone-Inicio-Cinza.png"
+          alt="">
+
         <span>Início</span>
+
       </a>
 
-      <a href="HU03.html" aria-current="page" aria-label="Faturas">
-        <img src="../assets/img/Icone-Fatura-Cinza.png" alt="">
+
+      <a
+        href="HU03.html"
+        aria-current="page"
+        aria-label="Faturas">
+
+        <img
+          src="../assets/img/Icone-Fatura-Cinza.png"
+          alt="">
+
         <span>Faturas</span>
+
       </a>
+
 
       <a href="HU02-consumo.html" aria-label="Consumo">
-        <img src="../assets/img/Icone-Consumo-Cinza.png" alt="">
+
+        <img
+          src="../assets/img/Icone-Consumo-Cinza.png"
+          alt="">
+
         <span>Consumo</span>
+
       </a>
+
     </nav>
 
   </div>
+
+  <script src="../assets/js/template.js"></script>
+
 </body>
 </html>
