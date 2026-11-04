@@ -172,6 +172,6 @@ botaoCheckin.addEventListener('click', () => {
     }
 
     checkinsRegistrados = novosCheckins;
-    mensagemStatusCheckin.textContent = '';
+    mensagemStatusCheckin.textContent = 'Check-in realizado! R$ 0,50 adicionados ao seu saldo.';
     atualizarTela(checkinsRegistrados);
 });
