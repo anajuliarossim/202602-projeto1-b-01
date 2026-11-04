@@ -1,159 +1,467 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090684">
   <title>Bulbe | Central de Faturas</title>
+
+  <!-- Fonte Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- CSS compartilhado do squad: mesmo template de pages/HU03.html na main. -->
+
+  <!-- CSS do grupo -->
   <link rel="stylesheet" href="../assets/css/style.css">
-  <!-- Estilos exclusivos desta HU: não alteram as páginas dos colegas. -->
-  <link rel="stylesheet" href="../assets/css/hu03.css">
+
+  <!-- JavaScript das faturas -->
   <script type="module" src="../assets/js/hu03.js"></script>
 </head>
-<body class="hu03-page telaComMenu">
-  <!-- Ícones SVG locais: eliminam dependências de imagens que não existem no repositório. -->
-  <svg class="hu03-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <symbol id="hu03-icon-house" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></symbol>
-    <symbol id="hu03-icon-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-    <symbol id="hu03-icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 14h2m4 0h2m-8 4h2"/></symbol>
-    <symbol id="hu03-icon-bill" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h4M9 12h7M9 16h7"/></symbol>
-    <symbol id="hu03-icon-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h5"/></symbol>
-    <symbol id="hu03-icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
-    <symbol id="hu03-icon-leaf" viewBox="0 0 24 24"><path d="M20 4C9 4 4 9 4 16a4 4 0 0 0 4 4c7 0 12-5 12-16Z"/><path d="M4 20c3-5 7-8 12-11"/></symbol>
-    <symbol id="hu03-icon-chart" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></symbol>
+
+<body class="pagina-faturas telaComMenu">
+
+  <!-- Icones -->
+  <svg class="simbolos" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="hu03-icon-house" viewBox="0 0 24 24">
+      <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+      <path d="M9 21v-8h6v8"/>
+    </symbol>
+
+    <symbol id="hu03-icon-chevron" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6"/>
+    </symbol>
+
+    <symbol id="hu03-icon-calendar" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" rx="2"/>
+      <path d="M7 3v4M17 3v4M3 10h18"/>
+    </symbol>
+
+    <symbol id="hu03-icon-bill" viewBox="0 0 24 24">
+      <path d="M6 3h9l4 4v14H6z"/>
+      <path d="M15 3v5h4M9 12h7M9 16h7"/>
+    </symbol>
+
+    <symbol id="hu03-icon-card" viewBox="0 0 24 24">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <path d="M2 10h20M6 15h5"/>
+    </symbol>
+
+    <symbol id="hu03-icon-leaf" viewBox="0 0 24 24">
+      <path d="M20 4C9 4 4 9 4 16a4 4 0 0 0 4 4c7 0 12-5 12-16Z"/>
+      <path d="M4 20c3-5 7-8 12-11"/>
+    </symbol>
+
+    <symbol id="hu03-icon-chart" viewBox="0 0 24 24">
+      <rect x="3" y="12" width="4" height="9" rx="1"/>
+      <rect x="10" y="7" width="4" height="14" rx="1"/>
+      <rect x="17" y="3" width="4" height="18" rx="1"/>
+    </symbol>
   </svg>
 
-  <div class="hu03-app">
-    <!-- Cabeçalho compartilhado do squad: mesma estrutura da HU03 na main. -->
-    <div class="corpo hu03-header-shell">
+  <div class="aplicativo">
+
+    <!-- CABECALHO -->
+
+    <div class="corpo cabecalho">
       <header class="topo">
-        <button type="button" class="menu-cabecalho button-template" id="hu03-menu-button" aria-label="Abrir menu" aria-expanded="false" aria-controls="hu03-quick-menu">☰</button>
-        <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Bulbe Energia" class="logo-cabecalho">
-        <button type="button" class="notificacao-cabecalho button-template" id="hu03-notification-button" aria-label="Notificações" aria-expanded="false" aria-controls="hu03-notifications">
+
+        <button
+          type="button"
+          class="menu-cabecalho button-template"
+          id="hu03-menu-button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="hu03-quick-menu">
+          ☰
+        </button>
+
+        <img
+          src="../assets/img/Logo-Bulbe-Branca.png"
+          alt="Bulbe Energia"
+          class="logo-cabecalho">
+
+        <button
+          type="button"
+          class="notificacao-cabecalho button-template"
+          id="hu03-notification-button"
+          aria-label="Notificações"
+          aria-expanded="false"
+          aria-controls="hu03-notifications">
           <img src="../assets/img/SinoNot.png" alt="">
         </button>
-        <a class="perfil-cabecalho button-template" href="Acesso.html" aria-label="Acessar perfil"><img src="../assets/img/Avatar.png" alt=""></a>
-        <a class="faixa-indique button-template" href="Acesso.html" aria-label="Indique e ganhe: conheça a promoção"><img src="../assets/img/Faixa-Indique.png" alt="Indique e ganhe R$ 50 na próxima fatura"></a>
+
+        <a
+          class="perfil-cabecalho button-template"
+          href="Acesso.html"
+          aria-label="Acessar perfil">
+          <img src="../assets/img/Avatar.png" alt="">
+        </a>
+
+        <a
+          class="faixa-indique button-template"
+          href="Acesso.html">
+          <img
+            src="../assets/img/Faixa-Indique.png"
+            alt="Indique e ganhe">
+        </a>
       </header>
-      <nav id="hu03-quick-menu" class="hu03-header-panel" aria-label="Atalhos da navegação" hidden>
-        <a href="Acesso.html">Início</a><a href="HU03.html" aria-current="page">Faturas</a><a href="HU02-consumo.html">Consumo</a>
+
+      <nav id="hu03-quick-menu" class="painel-menu" hidden>
+        <a href="Acesso.html">Início</a>
+        <a href="HU03.html">Faturas</a>
+        <a href="HU02-consumo.html">Consumo</a>
       </nav>
-      <div class="hu03-header-panel" id="hu03-notifications" role="status" hidden>Não há notificações nesta demonstração.</div>
+
+      <div
+        class="painel-menu"
+        id="hu03-notifications"
+        role="status"
+        hidden>
+        Não há notificações nesta demonstração.
+      </div>
     </div>
 
-    <main class="hu03-content" id="conteudo-principal">
+    <!-- CONTEUDO PRINCIPAL -->
+
+    <main class="conteudo">
+
       <h1>Suas Faturas</h1>
 
-      <div class="hu03-installation-group">
-        <button type="button" class="hu03-installation" id="hu03-installation-button" aria-expanded="false" aria-controls="hu03-installation-info">
-          <span class="hu03-house-badge"><svg class="hu03-icon"><use href="#hu03-icon-house"/></svg></span>
-          <span class="hu03-installation-label">Instalação:</span>
+      <!-- INSTALACAO -->
+
+      <div class="grupo-instalacao">
+        <button
+          type="button"
+          class="instalacao"
+          id="hu03-installation-button"
+          aria-expanded="false"
+          aria-controls="hu03-installation-info">
+
+          <span class="circulo-casa">
+            <svg class="icone">
+              <use href="#hu03-icon-house"/>
+            </svg>
+          </span>
+
+          <span class="texto-instalacao">Instalação:</span>
           <strong id="hu03-installation-number">30014365849</strong>
-          <svg class="hu03-icon hu03-dropdown-icon"><use href="#hu03-icon-chevron"/></svg>
+
+          <svg class="icone seta">
+            <use href="#hu03-icon-chevron"/>
+          </svg>
         </button>
-        <p class="hu03-installation-info" id="hu03-installation-info" hidden>Instalação fictícia utilizada nesta demonstração da HU03.</p>
+
+        <p class="info-instalacao" id="hu03-installation-info" hidden>
+          Instalação fictícia utilizada nesta demonstração.
+        </p>
       </div>
 
-      <aside class="hu03-cemig" aria-label="Informação sobre a fatura da CEMIG">
-        <div class="hu03-bills-art" aria-hidden="true">
-          <div class="hu03-art-sun">✦</div>
-          <div class="hu03-paper hu03-paper-left"><span>CEMIG</span><i></i><i></i><i></i></div>
-          <div class="hu03-paper hu03-paper-right"><span>bulbe</span><i></i><i></i><i></i><b>✓</b></div>
+      <!-- AVISO CEMIG -->
+
+      <aside class="aviso-cemig">
+        <div class="desenho-contas" aria-hidden="true">
+          <div class="sol">✦</div>
+
+          <div class="folha folha-cemig">
+            <span>CEMIG</span>
+            <i></i><i></i><i></i>
+          </div>
+
+          <div class="folha folha-bulbe">
+            <span>bulbe</span>
+            <i></i><i></i><i></i>
+            <b>✓</b>
+          </div>
         </div>
-        <div class="hu03-cemig-text">
-          <span class="hu03-mini-tag">Durante os primeiros meses</span>
-          <strong>Você continuará recebendo as faturas da CEMIG.</strong>
-          <p>Não precisa pagar as duas! A Bulbe já paga essa energia. Veja os detalhes da sua fatura.</p>
+
+        <div class="texto-cemig">
+          <span class="etiqueta">
+            Durante os primeiros meses
+          </span>
+
+          <strong>
+            Você continuará recebendo as faturas da CEMIG.
+          </strong>
+
+          <p>
+            Não precisa pagar as duas! A Bulbe já paga essa energia.
+            Veja os detalhes da sua fatura.
+          </p>
         </div>
       </aside>
 
-      <section class="hu03-current" aria-labelledby="hu03-current-title">
-        <div class="hu03-current-heading">
-          <h2 class="hu03-current-pill" id="hu03-current-title">Fatura Atual</h2>
-          <span class="hu03-current-state" id="hu03-status">em aberto</span>
-        </div>
-        <div class="hu03-due">
-          <span class="hu03-current-icon"><svg class="hu03-icon"><use href="#hu03-icon-calendar"/></svg></span>
-          <span><small>Vencimento</small><strong id="hu03-due-date">18 de outubro</strong></span>
-        </div>
-        <p class="hu03-amount" id="hu03-total-current">R$ 187,42</p>
+      <!-- FATURA ATUAL -->
 
-        <div class="hu03-payment">
+      <section class="fatura-atual">
+
+        <div class="cabecalho-fatura">
+          <h2 class="titulo-fatura">Fatura Atual</h2>
+          <span class="situacao" id="hu03-status">em aberto</span>
+        </div>
+
+        <div class="vencimento">
+          <span class="icone-data">
+            <svg class="icone">
+              <use href="#hu03-icon-calendar"/>
+            </svg>
+          </span>
+
+          <span>
+            <small>Vencimento</small>
+            <strong id="hu03-due-date">18 de outubro</strong>
+          </span>
+        </div>
+
+        <p class="valor-fatura" id="hu03-total-current">
+          R$ 187,42
+        </p>
+
+        <!-- FORMAS DE PAGAMENTO -->
+
+        <div class="pagamento">
           <h3>Como prefere pagar?</h3>
           <p>Escolha a melhor opção para você</p>
-          <div class="hu03-methods" aria-label="Formas de pagamento demonstrativas">
-            <button class="hu03-method" type="button" data-payment="pix" aria-pressed="false">
-              <span class="hu03-method-icon hu03-pix-icon" aria-hidden="true"><img src="../assets/img/Icone-Pix.png" alt="" width="23" height="23"></span>
-              <span><strong>Pix</strong><small>Aprovação imediata</small></span>
+
+          <div class="metodos">
+
+            <button
+              type="button"
+              class="metodo hu03-method"
+              data-payment="pix"
+              aria-pressed="false">
+
+              <span class="icone-pagamento icone-pix">
+                <img
+                  src="../assets/img/Icone-Pix.png"
+                  alt=""
+                  width="23"
+                  height="23">
+              </span>
+
+              <span>
+                <strong>Pix</strong>
+                <small>Aprovação imediata</small>
+              </span>
             </button>
-            <button class="hu03-method" type="button" data-payment="boleto" aria-pressed="false">
-              <span class="hu03-method-icon"><svg class="hu03-icon"><use href="#hu03-icon-bill"/></svg></span>
-              <span><strong>Boleto</strong><small>Até 2 dias úteis</small></span>
+
+            <button
+              type="button"
+              class="metodo hu03-method"
+              data-payment="boleto"
+              aria-pressed="false">
+
+              <span class="icone-pagamento">
+                <svg class="icone">
+                  <use href="#hu03-icon-bill"/>
+                </svg>
+              </span>
+
+              <span>
+                <strong>Boleto</strong>
+                <small>Até 2 dias úteis</small>
+              </span>
             </button>
-            <button class="hu03-method" type="button" data-payment="cartao" aria-pressed="false">
-              <span class="hu03-method-icon"><svg class="hu03-icon"><use href="#hu03-icon-card"/></svg></span>
-              <span><strong>Cartão</strong><small>Débito ou crédito</small></span>
+
+            <button
+              type="button"
+              class="metodo hu03-method"
+              data-payment="cartao"
+              aria-pressed="false">
+
+              <span class="icone-pagamento">
+                <svg class="icone">
+                  <use href="#hu03-icon-card"/>
+                </svg>
+              </span>
+
+              <span>
+                <strong>Cartão</strong>
+                <small>Débito ou crédito</small>
+              </span>
             </button>
           </div>
-          <p class="hu03-payment-feedback" id="hu03-payment-feedback" role="status" aria-live="polite"></p>
+
+          <p
+            class="mensagem-pagamento"
+            id="hu03-payment-feedback"
+            role="status"
+            aria-live="polite">
+          </p>
         </div>
       </section>
 
-      <section class="hu03-savings" aria-label="Economia na fatura">
-        <span class="hu03-leaf-circle"><svg class="hu03-icon"><use href="#hu03-icon-leaf"/></svg></span>
-        <p>Você economizou <strong><span id="hu03-savings-value">R$ 37,40</span> <span>nesta fatura</span></strong></p>
-        <svg class="hu03-savings-graphic" viewBox="0 0 78 44" aria-hidden="true">
-          <rect x="1" y="3" width="45" height="4" rx="2" fill="#9de6bc"/><rect x="1" y="12" width="30" height="4" rx="2" fill="#bfeecf"/>
-          <rect x="18" y="31" width="11" height="13" rx="2" fill="#8cdbb2"/><rect x="34" y="23" width="11" height="21" rx="2" fill="#72d89f"/>
-          <rect x="50" y="14" width="11" height="30" rx="2" fill="#54d68e"/><rect x="66" y="3" width="11" height="41" rx="2" fill="#34ca7a"/>
+      <!-- ECONOMIA -->
+
+      <section class="economia-fatura">
+        <span class="circulo-folha">
+          <svg class="icone">
+            <use href="#hu03-icon-leaf"/>
+          </svg>
+        </span>
+
+        <p>
+          Você economizou
+          <strong>
+            <span id="hu03-savings-value">R$ 37,40</span>
+            <span>nesta fatura</span>
+          </strong>
+        </p>
+
+        <svg class="grafico-economia" viewBox="0 0 78 44" aria-hidden="true">
+          <rect x="1" y="3" width="45" height="4" rx="2" fill="#9de6bc"/>
+          <rect x="1" y="12" width="30" height="4" rx="2" fill="#bfeecf"/>
+          <rect x="18" y="31" width="11" height="13" rx="2" fill="#8cdbb2"/>
+          <rect x="34" y="23" width="11" height="21" rx="2" fill="#72d89f"/>
+          <rect x="50" y="14" width="11" height="30" rx="2" fill="#54d68e"/>
+          <rect x="66" y="3" width="11" height="41" rx="2" fill="#34ca7a"/>
         </svg>
       </section>
 
-      <details class="hu03-breakdown" open>
-        <summary><span class="hu03-breakdown-title"><svg class="hu03-icon"><use href="#hu03-icon-bill"/></svg> Entenda a sua fatura</span><svg class="hu03-icon hu03-breakdown-chevron"><use href="#hu03-icon-chevron"/></svg></summary>
-        <div class="hu03-breakdown-content">
-          <p class="hu03-breakdown-subtitle">Energia, impostos e iluminação</p>
-          <dl class="hu03-charges">
-            <div><dt>Energia Consumida (<span id="hu03-energy-kwh">320</span> kWh)</dt><dd id="hu03-energy-cost">R$ 214,10</dd></div>
-            <div><dt>Impostos</dt><dd id="hu03-taxes">R$ 31,40</dd></div>
-            <div><dt>Iluminação Pública</dt><dd id="hu03-lighting">R$ 12,60</dd></div>
-            <div class="hu03-discount"><dt>Desconto Bulbe</dt><dd id="hu03-discount">−R$ 70,68</dd></div>
+      <!-- DETALHAMENTO DA FATURA -->
+
+      <details class="detalhamento" open>
+        <summary>
+          <span class="titulo-detalhes">
+            <svg class="icone">
+              <use href="#hu03-icon-bill"/>
+            </svg>
+            Entenda a sua fatura
+          </span>
+
+          <svg class="icone seta-detalhes">
+            <use href="#hu03-icon-chevron"/>
+          </svg>
+        </summary>
+
+        <div class="conteudo-detalhes">
+
+          <p class="subtitulo-detalhes">
+            Energia, impostos e iluminação
+          </p>
+
+          <dl class="valores">
+            <div>
+              <dt>Energia Consumida (<span id="hu03-energy-kwh">320</span> kWh)</dt>
+              <dd id="hu03-energy-cost">R$ 214,10</dd>
+            </div>
+
+            <div>
+              <dt>Impostos</dt>
+              <dd id="hu03-taxes">R$ 31,40</dd>
+            </div>
+
+            <div>
+              <dt>Iluminação Pública</dt>
+              <dd id="hu03-lighting">R$ 12,60</dd>
+            </div>
+
+            <div class="desconto">
+              <dt>Desconto Bulbe</dt>
+              <dd id="hu03-discount">−R$ 70,68</dd>
+            </div>
           </dl>
-          <div class="hu03-breakdown-total"><span>Total com desconto</span><strong id="hu03-breakdown-total">R$ 187,42</strong></div>
-          <p class="hu03-breakdown-explain">O desconto Bulbe é subtraído dos demais valores para chegar ao total desta conta.</p>
-          <p class="hu03-breakdown-footnote">Essa é uma fatura fictícia da Bulbe Energia.</p>
+
+          <div class="total-detalhes">
+            <span>Total com desconto</span>
+            <strong id="hu03-breakdown-total">R$ 187,42</strong>
+          </div>
+
+          <p class="explicacao hu03-breakdown-explain">
+            O desconto Bulbe é subtraído dos demais valores
+            para chegar ao total desta conta.
+          </p>
+
+          <p class="observacao">
+            Essa é uma fatura fictícia da Bulbe Energia.
+          </p>
         </div>
       </details>
 
-      <a class="hu03-calculator-link" href="HU02.html">
-        <span class="hu03-calculator-icon"><svg class="hu03-icon"><use href="#hu03-icon-chart"/></svg></span>
-        <span><strong>Calculadora de Economia</strong><small>Veja quanto você pode economizar</small></span>
-        <span class="hu03-calculator-arrow" aria-hidden="true">›</span>
+      <!-- CALCULADORA -->
+
+      <a class="link-calculadora" href="HU02.html">
+        <span class="icone-calculadora">
+          <svg class="icone">
+            <use href="#hu03-icon-chart"/>
+          </svg>
+        </span>
+
+        <span>
+          <strong>Calculadora de Economia</strong>
+          <small>Veja quanto você pode economizar</small>
+        </span>
+
+        <span class="seta-calculadora">›</span>
       </a>
 
-      <section class="hu03-history" aria-labelledby="hu03-history-title">
-        <h2 id="hu03-history-title">Histórico de Faturas</h2>
-        <div class="hu03-tabs" role="tablist" aria-label="Filtrar histórico de faturas">
-          <button type="button" class="hu03-tab" data-filter="todas" role="tab" aria-selected="true">Todas</button>
-          <button type="button" class="hu03-tab" data-filter="pendentes" role="tab" aria-selected="false">Pendentes</button>
-          <button type="button" class="hu03-tab" data-filter="pagas" role="tab" aria-selected="false">Pagas</button>
+      <!-- HISTORICO DE FATURAS -->
+
+      <section class="historico">
+        <h2>Histórico de Faturas</h2>
+
+        <div class="filtros" role="tablist" aria-label="Filtrar faturas">
+
+          <button
+            type="button"
+            class="filtro hu03-tab"
+            data-filter="todas"
+            role="tab"
+            aria-selected="true">
+            Todas
+          </button>
+
+          <button
+            type="button"
+            class="filtro hu03-tab"
+            data-filter="pendentes"
+            role="tab"
+            aria-selected="false">
+            Pendentes
+          </button>
+
+          <button
+            type="button"
+            class="filtro hu03-tab"
+            data-filter="pagas"
+            role="tab"
+            aria-selected="false">
+            Pagas
+          </button>
         </div>
-        <div class="hu03-history-list" id="hu03-history-list" role="tabpanel" aria-live="polite" aria-label="Faturas filtradas">
-          <p class="hu03-loading">Carregando faturas de demonstração...</p>
+
+        <div
+          class="lista-faturas"
+          id="hu03-history-list"
+          role="tabpanel"
+          aria-live="polite">
+
+          <p class="carregando">
+            Carregando faturas de demonstração...
+          </p>
         </div>
       </section>
     </main>
 
-    <!-- Rodapé compartilhado: mesma classe usada no HU03.html original. -->
-    <nav class="menu-footer hu03-footer" aria-label="Navegação principal">
-      <a href="Acesso.html" aria-label="Início"><img src="../assets/img/Icone-Inicio-Cinza.png" alt=""><span>Início</span></a>
-      <a href="HU03.html" aria-current="page" aria-label="Faturas"><img src="../assets/img/Icone-Fatura-Cinza.png" alt=""><span>Faturas</span></a>
-      <a href="HU02-consumo.html" aria-label="Consumo"><img src="../assets/img/Icone-Consumo-Cinza.png" alt=""><span>Consumo</span></a>
+    <!-- MENU INFERIOR -->
+
+    <nav class="menu-footer rodape" aria-label="Navegação principal">
+
+      <a href="Acesso.html" aria-label="Início">
+        <img src="../assets/img/Icone-Inicio-Cinza.png" alt="">
+        <span>Início</span>
+      </a>
+
+      <a href="HU03.html" aria-current="page" aria-label="Faturas">
+        <img src="../assets/img/Icone-Fatura-Cinza.png" alt="">
+        <span>Faturas</span>
+      </a>
+
+      <a href="HU02-consumo.html" aria-label="Consumo">
+        <img src="../assets/img/Icone-Consumo-Cinza.png" alt="">
+        <span>Consumo</span>
+      </a>
     </nav>
+
   </div>
 </body>
 </html>
