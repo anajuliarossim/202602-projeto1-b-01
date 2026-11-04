@@ -1178,8 +1178,11 @@ body.pagina-mapa {
 }
 
 .checkin-acao button {
-  width: 100%;
+  display: block;
+  width: 90%;
+  max-width: 280px;
   min-height: 48px;
+  margin: 26px auto 0;
   padding: 12px 16px;
   border: 0;
   border-radius: 14px;
