@@ -1233,11 +1233,8 @@ body.pagina-mapa {
 }
 
 .checkin-motivacao {
-  margin: 0;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: #edfaf5;
-  color: #176f56;
+  margin: 12px 0 0;
+  color: #5b6475;
 }
 
 .checkin-motivacao p {
