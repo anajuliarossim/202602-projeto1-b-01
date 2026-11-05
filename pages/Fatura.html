@@ -89,6 +89,55 @@
         <p id="mensagemDesconto" class="mensagem" role="status"></p>
       </section>
 
+      <!-- Fica ANTES do pagamento, conforme o print aprovado. -->
+      <details class="detalhes" open>
+        <summary><strong>Entenda a sua fatura</strong><small>Veja os principais detalhes do seu consumo.</small></summary>
+        <div class="resumo-consumo">
+          <div><small>Consumo</small><strong id="consumoKwh">-- kWh</strong></div>
+          <div><small>Tarifa (kWh)</small><strong id="tarifaKwh">R$ 0,00</strong></div>
+          <div><small>Período</small><strong id="periodo">--</strong></div>
+        </div>
+        <dl class="valores-fatura">
+          <div><dt>Energia</dt><dd id="valorEnergia">R$ 0,00</dd></div>
+          <div><dt>Impostos</dt><dd id="valorImpostos">R$ 0,00</dd></div>
+          <div><dt>Iluminação pública</dt><dd id="valorIluminacao">R$ 0,00</dd></div>
+          <div><dt>Desconto Bulbe</dt><dd id="descontoBulbe">R$ 0,00</dd></div>
+          <div id="linhaDescontoCheckin" hidden><dt>Desconto check-in</dt><dd id="descontoCheckin">R$ 0,00</dd></div>
+        </dl>
+        <div class="total-detalhes"><strong>Total a pagar</strong><strong id="totalPagar">R$ 0,00</strong></div>
+      </details>
+
+      <section class="pagamentos">
+        <h2>Como prefere pagar?</h2>
+        <p>Escolha a forma de pagamento da sua fatura.</p>
+        <div class="opcoes-pagamento" role="group" aria-label="Formas de pagamento">
+          <button type="button" class="forma selecionada" data-metodo="pix" aria-pressed="true">
+            <img src="../assets/img/Icone-Pix.png" alt=""><span><strong>Pix</strong><small>Pagamento instantâneo</small></span><i></i>
+          </button>
+          <button type="button" class="forma" data-metodo="boleto" aria-pressed="false">
+            <img src="../assets/img/Icone-Boleto.png" alt=""><span><strong>Boleto</strong><small>Compensação bancária</small></span><i></i>
+          </button>
+          <button type="button" class="forma" data-metodo="cartao" aria-pressed="false">
+            <img src="../assets/img/Icone-Cartao.png" alt=""><span><strong>Cartão</strong><small>Crédito ou débito</small></span><i></i>
+          </button>
+        </div>
+        <button type="button" id="pagarAgora" class="botao-pagar" disabled>Pagar com Pix</button>
+        <p id="mensagemPagamento" class="mensagem" role="status"></p>
+      </section>
+
+      <section class="historico">
+        <h2>Histórico de faturas</h2>
+        <div class="filtros" role="group" aria-label="Filtrar faturas">
+          <button type="button" data-filtro="todas" class="ativo" aria-pressed="true">Todas</button>
+          <button type="button" data-filtro="pendentes" aria-pressed="false">Pendentes</button>
+          <button type="button" data-filtro="pagas" aria-pressed="false">Pagas</button>
+        </div>
+        <div id="listaFaturas" aria-live="polite">Carregando faturas...</div>
+      </section>
+    </main>
+  </div>
+
+
 
 <script src="../assets/js/template.js"></script>
 </body>
