@@ -100,3 +100,87 @@ function exibirHistorico() {
   }
   visiveis.forEach(f => lista.append(criarLinha(f)));
 }
+
+// O projeto ainda não tem o serviço /api/pagamentos/iniciar.
+// A interface não pode confirmar uma cobrança sem a resposta do servidor.
+async function pagar() {
+  if (!atual || atual.status !== 'aberta') return;
+  const botao = $('pagarAgora');
+  botao.disabled = true;
+  $('mensagemPagamento').textContent = 'Conectando ao pagamento seguro...';
+  try {
+    const resposta = await fetch('/api/pagamentos/iniciar', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ faturaId: atual.id, metodo, usarSaldoCheckin: usarDesconto && lerSaldo() > 0 })
+    });
+    if (!resposta.ok) throw new Error('Serviço indisponível');
+    const dados = await resposta.json();
+    if (typeof dados.checkoutUrl !== 'string' || !dados.checkoutUrl.trim()) {
+      throw new Error('O servidor não informou um checkout válido');
+    }
+    const url = new URL(dados.checkoutUrl, location.origin);
+    if (url.protocol !== 'https:' && url.origin !== location.origin) throw new Error('URL insegura');
+    location.assign(url.href);
+  } catch (erro) {
+    console.error(erro);
+    $('mensagemPagamento').textContent = 'Pagamento indisponível. Falta integrar o servidor de cobrança.';
+    botao.disabled = false;
+  }
+}
+
+$('aplicarDesconto').addEventListener('click', () => {
+  usarDesconto = !usarDesconto;
+  atualizarValores();
+});
+
+$('notificacoesBotao').addEventListener('click', () => {
+  const painel = $('notificacoesPainel');
+  painel.hidden = !painel.hidden;
+  $('notificacoesBotao').setAttribute('aria-expanded', String(!painel.hidden));
+});
+$('abrirModal').addEventListener('click', () => {
+  $('notificacoesPainel').hidden = true;
+  $('notificacoesBotao').setAttribute('aria-expanded', 'false');
+});
+
+for (const botao of document.querySelectorAll('[data-metodo]')) {
+  botao.addEventListener('click', () => {
+    metodo = botao.dataset.metodo;
+    for (const item of document.querySelectorAll('[data-metodo]')) {
+      const selecionado = item === botao;
+      item.classList.toggle('selecionada', selecionado);
+      item.setAttribute('aria-pressed', String(selecionado));
+    }
+    const nomes = {pix: 'Pix', boleto: 'Boleto', cartao: 'Cartão'};
+    $('pagarAgora').textContent = `Pagar com ${nomes[metodo]}`;
+  });
+}
+
+for (const botao of document.querySelectorAll('[data-filtro]')) {
+  botao.addEventListener('click', () => {
+    filtro = botao.dataset.filtro;
+    for (const item of document.querySelectorAll('[data-filtro]')) {
+      item.classList.toggle('ativo', item === botao);
+      item.setAttribute('aria-pressed', String(item === botao));
+    }
+    exibirHistorico();
+  });
+}
+
+$('pagarAgora').addEventListener('click', pagar);
+window.addEventListener('pageshow', atualizarValores);
+window.addEventListener('storage', e => {
+  if (e.key === 'bulbe-checkins-diarios') atualizarValores();
+});
+
+try {
+  faturas = (await buscarFaturasDoCliente(3)).sort((a, b) => b.referencia.localeCompare(a.referencia));
+  const faturaAtual = faturas.find(f => f.status === 'aberta') || faturas[0];
+  if (faturaAtual) exibirFatura(faturaAtual);
+  exibirHistorico();
+} catch (erro) {
+  console.error(erro);
+  $('listaFaturas').textContent = 'Não foi possível carregar os dados. Use o Live Server.';
+}
