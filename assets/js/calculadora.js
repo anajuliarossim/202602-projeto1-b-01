@@ -135,7 +135,8 @@ function iniciarResultado(tela) {
       return;
     }
 
-    window.location.replace(PAGINAS.calculadora);
+    const inicial = window.location.pathname.endsWith('_Inicial.html');
+    window.location.replace(inicial ? PAGINAS.calculadoraInicial : PAGINAS.calculadora);
     return;
   }
 

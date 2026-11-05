@@ -2878,7 +2878,6 @@ body.telaOnboarding.onboardingBulbe {
   outline-offset: -4px;
 }
 
-/* Mantém o rodapé depois do conteúdo nas telas da calculadora e resultados. */
 .app > .corpo {
   display: flex;
   flex: 1 0 auto;
