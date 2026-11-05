@@ -25,6 +25,18 @@ body.telaComMenu {
   background-color: var(--cor-primaria);
 }
 
+main.calculadora{
+  border-radius: 0;
+}
+
+main[data-tela="economia"]{
+  border-radius: 0;
+}
+
+main[data-tela="consumo"]{
+  border-radius: 0;
+}
+
 .calculadora input{
   margin: 0 auto;
 }
