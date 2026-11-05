@@ -8,6 +8,12 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="../assets/js/mascaras-formularios.js" defer></script>
+  <style>
+    /* Mantém a fonte dos antigos links ao usar botões nativos. */
+    #next-cadastro { font-family: inherit; cursor: pointer; }
+    #next-cadastro:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  </style>
 </head>
 <body class="body-blank">
   <header class="topo-branco">
@@ -21,32 +27,32 @@
     <h1 class="titulo-cadastro">Informe seu endereço</h1>
     <p  class="subtitulo-cadastro">Informe o endereço da unidade consumidora</p>
 
-    <form action="">
+    <form id="form-cadastro2" action="Cadastro3.html" method="post" data-navegacao-validada>
         <div class="input-group">
         <label for="cep">CEP<i class="requirido">*</i></label>
-        <input type="number" id="cep" name="cep" placeholder="00000-000" required>
+        <input type="text" inputmode="numeric" autocomplete="postal-code" maxlength="9" pattern="[0-9]{5}-[0-9]{3}" data-mascara="cep" title="Use o formato 00000-000." id="cep" name="cep" placeholder="00000-000" required>
         </div>
         <div class="input-group">
         <label for="endereço">Endereço<i class="requirido">*</i></label>
-        <input type="text" id="endereço" name="endereço" placeholder="Rua, Avenida..." required>
+        <input type="text" autocomplete="address-line1" maxlength="200" id="endereço" name="endereço" placeholder="Rua, Avenida..." required>
         </div>
         <div class="input-group">
         <label for="numeroE">Número<i class="requirido">*</i></label>
-        <input type="number" id="numeroE" name="numeroE" placeholder="123" required>
+        <input type="text" maxlength="30" title="Informe o número, incluindo letras se necessário, ou s/n." id="numeroE" name="numeroE" placeholder="123, 12A ou s/n" required>
         </div>
         <div class="input-group">
         <label for="bairro">Bairro<i class="requirido">*</i></label>
-        <input type="text" id="bairro" name="bairro" placeholder="Seu bairro" required>
+        <input type="text" maxlength="100" id="bairro" name="bairro" placeholder="Seu bairro" required>
         </div>
         <div class="input-group">
         <label for="complemento">Complemento</label>
-        <input type="text" id="complemento" name="complemento" placeholder="Apto, bloco...">
+        <input type="text" autocomplete="address-line2" maxlength="150" id="complemento" name="complemento" placeholder="Apto, bloco...">
         </div>
     </form>
   </main>
   <footer id="footer2-cadastro">
     <a href="Cadastro1.html" id="back-cadastro">Voltar</a>
-    <a href="Cadastro3.html" id="next-cadastro">Próximo</a>
+    <button type="submit" form="form-cadastro2" id="next-cadastro">Próximo</button>
   </footer>
 </body>
 </html>

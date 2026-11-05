@@ -2144,6 +2144,37 @@ body.telaOnboarding.onboardingBulbe {
   outline: 2px solid var(--cor-primaria, #08068d);
   outline-offset: -4px;
 }
+#titulo-entrar{
+  text-align: start;
+}
+.subtitulo-cadastro #duvida-entrar{
+  font-size: small;
+}
+#confirmar-entrar{
+  margin: 10px auto;
+  margin-top: 50px;
+  margin-left: 9px;
+  width: 95%;
+  padding: 15px;
+
+  border: transparent;
+  border-radius: 8px;
+
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  
+  color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
+
+  display: flex;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 
 .app > .corpo {
   display: flex;
@@ -2168,7 +2199,6 @@ body.telaOnboarding.onboardingBulbe {
 .TelaCheia > main {
   flex: 1 0 auto;
 }
-
 .TelaCheia + .menu-footer {
   position: static;
 }

@@ -8,6 +8,12 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <script src="../assets/js/mascaras-formularios.js" defer></script>
+      <style>
+        /* Mantém a fonte dos antigos links ao usar botões nativos. */
+        #quero-economizar { font-family: inherit; cursor: pointer; }
+        #quero-economizar:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  </style>
 </head>
 <body class="body-blank">
   <header class="topo-branco">
@@ -22,28 +28,28 @@
     <p  class="subtitulo-cadastro">Vamos começar! Preencha seus dados 
     para continuar</p>
 
-    <form action="">
+    <form id="form-cadastro1" action="Cadastro2.html" method="post" data-navegacao-validada>
         <div class="input-group">
         <label for="nome">Nome completo<i class="requirido">*</i></label>
-        <input type="text" id="nome" name="nome" placeholder="Nome e sobrenome" required>
+        <input type="text" autocomplete="name" maxlength="150" id="nome" name="nome" placeholder="Nome e sobrenome" required>
         </div>
         <div class="input-group">
         <label for="email">E-mail<i class="requirido">*</i></label>
-        <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+        <input type="email" autocomplete="email" maxlength="254" autocapitalize="none" spellcheck="false" id="email" name="email" placeholder="nome@email.com" required>
         </div>
         <div class="input-group">
         <label for="numero">Número de Contato<i class="requirido">*</i></label>
-        <input type="number" id="numero" name="numero" placeholder="(00) 90000-0000" required>
+        <input type="text" inputmode="numeric" autocomplete="tel-national" maxlength="15" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" data-mascara="telefone" title="Use o formato (00) 00000-0000, com DDD e 11 dígitos." id="numero" name="numero" placeholder="(00) 00000-0000" required>
         </div>
         <div class="input-group">
         <label for="cpf">CPF<i class="requirido">*</i></label>
-        <input type="number" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+        <input type="text" inputmode="numeric" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" data-mascara="cpf" title="Use o formato 000.000.000-00." id="cpf" name="cpf" placeholder="000.000.000-00" required>
         </div>
     </form>
   </main>
   <footer>
     <p id="cadastro-termos">Ao submeter minhas respostas e clicar em <strong>“Quero economizar”</strong>, concordo com a <a href="">Política de Privacidade</a> da Bulbe energia.</p>
-    <a href="Cadastro2.html" id="quero-economizar">Quero Economizar</a>
+    <button type="submit" form="form-cadastro1" id="quero-economizar">Quero Economizar</button>
   </footer>
 </body>
 </html>
