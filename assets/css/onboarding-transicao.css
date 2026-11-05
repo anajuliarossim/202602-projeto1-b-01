@@ -1,0 +1,39 @@
+/* Carregado apenas pela Home e pelo Onboarding-1. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 560ms;
+}
+
+/* Mantém a captura da Home imóvel, abaixo da página que está entrando. */
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+html.entrada-onboarding::view-transition-new(root) {
+  animation: onboarding-subir 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes onboarding-subir {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Mantém o opt-in estável; remove somente o movimento. */
+  ::view-transition-group(root),
+  html.entrada-onboarding::view-transition-new(root) {
+    animation: none;
+  }
+}
