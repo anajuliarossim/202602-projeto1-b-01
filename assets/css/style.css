@@ -610,6 +610,20 @@ width: 100%;
 .pagina-faturas #descontoBulbe, .pagina-faturas #descontoCheckin { color: #0aa968; }
 .pagina-faturas .total-detalhes { display: flex; justify-content: space-between; padding: 13px 15px; background: #eff4ff; color: var(--azul); font-size: 12px; }
 
+/* Pagamento */
+.pagina-faturas .pagamentos > p { margin: 4px 0 13px; color: #7886a1; font-size: 11px; }
+.pagina-faturas .opcoes-pagamento { display: grid; gap: 8px; }
+.pagina-faturas .forma { display: flex; width: 100%; gap: 10px; align-items: center; padding: 10px; border: 1px solid #e0e6f3; border-radius: 10px; background: #f4f6fa; text-align: left; }
+.pagina-faturas .forma.selecionada { border-color: #697fff; background: #ebf0ff; }
+.pagina-faturas .forma img { width: 27px; height: 27px; object-fit: contain; }
+.pagina-faturas .forma span { flex: 1; }
+.pagina-faturas .forma strong { display: block; font-size: 12px; color: var(--texto-fatura); }
+.pagina-faturas .forma small { display: block; font-size: 10px; color: #7886a1; }
+.pagina-faturas .forma i { width: 17px; height: 17px; border: 1px solid #a3b5d4; border-radius: 50%; }
+.pagina-faturas .forma.selecionada i { border: 5px solid var(--azul); }
+.pagina-faturas .botao-pagar { width: 100%; padding: 12px; margin-top: 12px; border: 0; border-radius: 9px; background: #113b92; color: white; font-weight: 700; }
+.pagina-faturas .botao-pagar:disabled { opacity: .6; cursor: not-allowed; }
+
 .corpo{
   background-color: var(--cor-primaria);
 }
