@@ -1810,12 +1810,15 @@ label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-pr
 }
 .input-group{
   position: relative;
+  margin-bottom: 20px;
 }
 .input-group label{
   position: absolute;
   left: 12px;
   bottom: 36px;
   color: #536679;
+  background-color: var(--cor-fundo);
+  padding: 0 3px;
 }
 
 /* Telas mobile dimensionadas para a largura do iPhone SE. */
@@ -2388,4 +2391,128 @@ body.tela-checkin {
   align-items: center;
   text-align: center;
   font-size: 1.0rem;
+}
+}
+body.pagina-home {
+  --home-azul: #1027e8;
+  --home-marinho: #071b61;
+  --home-verde: #00a86b;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  background: #fff;
+  color: var(--home-marinho);
+  font-family: 'Poppins', Arial, sans-serif;
+}
+.pagina-home *, .pagina-home *::before, .pagina-home *::after { box-sizing: border-box; }
+.pagina-home .corpo { background: #08068d; }
+.pagina-home .topo .logo-cabecalho { margin: 0; }
+.pagina-home .home-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 28px 18px 24px;
+  background: #fff;
+  border: 0;
+  border-radius: 24px 24px 0 0;
+}
+.pagina-home .home-conteudo h1,
+.pagina-home .home-conteudo h2,
+.pagina-home .home-conteudo p { margin: 0; text-align: left; }
+.pagina-home .home-conteudo h1 { color: var(--home-azul); font-size: 21px; line-height: 1.25; font-weight: 700; }
+.pagina-home .home-conteudo h2 { font-size: 19px; line-height: 1.15; font-weight: 700; }
+.pagina-home .home-conteudo a { text-decoration: none; }
+.pagina-home .home-conteudo button { font-family: inherit; cursor: pointer; }
+.pagina-home .home-conteudo img { display: block; max-width: 100%; object-fit: contain; }
+/* Mantém o espaço reservado e esconde o ícone de imagem quebrada. */
+.pagina-home img[src=""] { visibility: hidden; }
+.pagina-home :is(a, button):focus-visible { outline: 3px solid #f2ae00; outline-offset: 4px; }
+.pagina-home .home-linha-titulo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.pagina-home .home-status { padding: 5px 14px; border-radius: 30px; color: var(--home-azul); background: #e8edff; font-size: 12px; white-space: nowrap; }
+.pagina-home .home-conteudo .home-legenda { color: #8b94a9; font-size: 13px; }
+.pagina-home .home-conteudo .home-valor { display: flex; align-items: baseline; gap: 5px; color: var(--home-azul); font-size: clamp(32px, 9vw, 40px); font-weight: 800; line-height: 1.4; }
+.pagina-home .home-valor > span:first-child { font-size: 19px; }
+.pagina-home .home-raios { width: 22px; height: 25px; margin-left: 6px; background: linear-gradient(155deg, transparent 40%, #00c78b 43% 53%, transparent 56%) top / 100% 40% no-repeat, linear-gradient(10deg, transparent 40%, #0db5ed 43% 53%, transparent 56%) center / 100% 40% no-repeat, linear-gradient(35deg, transparent 40%, #ffc300 43% 53%, transparent 56%) bottom / 100% 40% no-repeat; }
+.pagina-home .home-conteudo .home-vencimento { display: flex; gap: 7px; align-items: center; color: var(--home-azul); font-size: 12px; margin-bottom: 17px; }
+.pagina-home .home-calendario { width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 2px; background: linear-gradient(currentColor, currentColor) 0 3px / 100% 2px no-repeat; }
+.pagina-home .home-economia-mes { display: flex; align-items: center; gap: 9px; min-height: 53px; padding: 8px 12px; border-radius: 10px; background: #e5fbf1; }
+.pagina-home .home-icone-economia { width: 39px; height: 37px; flex: none; }
+.pagina-home .home-economia-mes p { font-size: 12px; color: var(--home-marinho); }
+.pagina-home .home-economia-mes strong { color: var(--home-verde); }
+.pagina-home .home-confete { margin-left: auto; color: #f9b900; }
+.pagina-home .home-saldo { display: flex; align-items: center; gap: 9px; padding: 10px 12px; margin-top: 10px; background: #f4f6fa; border-radius: 10px; }
+.pagina-home .home-saldo > div { flex: 1; min-width: 0; }
+.pagina-home .home-saldo p { font-size: 9px; color: #8c94a5; }
+.pagina-home .home-saldo strong { display: block; font-size: 16px; line-height: 1.2; color: var(--home-azul); }
+.pagina-home .home-moedas { width: 21px; height: 23px; flex: none; border-radius: 50% / 18%; background: repeating-linear-gradient(to bottom, #ffb625 0 5px, #f39900 5px 7px); }
+.pagina-home .home-pill { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; border: 0; border-radius: 30px; padding: 8px 12px; background: #e7edff; color: var(--home-azul); font-size: 9px; line-height: 1.3; font-weight: 500; }
+.pagina-home .home-acoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.pagina-home .home-botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 10px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 600; line-height: 1.3; }
+.pagina-home .home-botao-azul { color: #fff; background: var(--home-azul); }
+.pagina-home .home-botao-borda { color: var(--home-azul); border-color: var(--home-azul); background: #fff; }
+.pagina-home .home-icone-pix { width: 27px; height: 27px; }
+.pagina-home .home-codigo { width: 25px; height: 23px; flex: none; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px); }
+.pagina-home .home-aviso { display: grid; grid-template-columns: 35% minmax(0, 1fr); align-items: center; gap: 8px; padding: 12px 12px 12px 5px; border: 1px solid #cee1fa; border-radius: 17px; background: linear-gradient(120deg, #e8f7ff, #d5e7fd); }
+.pagina-home .home-img-faturas { width: 100%; height: 116px; }
+.pagina-home .home-etiqueta { display: inline-block; padding: 3px 7px; border-radius: 20px; color: #062b7d; background: #bedbff; font-size: 8px; font-weight: 600; }
+.pagina-home .home-aviso h2 { margin: 6px 0; font-size: 14px; color: #063aaf; }
+.pagina-home .home-aviso p { color: #4b6b8e; font-size: 9px; line-height: 1.45; }
+.pagina-home .home-economia { padding: 5px 8px 0; }
+.pagina-home .home-economia-topo { display: grid; grid-template-columns: 25% minmax(0, 1fr) auto; align-items: center; gap: 7px; }
+.pagina-home .home-img-porquinho { width: 100%; height: 86px; }
+.pagina-home .home-economia-total h2 { font-size: 20px; letter-spacing: -.7px; color: var(--home-marinho); }
+.pagina-home .home-economia-total > strong { display: block; font-size: 27px; color: #04934b; line-height: 1.1; letter-spacing: -.7px; }
+.pagina-home .home-economia-total p { font-size: 9px; color: #47816d; }
+.pagina-home .home-crescimento { padding: 7px; border: 1px solid #caedd7; border-radius: 10px; background: #effdf4; text-align: center; transform: rotate(-4deg); }
+.pagina-home .home-crescimento strong { display: block; font-size: 17px; color: #00a35a; }
+.pagina-home .home-crescimento span { display: block; font-size: 7px; line-height: 1.2; color: #648a77; }
+.pagina-home .home-grafico { margin: 25px 4px 0; }
+.pagina-home .home-barras { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 15px; height: 90px; }
+.pagina-home .home-coluna { display: grid; grid-template-rows: 1fr 18px; gap: 4px; align-items: end; text-align: center; font-size: 9px; color: #94a09a; }
+.pagina-home .home-barra { position: relative; display: block; width: 100%; height: var(--altura); min-height: 12px; border-radius: 4px 4px 0 0; background: linear-gradient(#a4e8bc, #f1fbf5); }
+.pagina-home .home-barra small { position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); font-size: 7px; font-weight: 500; white-space: nowrap; color: #71b38d; }
+.pagina-home .home-coluna-atual .home-barra { background: linear-gradient(#00ac62, #c8f1d8); }
+.pagina-home .home-coluna-atual small { border-radius: 5px; padding: 3px 5px; background: #05a75f; color: #fff; }
+.pagina-home .home-grafico-rodape { display: flex; justify-content: flex-end; margin-top: 10px; }
+.pagina-home .home-grafico-rodape .home-pill { font-size: 8px; padding: 6px 10px; }
+.pagina-home .home-checkin { position: relative; display: grid; grid-template-columns: 56% 44%; min-height: 116px; overflow: hidden; border-radius: 14px; background: linear-gradient(110deg, #0734bb, #1035d0); }
+.pagina-home .home-checkin-texto { padding: 15px 0 14px 17px; z-index: 1; }
+.pagina-home .home-checkin h2 { color: #fff; font-size: 18px; }
+.pagina-home .home-checkin p { max-width: 25ch; margin-top: 6px; color: #e4ecff; font-size: 10px; line-height: 1.5; }
+.pagina-home .home-botao-branco { min-height: 29px; margin-top: 10px; padding: 6px 15px; background: #fff; color: var(--home-azul); font-size: 10px; }
+.pagina-home .home-img-checkin { align-self: end; width: 100%; height: 125px; object-position: bottom; }
+.pagina-home .home-usina { overflow: hidden; border: 1px solid #e8eaf3; border-radius: 18px; background: #fff; box-shadow: 0 3px 9px #0b24700d; }
+.pagina-home .home-usina-foto { height: 108px; background: #e9eff4; }
+.pagina-home .home-usina-foto img { width: 100%; height: 100%; object-fit: cover; }
+.pagina-home .home-usina-conteudo { display: flex; align-items: center; gap: 10px; padding: 12px 13px; }
+.pagina-home .home-usina-conteudo > div { min-width: 0; flex: 1; }
+.pagina-home .home-usina h2 { font-size: 13px; color: #0927a1; }
+.pagina-home .home-usina p { margin-top: 5px; font-size: 10px; line-height: 1.4; color: #6b768e; }
+.pagina-home .home-dica { display: grid; grid-template-columns: 32% minmax(0, 1fr); align-items: center; gap: 8px; padding: 10px 18px 10px 5px; overflow: hidden; border-radius: 14px; background: radial-gradient(ellipse at 18% 110%, #b5b4f0 0, transparent 48%), linear-gradient(110deg, #102a92, #0833ba); }
+.pagina-home .home-img-lampada { width: 100%; height: 100px; }
+.pagina-home .home-dica h2 { margin-bottom: 5px; color: #fff; font-size: 23px; }
+.pagina-home .home-dica p { font-size: 10px; color: #d8e1ff; line-height: 1.45; }
+.pagina-home .home-dica strong { display: block; margin-top: 3px; color: #fff; font-size: 10px; }
+.pagina-home .menu-footer { left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; box-shadow: 0 -2px 12px #10205b15; }
+@media (hover: hover) {
+  .pagina-home .home-botao:hover, .pagina-home .home-pill:hover { filter: brightness(.95); }
+}
+@media (max-width: 360px) {
+  .pagina-home .home-conteudo { padding-inline: 13px; gap: 20px; }
+  .pagina-home .home-conteudo h1 { font-size: 19px; }
+  .pagina-home .home-saldo { padding-inline: 8px; gap: 7px; }
+  .pagina-home .home-saldo .home-pill { padding: 7px 8px; font-size: 8px; }
+  .pagina-home .home-economia-total h2 { font-size: 16px; }
+  .pagina-home .home-economia-total > strong { font-size: 23px; }
+  .pagina-home .home-crescimento strong { font-size: 14px; }
+  .pagina-home .home-aviso h2 { font-size: 12px; }
+  .pagina-home .home-checkin h2 { font-size: 17px; }
+  .pagina-home .home-usina-conteudo { gap: 7px; padding-inline: 10px; }
+  .pagina-home .home-usina .home-pill { padding: 7px 9px; font-size: 8px; }
 }
