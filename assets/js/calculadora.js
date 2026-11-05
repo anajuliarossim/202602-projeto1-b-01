@@ -1,5 +1,4 @@
-/* Calculadora de economia Bulbe (HU02): estimativa para clientes Cemig (MG).
-   Usado nas três telas: HU02.html, HU02-consumo.html e HU02-Economia.html. */
+/* Calculadora de economia Bulbe: fluxo do app e fluxo inicial. */
 'use strict';
 
 /* ---------- Premissas: ajuste só aqui ---------- */
@@ -18,7 +17,12 @@ const CONFIG = {
 };
 
 const CHAVE = 'bulbe:simulacao';
-const PAGINAS = { calculadora: 'Calculadora.html', consumo: 'Consumo.html' };
+const PAGINAS = {
+  calculadora: 'Calculadora.html',
+  calculadoraInicial: 'Calculadora_Inicial.html',
+  consumo: 'Consumo.html',
+  consumoInicial: 'Consumo_Inicial.html',
+};
 
 /* ---------- Formatação ---------- */
 const fmtNum = (v) => Math.round(v).toLocaleString('pt-BR');
@@ -78,7 +82,7 @@ function iniciarCalculadora(form) {
     if (!valido) { form.reportValidity(); return; }
 
     salvar({ meses: Math.round(meses), consumo });
-    window.location.href = PAGINAS.consumo;
+    window.location.href = form.dataset.destino || PAGINAS.consumo;
   });
 }
 
@@ -123,7 +127,11 @@ function textoPremissas(r) {
 
 function iniciarResultado(tela) {
   const dados = ler();
-  if (!dados) { window.location.replace(PAGINAS.calculadora); return; }
+  if (!dados) {
+    const inicial = window.location.pathname.endsWith('_Inicial.html');
+    window.location.replace(inicial ? PAGINAS.calculadoraInicial : PAGINAS.calculadora);
+    return;
+  }
 
   const r = calcular(dados);
   const marcos = marcosDoPeriodo(dados.meses, CONFIG.pontosGrafico);
@@ -148,15 +156,6 @@ function iniciarResultado(tela) {
   }
   preencher({ premissas: textoPremissas(r) });
 }
-
-/* ---------- Início ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('formCalculadora');
-  if (form) { iniciarCalculadora(form); return; }
-
-  const main = document.querySelector('main[data-tela]');
-  if (main) iniciarResultado(main.dataset.tela);
-});
 
 /* ---------- Carrossel dos cartões ---------- */
 function iniciarCarrossel() {
@@ -192,5 +191,18 @@ function iniciarCarrossel() {
   trilho.addEventListener('scroll', marcar, { passive: true });
   marcar();
 }
-const main = document.querySelector('main[data-tela]');
-if (main) { iniciarResultado(main.dataset.tela); iniciarCarrossel(); }
+
+/* ---------- Inicialização compartilhada ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('formCalculadora');
+  if (form) {
+    iniciarCalculadora(form);
+    return;
+  }
+
+  const main = document.querySelector('main[data-tela]');
+  if (main) {
+    iniciarResultado(main.dataset.tela);
+    iniciarCarrossel();
+  }
+});
