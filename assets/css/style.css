@@ -2392,7 +2392,6 @@ body.tela-checkin {
   text-align: center;
   font-size: 1.0rem;
 }
-}
 body.pagina-home {
   --home-azul: #1027e8;
   --home-marinho: #071b61;
@@ -2823,4 +2822,60 @@ body.telaOnboarding.onboardingBulbe {
 }
 .onboardingBulbe .onboardingContent {
     margin-top: -50px;
+}
+
+/* FOOTER: ícone azul e linha superior na página ativa.
+   Adicionado ao final para prevalecer sobre as regras antigas. */
+.menu-footer > .button-template {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 2px 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* O ícone já inclui o nome da página na imagem do projeto. */
+.menu-footer > .button-template .icone-footer {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Somente um ícone por vez: cinza por padrão, azul quando ativo. */
+.menu-footer > .button-template .icone-azul {
+  display: none;
+}
+
+.menu-footer > .button-template.ativo .icone-cinza {
+  display: none;
+}
+
+.menu-footer > .button-template.ativo .icone-azul {
+  display: block;
+  height: 40px;
+}
+
+/* Traço azul concentrado acima da aba ativa, como na referência. */
+.menu-footer > .button-template.ativo::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--cor-primaria, #08068d);
+}
+
+.menu-footer > .button-template:focus-visible {
+  outline: 2px solid var(--cor-primaria, #08068d);
+  outline-offset: -4px;
 }
