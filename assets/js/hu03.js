@@ -15,7 +15,9 @@ let usarDesconto = false;
 
 function nomeMes(referencia) {
   const [ano, mes] = referencia.split('-').map(Number);
-  return `${meses[mes - 1] || 'Mês'} ${ano}`;
+  const nome = meses[mes - 1] || 'Mês';
+
+  return `${nome.charAt(0).toUpperCase()}${nome.slice(1)} ${ano}`;
 }
 
 // O checkin.js do grupo salva uma data por check-in, valendo R$ 0,50.
