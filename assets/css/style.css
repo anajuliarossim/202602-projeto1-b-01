@@ -548,6 +548,23 @@ width: 100%;
 
 /*HU03*/
 /* Estilos exclusivos da Central de Faturas. O cabeçalho, menu e rodapé usam o template. */
+
+/* Organização da página */
+.pagina-faturas .conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: flex-start;
+}
+
+/* Título e instalação */
+.pagina-faturas .inicio-faturas {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+  padding: 0 0 25px 0; 
+}
+
 .pagina-faturas {
   --azul: #08068d;
   --texto-fatura: #102a6c;
@@ -569,10 +586,12 @@ width: 100%;
 .pagina-faturas button, .pagina-faturas select { font: inherit; cursor: pointer; }
 .pagina-faturas button:focus-visible, .pagina-faturas a:focus-visible { outline: 3px solid #6c9cf7; outline-offset: 2px; }
 
+.pagina-faturas .inicio-faturas h1 { margin-bottom: 4px; }
+
 /* Instalação e aviso CEMIG */
-.pagina-faturas .instalacao { display: flex; justify-content: space-between; align-items: center; padding: 5px; border: 1px solid var(--borda-fatura); border-radius: 10px; font-size: 13px; }
+.pagina-faturas .instalacao { margin-top: 0; display: flex; justify-content: space-between; align-items: center; padding: 5px; border: 1px solid var(--borda-fatura); border-radius: 10px; font-size: 13px; }
 .pagina-faturas .instalacao select { max-width: 160px; border: 0; background: transparent; color: var(--texto-fatura); font-weight: 600; }
-.pagina-faturas .aviso-cemig { display: flex; gap: 13px; align-items: center; padding: 15px 11px; background: #e9f8f2; border-radius: 13px; }
+.pagina-faturas .aviso-cemig { margin-bottom: 16px; display: flex; gap: 13px; align-items: center; padding: 15px 11px; background: #e9f8f2; border-radius: 13px; }
 .pagina-faturas .cemig-logo { color: #08744d; font-size: 22px; padding-right: 10px; border-right: 1px solid #8ebdb0; }
 .pagina-faturas .aviso-cemig div { flex: 1; }
 .pagina-faturas .aviso-cemig div strong { display: block; font-size: 12px; line-height: 1.3; }
