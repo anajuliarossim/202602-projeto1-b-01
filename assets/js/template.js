@@ -43,7 +43,7 @@ if (document.body.classList.contains("pagina-home") || /^home(?:\(\d+\))?\.html$
     abaAtual = "btnInicio";
 } else if (document.body.classList.contains("pagina-faturas") || /^faturas?\.html$/.test(nomePagina)) {
     abaAtual = "btnFaturas";
-} else if (/^consumo\.html$/.test(nomePagina) || document.querySelector('main[data-tela="consumo"]')) {
+} else if (/^consumo(?:_cliente)?\.html$/.test(nomePagina) || document.querySelector('main[data-tela="consumo"]')) {
     abaAtual = "btnConsumo";
 }
 

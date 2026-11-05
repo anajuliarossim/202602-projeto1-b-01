@@ -709,6 +709,9 @@ width: 100%;
 .app { max-width: 420px; min-height: 100vh; margin: 0 auto; background: #fff;
   display: flex; flex-direction: column; box-shadow: 0 0 30px rgba(8,6,141,.12); }
 main { flex: 1; padding: 24px 20px 28px; }
+body.pagina-cliente main {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom));
+}
 
 /* Tipografia e cartões */
 h1 { font-size: 1.4rem; color: var(--cor-primaria); text-align: center; margin-bottom: 8px; }
@@ -735,7 +738,7 @@ label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-pr
 
 /* Abas (Energia / Economia) */
 .abas { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; }
-.abas a { padding: 4px 18px; border-bottom: 2px solid transparent; color: #5b6477; font-size: .9rem; }
+.abas a { padding: 4px 18px; border-bottom: 2px solid transparent; color: #5b6477; font-size: .9rem; text-decoration: none; }
 .abas a[aria-current="page"] { color: var(--cor-primaria); border-color: var(--cor-primaria); font-weight: 600; }
 
 /* Gráfico de barras (só CSS) */
@@ -1633,6 +1636,12 @@ body.tela-checkin {
   margin: 20px auto 0;
 }
 
+@media (max-width: 420px) {
+  .ImgBanner {
+    width: min(350px, calc(100vw - 40px));
+    margin-left: 0;
+  }
+}
 
 .btn-voltar{
   display: flex;
