@@ -594,6 +594,22 @@ width: 100%;
 .pagina-faturas #aplicarDesconto { padding: 8px; border: 0; border-radius: 25px; color: var(--azul); background: #dfe8ff; font-size: 10px; }
 .pagina-faturas #aplicarDesconto:disabled { opacity: .55; cursor: not-allowed; }
 .pagina-faturas .mensagem { margin: 6px 0 0; font-size: 10px; color: #667894; }
+
+/* Detalhamento: usa <details>, sem necessidade de JavaScript */
+.pagina-faturas .detalhes { padding: 0; overflow: hidden; }
+.pagina-faturas .detalhes summary { display: grid; gap: 2px; padding: 15px; cursor: pointer; color: var(--texto-fatura); }
+.pagina-faturas .detalhes summary strong { font-size: 17px; }
+.pagina-faturas .detalhes summary small { color: #71809b; font-size: 11px; }
+.pagina-faturas .resumo-consumo { display: grid; grid-template-columns: repeat(3,1fr); padding: 12px 8px; border-top: 1px solid var(--borda-fatura); text-align: center; }
+.pagina-faturas .resumo-consumo div + div { border-left: 1px solid var(--borda-fatura); }
+.pagina-faturas .resumo-consumo small { display: block; color: #72809c; font-size: 10px; }
+.pagina-faturas .resumo-consumo strong { display: block; margin-top: 3px; color: var(--azul); font-size: 11px; }
+.pagina-faturas .valores-fatura { margin: 0 14px; border-top: 1px solid var(--borda-fatura); }
+.pagina-faturas .valores-fatura div { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: 11px; }
+.pagina-faturas .valores-fatura dd { margin: 0; font-weight: 600; }
+.pagina-faturas #descontoBulbe, .pagina-faturas #descontoCheckin { color: #0aa968; }
+.pagina-faturas .total-detalhes { display: flex; justify-content: space-between; padding: 13px 15px; background: #eff4ff; color: var(--azul); font-size: 12px; }
+
 .corpo{
   background-color: var(--cor-primaria);
 }
