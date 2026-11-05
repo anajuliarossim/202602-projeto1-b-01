@@ -126,6 +126,15 @@ function textoPremissas(r) {
 function iniciarResultado(tela) {
   const dados = ler();
   if (!dados) {
+    if (tela === 'consumo') {
+      document.querySelector('.painel')?.remove();
+      document.querySelector('.resumo')?.remove();
+      document.querySelector('.carrossel-pontos')?.remove();
+      document.querySelector('.btn-recalcular')?.remove();
+      preencher({ premissas: 'Ainda não há dados de consumo para exibir.' });
+      return;
+    }
+
     window.location.replace(PAGINAS.calculadora);
     return;
   }

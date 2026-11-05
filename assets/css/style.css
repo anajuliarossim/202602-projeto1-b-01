@@ -30,6 +30,8 @@ main.calculadora{
 }
 
 main[data-tela="economia"]{
+  width: 100%;
+  min-width: 0;
   border-radius: 0;
 }
 
@@ -2392,10 +2394,9 @@ body.tela-checkin {
   text-align: center;
   font-size: 1.0rem;
 }
-
 body.pagina-home {
-  --home-azul: #1027e8;
-  --home-marinho: #071b61;
+  --home-azul: #08068d;
+  --home-marinho: #08068d;
   --home-verde: #00a86b;
   width: 100%;
   max-width: 430px;
@@ -2433,8 +2434,9 @@ body.pagina-home {
 /* Mantém o espaço reservado e esconde o ícone de imagem quebrada. */
 .pagina-home img[src=""] { visibility: hidden; }
 .pagina-home :is(a, button):focus-visible { outline: 3px solid #f2ae00; outline-offset: 4px; }
+.pagina-home .home-fatura { display: flex; flex-direction: column; }
 .pagina-home .home-linha-titulo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-.pagina-home .home-status { padding: 5px 14px; border-radius: 30px; color: var(--home-azul); background: #e8edff; font-size: 12px; white-space: nowrap; }
+.pagina-home .home-status, .pagina-home .home-link-fatura { padding: 5px 14px; border-radius: 30px; color: var(--home-azul); background: #e8edff; font-size: 12px; line-height: 1.3; white-space: nowrap; }
 .pagina-home .home-conteudo .home-legenda { color: #8b94a9; font-size: 13px; }
 .pagina-home .home-conteudo .home-valor { display: flex; align-items: baseline; gap: 5px; color: var(--home-azul); font-size: clamp(32px, 9vw, 40px); font-weight: 800; line-height: 1.4; }
 .pagina-home .home-valor > span:first-child { font-size: 19px; }
@@ -2458,20 +2460,18 @@ body.pagina-home {
 .pagina-home .home-botao-borda { color: var(--home-azul); border-color: var(--home-azul); background: #fff; }
 .pagina-home .home-icone-pix { width: 27px; height: 27px; }
 .pagina-home .home-codigo { width: 25px; height: 23px; flex: none; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px); }
+.pagina-home .home-link-fatura { align-self: flex-end; display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; }
 .pagina-home .home-aviso { display: grid; grid-template-columns: 35% minmax(0, 1fr); align-items: center; gap: 8px; padding: 12px 12px 12px 5px; border: 1px solid #cee1fa; border-radius: 17px; background: linear-gradient(120deg, #e8f7ff, #d5e7fd); }
 .pagina-home .home-img-faturas { width: 100%; height: 116px; }
 .pagina-home .home-etiqueta { display: inline-block; padding: 3px 7px; border-radius: 20px; color: #062b7d; background: #bedbff; font-size: 8px; font-weight: 600; }
 .pagina-home .home-aviso h2 { margin: 6px 0; font-size: 14px; color: #063aaf; }
 .pagina-home .home-aviso p { color: #4b6b8e; font-size: 9px; line-height: 1.45; }
 .pagina-home .home-economia { padding: 5px 8px 0; }
-.pagina-home .home-economia-topo { display: grid; grid-template-columns: 25% minmax(0, 1fr) auto; align-items: center; gap: 7px; }
+.pagina-home .home-economia-topo { display: grid; grid-template-columns: 25% minmax(0, 1fr); align-items: center; gap: 7px; }
 .pagina-home .home-img-porquinho { width: 100%; height: 86px; }
 .pagina-home .home-economia-total h2 { font-size: 20px; letter-spacing: -.7px; color: var(--home-marinho); }
 .pagina-home .home-economia-total > strong { display: block; font-size: 27px; color: #04934b; line-height: 1.1; letter-spacing: -.7px; }
 .pagina-home .home-economia-total p { font-size: 9px; color: #47816d; }
-.pagina-home .home-crescimento { padding: 7px; border: 1px solid #caedd7; border-radius: 10px; background: #effdf4; text-align: center; transform: rotate(-4deg); }
-.pagina-home .home-crescimento strong { display: block; font-size: 17px; color: #00a35a; }
-.pagina-home .home-crescimento span { display: block; font-size: 7px; line-height: 1.2; color: #648a77; }
 .pagina-home .home-grafico { margin: 25px 4px 0; }
 .pagina-home .home-barras { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 15px; height: 90px; }
 .pagina-home .home-coluna { display: grid; grid-template-rows: 1fr 18px; gap: 4px; align-items: end; text-align: center; font-size: 9px; color: #94a09a; }
@@ -2508,9 +2508,6 @@ body.pagina-home {
   .pagina-home .home-conteudo h1 { font-size: 19px; }
   .pagina-home .home-saldo { padding-inline: 8px; gap: 7px; }
   .pagina-home .home-saldo .home-pill { padding: 7px 8px; font-size: 8px; }
-  .pagina-home .home-economia-total h2 { font-size: 16px; }
-  .pagina-home .home-economia-total > strong { font-size: 23px; }
-  .pagina-home .home-crescimento strong { font-size: 14px; }
   .pagina-home .home-aviso h2 { font-size: 12px; }
   .pagina-home .home-checkin h2 { font-size: 17px; }
   .pagina-home .home-usina-conteudo { gap: 7px; padding-inline: 10px; }
@@ -2823,4 +2820,89 @@ body.telaOnboarding.onboardingBulbe {
 }
 .onboardingBulbe .onboardingContent {
     margin-top: -50px;
+}
+
+/* FOOTER: ícone azul e linha superior na página ativa.
+   Adicionado ao final para prevalecer sobre as regras antigas. */
+.menu-footer > .button-template {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 2px 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* O ícone já inclui o nome da página na imagem do projeto. */
+.menu-footer > .button-template .icone-footer {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Somente um ícone por vez: cinza por padrão, azul quando ativo. */
+.menu-footer > .button-template .icone-azul {
+  display: none;
+}
+
+.menu-footer > .button-template.ativo .icone-cinza {
+  display: none;
+}
+
+.menu-footer > .button-template.ativo .icone-azul {
+  display: block;
+  height: 40px;
+}
+
+/* Traço azul concentrado acima da aba ativa, como na referência. */
+.menu-footer > .button-template.ativo::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background-color: var(--cor-primaria, #08068d);
+}
+
+.menu-footer > .button-template:focus-visible {
+  outline: 2px solid var(--cor-primaria, #08068d);
+  outline-offset: -4px;
+}
+
+/* Mantém o rodapé depois do conteúdo nas telas da calculadora e resultados. */
+.app > .corpo {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.app > .corpo > main {
+  flex: 1 0 auto;
+}
+
+.app > .nav,
+.TelaCheia > .nav {
+  position: static;
+}
+
+.TelaCheia {
+  display: flex;
+  flex-direction: column;
+}
+
+.TelaCheia > main {
+  flex: 1 0 auto;
+}
+
+.TelaCheia + .menu-footer {
+  position: static;
 }

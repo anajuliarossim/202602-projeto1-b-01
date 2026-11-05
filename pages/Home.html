@@ -98,8 +98,9 @@
         </div>
         <div class="home-acoes">
           <button type="button" id="pagarPixHome" class="home-botao home-botao-azul"><img src="../assets/img/Home-Pix.png" alt="" class="home-icone-pix">Pagar com Pix</button>
-          <a href="Fatura.html" class="home-botao home-botao-borda"><span class="home-codigo" aria-hidden="true"></span>Ver detalhes</a>
+          <a href="Fatura.html" class="home-botao home-botao-borda"><span class="home-codigo" aria-hidden="true"></span>Boleto</a>
         </div>
+        <a href="Fatura.html" class="home-link-fatura">Ver fatura <span aria-hidden="true">›</span></a>
       </section>
 
       <section class="home-aviso" aria-labelledby="titulo-aviso">
@@ -115,7 +116,6 @@
         <div class="home-economia-topo">
           <img src="../assets/img/Home-Sua_Economia.png" alt="" class="home-img-porquinho">
           <div class="home-economia-total"><h2 id="titulo-economia">Sua economia</h2><strong>R$ 532,40</strong><p>acumulada</p></div>
-          <div class="home-crescimento"><strong>↗ +12%</strong><span>em relação ao<br>mês anterior</span></div>
         </div>
         <figure class="home-grafico" aria-label="Economia mensal ilustrativa: janeiro 60 reais, fevereiro 75 reais, março 84 reais, abril 90 reais, maio 105 reais e junho 118 reais e 40 centavos.">
           <div class="home-barras">
@@ -127,7 +127,7 @@
             <div class="home-coluna home-coluna-atual"><span class="home-barra" style="--altura: 100%"><small>R$ 37,40</small></span><span>Jun</span></div>
           </div>
         </figure>
-        <div class="home-grafico-rodape"><a href="Consumo.html" class="home-pill">Ver economia anual <span aria-hidden="true">›</span></a></div>
+        <div class="home-grafico-rodape"><a href="Consumo.html" class="home-pill">Ver consumo <span aria-hidden="true">›</span></a></div>
       </section>
 
       <section class="home-checkin" aria-labelledby="titulo-checkin">
@@ -146,17 +146,20 @@
       </aside>
     </main>
   </div>
-    <footer class="menu-footer">
-        <button class="button-template" id="btnInicio">
-            <img src="../assets/img/Icone-Inicio-Cinza.png" alt="Início">
+    <footer class="menu-footer" aria-label="Navegação principal">
+        <button type="button" class="button-template ativo" id="btnInicio" aria-label="Início" aria-current="page">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Inicio-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Inicio-Azul.png" alt="">
         </button>
 
-        <button class="button-template" id="btnFaturas">
-            <img src="../assets/img/Icone-Fatura-Cinza.png" alt="Faturas">
+        <button type="button" class="button-template" id="btnFaturas" aria-label="Faturas">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Fatura-Cinza.png" alt="">
+            <img class="icone-footer icone-azul icone-maior" src="../assets/img/Icone-Fatura-Azul.png" alt="">
         </button>
 
-        <button class="button-template" id="btnConsumo">
-            <img src="../assets/img/Icone-Consumo-Cinza.png" alt="Consumo">
+        <button type="button" class="button-template" id="btnConsumo" aria-label="Consumo">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Consumo-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Consumo-Azul.png" alt="">
         </button>
     </footer>
     <script src="../assets/js/template.js"></script>

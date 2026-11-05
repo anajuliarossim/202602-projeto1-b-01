@@ -9,6 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --cor-primaria: #08068D;
+      --cor-destaque: #f2ae00;
+      --cor-fundo: #fff;
+      --cor-texto: #1f2937;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,8 +24,8 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f5f7fa;
-      color: #333;
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
       min-height: 100vh;
     }
 
@@ -26,7 +33,7 @@
       max-width: 480px;
       margin: 0 auto;
       min-height: 100vh;
-      background: #fff;
+      background: var(--cor-fundo);
       box-shadow: 0 0 20px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
@@ -65,7 +72,7 @@
     .titulo-pagina h1 {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #1a3a6e;
+      color: var(--cor-primaria);
       margin-bottom: 8px;
     }
 
@@ -101,8 +108,8 @@
     }
 
     .campo input:focus {
-      border-color: #1a6bbf;
-      box-shadow: 0 0 0 3px rgba(26, 107, 191, 0.12);
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(8, 6, 141, 0.12);
     }
 
     .campo input::placeholder {
@@ -117,13 +124,13 @@
       padding: 12px;
       background: #f8f9fb;
       border-radius: 8px;
-      border-left: 3px solid #1a6bbf;
+      border-left: 3px solid var(--cor-destaque);
     }
 
     .btn-confirmar {
       width: 100%;
       padding: 16px;
-      background: linear-gradient(135deg, #1a6bbf, #0d4a8c);
+      background: var(--cor-primaria);
       color: #fff;
       border: none;
       border-radius: 12px;
@@ -140,7 +147,7 @@
 
     .btn-confirmar:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(26, 107, 191, 0.3);
+      box-shadow: 0 6px 16px rgba(8, 6, 141, 0.3);
     }
 
     .btn-confirmar:active {
@@ -164,17 +171,17 @@
     }
 
     .mini-quadro {
-      background: linear-gradient(145deg, #e8f4ff, #f0f7ff);
-      border: 2px solid #1a6bbf;
+      background: #f5f5ff;
+      border: 2px solid var(--cor-primaria);
       border-radius: 16px;
       padding: 24px 20px;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(26, 107, 191, 0.12);
+      box-shadow: 0 8px 24px rgba(8, 6, 141, 0.12);
     }
 
     .mini-quadro .icone {
       font-size: 2rem;
-      color: #1a6bbf;
+      color: var(--cor-primaria);
       margin-bottom: 10px;
     }
 
@@ -188,7 +195,7 @@
     .mini-quadro .valor {
       font-size: 2.1rem;
       font-weight: 700;
-      color: #0d4a8c;
+      color: var(--cor-primaria);
       line-height: 1.2;
     }
 
@@ -222,7 +229,7 @@
 
     .detalhe-item strong {
       font-size: 1rem;
-      color: #1a3a6e;
+      color: var(--cor-primaria);
     }
 
     .btn-novo {
@@ -230,8 +237,8 @@
       width: 100%;
       padding: 12px;
       background: transparent;
-      border: 1.5px solid #1a6bbf;
-      color: #1a6bbf;
+      border: 1.5px solid var(--cor-primaria);
+      color: var(--cor-primaria);
       border-radius: 10px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -241,7 +248,7 @@
     }
 
     .btn-novo:hover {
-      background: #e8f4ff;
+      background: #f5f5ff;
     }
 
     /* Banner opcional */
@@ -259,7 +266,7 @@
       <a href="Acesso.html">
         <img src="../assets/img/Seta-Retorno.png" alt="Voltar para Inicial" class="seta-retorno" onerror="this.style.display='none'">
       </a>
-      <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center" onerror="this.outerHTML='<span style=\'font-weight:700;color:#1a6bbf;font-size:1.3rem\'>Bulbe</span>'">
+      <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center" onerror="this.outerHTML='<span style=\'font-weight:700;color:#08068D;font-size:1.3rem\'>Bulbe</span>'">
     </header>
 
     <div class="corpo">
