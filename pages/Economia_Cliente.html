@@ -8,24 +8,70 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<div class="app">
-  <header class="cabecalho">
-    <div class="barra">
-      <a href="#" aria-label="Menu"><i class="fa-solid fa-bars"></i></a>
-      <a href="Calculadora.html" class="logo">Bulbe<span>.</span></a>
-      <div class="acoes">
-        <i class="fa-regular fa-bell" aria-label="Notificações"></i>
-        <span class="avatar"><i class="fa-solid fa-user"></i></span>
-      </div>
-    </div>
-    <a href="#" class="banner">
-      <span><strong>Indique e ganhe</strong></span>
-      <span><strong>R$ 50</strong> na próxima fatura</span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-  </header>
+  <div class="corpo">
+    <header class="topo">
+        <button class="menu-cabecalho button-template"
+        id="abrirModal" aria-label="Abrir menu"
+        aria-expanded="false" aria-controls="modalLateral">
+         ☰
+        </button>
+        <img src="../assets/img/Logo-Bulbe-Branca.png" alt="Logo Bulbe" class="logo-cabecalho">
+        <button class="notificacao-cabecalho button-template"><img src="../assets/img/SinoNot.png" alt="Notificações"></button>
+        <button class="perfil-cabecalho button-template"><img src="../assets/img/Avatar.png" alt="Perfil"></button>
+        <button class="faixa-indique button-template"><img src="../assets/img/Faixa-Indique.png" alt="Indique e Ganhe"></button>
+    </header>
+    <div class="fundoModal" id="fundoModal"></div>
+
+      <aside class="modalLateral" id="modalLateral"
+            aria-label="Menu principal" aria-hidden="true">
+
+          <div class="cabecalhoModal">
+              <img src="../assets/img/Logo-bulbe-inicial.png"
+                  alt="Logo Bulbe" id="logoLateral">
+
+              <button id="fecharModal" aria-label="Fechar menu">×</button>
+          </div>
+
+          <nav class="opcoesModal">
+              <a href="Mapa.html" class="BotaoModal">
+                  <img src="../assets/img/Icon-Map.png" alt="">
+                  <span>Mapa da Bulbe</span>
+              </a>
+
+              <a href="Blog.html" class="BotaoModal">
+                  <img src="../assets/img/Icon-Blog.png" alt="">
+                  <span>Blog</span>
+              </a>
+
+              <a href="#" class="BotaoModal">
+                  <img src="../assets/img/Icon-Question.png" alt="">
+                  <span>Perguntas Frequentes</span>
+              </a>
+
+              <a href="#" class="BotaoModal">
+                  <img src="../assets/img/Icon-Indique.png" alt="">
+                  <span>Indique e ganhe</span>
+              </a>
+
+              <a href="#" class="BotaoModal">
+                  <img src="../assets/img/Icon-Chat.png" alt="">
+                  <span>Fale conosco</span>
+              </a>
+
+              <a href="#" class="BotaoModal">
+                  <img src="../assets/img/Icon-Terms.png" alt="">
+                  <span>Termos</span>
+              </a>
+          </nav>
+
+          <a href="#" class="BotaoModal" id="Sair">
+              <img src="../assets/img/Icon-Leave.png" alt="">
+              <span>Sair</span>
+          </a>
+
+      </aside>
   <main>
-    <h1>Sua economia anual</h1>
+    <h1>Sua Economia Mensal</h1>
     <nav class="abas" aria-label="Tipo de gráfico">
       <a href="Consumo_Cliente.html">Energia</a>
       <a href="Economia_Cliente.html" aria-current="page">Economia</a>
@@ -63,5 +109,6 @@
     <a href="Consumo_Cliente.html"><i class="fa-solid fa-bolt"></i>Consumo</a>
   </nav>
 </div>
+<script src="../assets/js/template.js"></script>
 </body>
 </html>
