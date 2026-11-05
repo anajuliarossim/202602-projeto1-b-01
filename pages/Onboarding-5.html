@@ -3,40 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bulbe | Add onboarding</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>Bulbe | De onde vem seu desconto?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/onboarding.js" defer></script>
 </head>
-<body class="telaOnboarding">
-  <header class="barraSuperior">
-  </header>
+<body class="telaOnboarding onboardingBulbe" data-etapa="5">
+  <header class="barraSuperior" aria-hidden="true"></header>
   <div id="ContainerOnb">
-  <main class="onboarding">
-    <div class="onboardingImg">
-        <img src="../assets/img/IlustracaoOnbHU01.png" alt="Ilustração placa solar">
-    </div>
-    <div class="onboardingContent" id="Onb05">
-        <h1>De onde vem seu desconto?</h1>
-        <p>  Nossa energia solar é enviada para a rede da CEMIG e gera <strong>créditos de energia</strong>, que usamos para
-            <strong>reduzir o valor da sua conta de luz</strong>.</p>
-    </div>
-  </main>
-      <div class="indicadorTelas"
-          role="img"
-          aria-label="Tela 1 de 5">
-        <span class="bolinha"></span>
-        <span class="bolinha"></span>
-        <span class="bolinha"></span>
-        <span class="bolinha"></span>
-        <span class="bolinha ativa"></span>
-        <span class="bolinha"></span>
+    <main class="onboarding">
+      <div class="onboardingImg">
+        <a class="fecharOnboarding" href="Home.html" data-sair aria-label="Fechar onboarding">×</a>
+        <img src="../assets/img/IlustracaoOnbHU01.png" alt="" class="ilustracaoOnboarding">
       </div>
-  <footer class="rodapeOnboarding">
-    <button class="onboardingButton" id="Voltar">Voltar</button>
-    <button class="onboardingButton" id="Proximo">Próximo</button>
-  </footer>
+      <div class="onboardingContent" id="Onb05">
+        <h1>De onde vem seu desconto?</h1>
+        <p>Nossa energia solar é enviada para a rede da CEMIG e gera <strong>créditos de energia</strong>, que usamos para <strong>reduzir o valor da sua conta de luz</strong>.</p>
+      </div>
+    </main>
+    <nav class="indicadorTelas" aria-label="Etapas do onboarding">
+      <a class="bolinha" href="Onboarding-1.html" aria-label="Tela 1 de 6"></a>
+      <a class="bolinha" href="Onboarding-2.html" aria-label="Tela 2 de 6"></a>
+      <a class="bolinha" href="Onboarding-3.html" aria-label="Tela 3 de 6"></a>
+      <a class="bolinha" href="Onboarding-4.html" aria-label="Tela 4 de 6"></a>
+      <a class="bolinha ativa" href="Onboarding-5.html" aria-label="Tela 5 de 6" aria-current="step"></a>
+      <a class="bolinha" href="Onboarding-6.html" aria-label="Tela 6 de 6"></a>
+    </nav>
+    <footer class="rodapeOnboarding">
+      <a class="onboardingButton" id="Voltar" href="Onboarding-4.html">Voltar</a>
+      <a class="onboardingButton" id="Proximo" href="Onboarding-6.html">Próximo</a>
+    </footer>
   </div>
   <div class="barraInferior" aria-hidden="true"></div>
 </body>
