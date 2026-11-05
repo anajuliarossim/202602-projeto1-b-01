@@ -452,17 +452,29 @@ width: 100%;
 }
 
 .topo-branco{
-  padding: 1ch;
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--cor-fundo);
+      width: 100%;
+      align-self: stretch;
+      min-height: 76px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      align-items: center;
+      padding: 10px 16px;
+      border-bottom: 5px solid #a4b3c1;
+      background-color: #fff;
+}
+.topo-branco a {
+      grid-column: 1;
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
 .topo-branco .seta-retorno{
-  margin-top: 8px;
-  width: 2.5em;
-  height: 100%;
-  max-height: fit-content;
+      display: block;
+      width: 28px;
+      height: 28px;
+      margin: 0;
+      object-fit: contain;
 }
 .topo-branco .logo-azul{
   width: 6.5em;
@@ -830,13 +842,15 @@ label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-pr
   text-decoration: none;
 }
 .topo-branco .logo-azul-center{
-  width: 7em;
-  height: auto;
-  max-height: 48px;
-  object-fit: contain;
-  margin: 10px auto;
-  margin-left: 0;
-  margin-bottom: 0;
+      grid-column: 2;
+      justify-self: center;
+      display: block;
+      width: 112px;
+      max-width: 100%;
+      height: auto;
+      max-height: 44px;
+      margin: 0;
+      object-fit: contain;
 }
 .blank{
   border-radius: 0;
