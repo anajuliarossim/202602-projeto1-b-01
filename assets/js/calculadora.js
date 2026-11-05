@@ -19,9 +19,7 @@ const CONFIG = {
 const CHAVE = 'bulbe:simulacao';
 const PAGINAS = {
   calculadora: 'Calculadora.html',
-  calculadoraInicial: 'Calculadora_Inicial.html',
   consumo: 'Consumo.html',
-  consumoInicial: 'Consumo_Inicial.html',
 };
 
 /* ---------- Formatação ---------- */
@@ -137,8 +135,10 @@ function iniciarResultado(tela) {
       return;
     }
 
-    const inicial = window.location.pathname.endsWith('_Inicial.html');
-    window.location.replace(inicial ? PAGINAS.calculadoraInicial : PAGINAS.calculadora);
+    document.querySelector('.painel')?.remove();
+    document.querySelector('.resumo')?.remove();
+    document.querySelector('.carrossel-pontos')?.remove();
+    preencher({ premissas: 'Ainda não há dados de economia para exibir.' });
     return;
   }
 

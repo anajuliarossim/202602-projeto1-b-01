@@ -3,46 +3,377 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bulbe | Página Calculadora</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="../assets/js/calculadora.js" defer></script>
+  <title>Bulbe | Calculadora de Economia</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-primaria: #08068D;
+      --cor-destaque: #f2ae00;
+      --cor-fundo: #fff;
+      --cor-texto: #1f2937;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--cor-fundo);
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .topo-branco {
+      background: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid #eee;
+    }
+
+    .seta-retorno {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo-azul-center {
+      height: 36px;
+    }
+
+    /* Corpo */
+    .corpo {
+      flex: 1;
+      padding: 24px 20px 40px;
+    }
+
+    .titulo-pagina h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cor-primaria);
+      margin-bottom: 8px;
+    }
+
+    .texto-calculadora {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 28px;
+      line-height: 1.45;
+    }
+
+    /* Formulário */
+    .campo {
+      margin-bottom: 20px;
+    }
+
+    .campo label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    .campo input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #d0d7e2;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .campo input:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(8, 6, 141, 0.12);
+    }
+
+    .campo input::placeholder {
+      color: #aaa;
+    }
+
+    .avisoCalculadora {
+      font-size: 0.78rem;
+      color: #888;
+      line-height: 1.4;
+      margin: 16px 0 24px;
+      padding: 12px;
+      background: #f8f9fb;
+      border-radius: 8px;
+      border-left: 3px solid var(--cor-destaque);
+    }
+
+    .btn-confirmar {
+      width: 100%;
+      padding: 16px;
+      background: var(--cor-primaria);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: 'Pop', sans-serif;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-confirmar:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(8, 6, 141, 0.3);
+    }
+
+    .btn-confirmar:active {
+      transform: translateY(0);
+    }
+
+    /* Resultado - Mini Quadro */
+    .resultado {
+      display: none;
+      margin-top: 32px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .resultado.mostrar {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mini-quadro {
+      background: #f5f5ff;
+      border: 2px solid var(--cor-primaria);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(8, 6, 141, 0.12);
+    }
+
+    .mini-quadro .icone {
+      font-size: 2rem;
+      color: var(--cor-primaria);
+      margin-bottom: 10px;
+    }
+
+    .mini-quadro .label {
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .mini-quadro .valor {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--cor-primaria);
+      line-height: 1.2;
+    }
+
+    .mini-quadro .periodo {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .detalhes {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .detalhe-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #e0e8f0;
+    }
+
+    .detalhe-item small {
+      display: block;
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 4px;
+    }
+
+    .detalhe-item strong {
+      font-size: 1rem;
+      color: var(--cor-primaria);
+    }
+
+    .btn-novo {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1.5px solid var(--cor-primaria);
+      color: var(--cor-primaria);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-novo:hover {
+      background: #f5f5ff;
+    }
+
+    /* Banner opcional */
+    .imgBanner {
+      width: 100%;
+      border-radius: 12px;
+      margin: 20px 0 8px;
+      display: none; /* escondido por padrão; ative se tiver a imagem */
+    }
+  </style>
 </head>
 <body>
+  <div class="app">
     <header class="topo-branco">
-    <a href="Acesso.html"><img src="../assets/img/Seta-Retorno.png" alt="Voltar para Inicial" class="seta-retorno"></a>
-    <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center">
-  </header>
-  <div class="corpo">
-    <div class="corpo TelaCheia">
-      <main class="calculadora">
-        <div class="titulo-pagina">
+      <a href="Acesso.html">
+        <img src="../assets/img/Seta-Retorno.png" alt="Voltar para Inicial" class="seta-retorno" onerror="this.style.display='none'">
+      </a>
+      <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center" onerror="this.outerHTML='<span style=\'font-weight:700;color:#08068D;font-size:1.3rem\'>Bulbe</span>'">
+    </header>
+
+    <div class="corpo">
+      <div class="titulo-pagina">
         <h1>Calculadora de Economia</h1>
-        <p class="texto_calculadora">Analize aqui o quanto você pode economizar usando os serviços da Bulbe Energia!</p>
-      <form id="formCalculadora" data-destino="Consumo_Inicial.html">
-        <div class="campo"> 
-          <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES: </label>
-          <input id="TempoDeCalculo" name="tempo"type="number" placeholder="Ex:48 meses" min="1" required></input><br>
-        </div> 
-        <div class="campo"> 
-          <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
-          <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
-        </div> 
-        <img src="../assets/img/UtsX1.jpg" alt="Banner Bulbe calculadora" class="ImgBanner">
-      <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
-        dessa forma pode sofrer alterações devido fatores externos
-        (descontos, cupons, etc.)</p>
-        <button type ="submit" class="btn-confirmar">Confirmar</button>
+      </div>
+      <p class="texto-calculadora">
+        Analise aqui o quanto você pode economizar usando os serviços da Bulbe Energia!
+      </p>
+
+      <form id="formCalculadora">
+        <div class="campo">
+          <label for="TempoDeCalculo">Insira o tempo que deseja calcular em MESES:</label>
+          <input id="TempoDeCalculo" name="tempo" type="number" placeholder="Ex: 48 meses" min="1" max="120" required>
+        </div>
+
+        <div class="campo">
+          <label for="ConsumoMensal">Insira a Média de consumo MENSAL de energia:</label>
+          <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex: 330 kWh" min="1" step="0.1" required>
+        </div>
+
+        <p class="avisoCalculadora">
+          Esse cálculo é apenas uma aproximação. O valor real pode sofrer alterações devido a fatores externos (descontos, cupons, variação de tarifa, etc.).
+        </p>
+
+        <button type="submit" class="btn-confirmar">
+          <i class="fa-solid fa-calculator"></i> Calcular Economia
+        </button>
       </form>
-      </main>
-    <nav class="nav" aria-label="Navegação principal">
-    <a href="Calculadora_Inicial.html"><i class="fa-solid fa-house"></i>Início</a>
-    <a href="#"><i class="fa-regular fa-file-lines"></i>Faturas</a>
-    <a href="Consumo_Inicial.html" aria-current="page"><i class="fa-solid fa-bolt"></i>Consumo</a>
-  </nav>
+
+      <!-- Mini Quadro de Resultado -->
+      <div class="resultado" id="resultado">
+        <div class="mini-quadro">
+          <div class="icone"><i class="fa-solid fa-piggy-bank"></i></div>
+          <div class="label">Economia acumulada estimada</div>
+          <div class="valor" id="valorEconomia">R$ 0,00</div>
+          <div class="periodo" id="periodoTexto">em 0 meses</div>
+        </div>
+
+        <div class="detalhes">
+          <div class="detalhe-item">
+            <small>Economia mensal</small>
+            <strong id="economiaMensal">R$ 0,00</strong>
+          </div>
+          <div class="detalhe-item">
+            <small>Consumo no período</small>
+            <strong id="consumoTotal">0 kWh</strong>
+          </div>
+        </div>
+
+        <button type="button" class="btn-novo" id="btnNovoCalculo">
+          <i class="fa-solid fa-rotate-right"></i> Calcular novamente
+        </button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    // ========== CONFIGURAÇÕES DA CALCULADORA ==========
+    // Ajuste estes valores conforme a regra de negócio real
+    const TARIFA_MEDIA_KWH = 0.85;   // R$/kWh (média aproximada Cemig/MG)
+    const PERCENTUAL_DESCONTO = 0.15; // 15% de desconto Bulbe
+
+    const form = document.getElementById('formCalculadora');
+    const resultado = document.getElementById('resultado');
+    const btnNovo = document.getElementById('btnNovoCalculo');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const meses = parseFloat(document.getElementById('TempoDeCalculo').value);
+      const consumoMensal = parseFloat(document.getElementById('ConsumoMensal').value);
+
+      if (!meses || !consumoMensal || meses < 1 || consumoMensal < 1) {
+        alert('Por favor, preencha valores válidos.');
+        return;
+      }
+
+      // Cálculo
+      const economiaMensal = consumoMensal * TARIFA_MEDIA_KWH * PERCENTUAL_DESCONTO;
+      const economiaAcumulada = economiaMensal * meses;
+      const consumoTotal = consumoMensal * meses;
+
+      // Formatação em Real brasileiro
+      const formatarReal = (valor) => {
+        return valor.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        });
+      };
+
+      // Preenche o mini quadro
+      document.getElementById('valorEconomia').textContent = formatarReal(economiaAcumulada);
+      document.getElementById('periodoTexto').textContent = `em ${meses} ${meses === 1 ? 'mês' : 'meses'}`;
+      document.getElementById('economiaMensal').textContent = formatarReal(economiaMensal);
+      document.getElementById('consumoTotal').textContent = consumoTotal.toLocaleString('pt-BR') + ' kWh';
+
+      // Mostra o resultado
+      resultado.classList.add('mostrar');
+      resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    btnNovo.addEventListener('click', function() {
+      resultado.classList.remove('mostrar');
+      form.reset();
+      document.getElementById('TempoDeCalculo').focus();
+    });
+  </script>
 </body>
 </html>

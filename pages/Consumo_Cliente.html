@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seu consumo anual</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="cabecalho">
+    <div class="barra">
+      <a href="#" aria-label="Menu"><i class="fa-solid fa-bars"></i></a>
+      <a href="Calculadora.html" class="logo">Bulbe<span>.</span></a>
+      <div class="acoes">
+        <i class="fa-regular fa-bell" aria-label="Notificações"></i>
+        <span class="avatar"><i class="fa-solid fa-user"></i></span>
+      </div>
+    </div>
+    <a href="#" class="banner">
+      <span><strong>Indique e ganhe</strong></span>
+      <span><strong>R$ 50</strong> na próxima fatura</span>
+      <i class="fa-solid fa-chevron-right"></i>
+    </a>
+  </header>
+  <main>
+    <h1>Seu consumo anual</h1>
+    <nav class="abas" aria-label="Tipo de gráfico">
+      <a href="Consumo_Cliente.html" aria-current="page">Energia</a>
+      <a href="Economia_Cliente.html">Economia</a>
+    </nav>
+
+    <section class="painel">
+      <div class="area">
+        <div class="grafico">
+          <div class="col"><div class="b" style="--h:85%" data-v="330 kWh"></div></div>
+          <div class="col"><div class="b" style="--h:100%" data-v="390 kWh"></div></div>
+          <div class="col"><div class="b" style="--h:68%" data-v="266 kWh"></div></div>
+          <div class="col"><div class="b" style="--h:77%" data-v="301 kWh"></div></div>
+          <div class="col"><div class="b" style="--h:67%" data-v="261 kWh"></div></div>
+          <div class="col"><div class="b" style="--h:96%" data-v="373 kWh"></div></div>
+        </div>
+        <div class="media" style="--m:75%"></div>
+      </div>
+      <div class="meses"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span></div>
+      <div class="legenda">
+        <span><i class="tracejado"></i>Média de Consumo</span>
+        <span><i class="quadro"></i>Consumo</span>
+      </div>
+    </section>
+
+    <section class="resumo" aria-label="Resumo do consumo">
+      <div class="stat destaque"><i class="fa-solid fa-bolt"></i><div><small>Média mensal</small><b>294 kWh</b><small>últimos 6 meses</small></div></div>
+      <div class="stat"><i class="fa-solid fa-chart-simple"></i><div><small>Maior consumo</small><b>390 kWh</b><small>fevereiro</small></div></div>
+      <div class="stat"><i class="fa-solid fa-bolt"></i><div><small>Menor consumo</small><b>261 kWh</b><small>maio</small></div></div>
+    </section>
+    <a href="Calculadora.html" class="btn-recalcular">Calcular minha economia</a>
+  </main>
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="Calculadora.html"><i class="fa-solid fa-house"></i>Início</a>
+    <a href="#"><i class="fa-regular fa-file-lines"></i>Faturas</a>
+    <a href="Consumo_Cliente.html" aria-current="page"><i class="fa-solid fa-bolt"></i>Consumo</a>
+  </nav>
+</div>
+</body>
+</html>
