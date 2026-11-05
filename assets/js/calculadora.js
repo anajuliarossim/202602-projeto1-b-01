@@ -19,9 +19,7 @@ const CONFIG = {
 const CHAVE = 'bulbe:simulacao';
 const PAGINAS = {
   calculadora: 'Calculadora.html',
-  calculadoraInicial: 'Calculadora_Inicial.html',
   consumo: 'Consumo.html',
-  consumoInicial: 'Consumo_Inicial.html',
 };
 
 /* ---------- Formatação ---------- */
@@ -128,8 +126,7 @@ function textoPremissas(r) {
 function iniciarResultado(tela) {
   const dados = ler();
   if (!dados) {
-    const inicial = window.location.pathname.endsWith('_Inicial.html');
-    window.location.replace(inicial ? PAGINAS.calculadoraInicial : PAGINAS.calculadora);
+    window.location.replace(PAGINAS.calculadora);
     return;
   }
 
