@@ -33,6 +33,63 @@
     </div>
     <p id="notificacoesPainel" class="aviso-notificacoes" hidden>Você não tem notificações no momento.</p>
 
+    <!-- Menu lateral: usa o template.js do grupo, sem código extra na HU03. -->
+    <div class="fundoModal" id="fundoModal"></div>
+    <aside class="modalLateral" id="modalLateral" aria-label="Menu principal" aria-hidden="true">
+      <div class="cabecalhoModal">
+        <img src="../assets/img/Logo-bulbe-inicial.png" alt="Logo Bulbe" id="logoLateral">
+        <button id="fecharModal" type="button" aria-label="Fechar menu">×</button>
+      </div>
+      <nav class="opcoesModal">
+        <a href="Mapa.html" class="BotaoModal"><img src="../assets/img/Icon-Map.png" alt="">Mapa da Bulbe</a>
+        <a href="Blog.html" class="BotaoModal"><img src="../assets/img/Icon-Blog.png" alt="">Blog</a>
+        <a href="#" class="BotaoModal"><img src="../assets/img/Icon-Question.png" alt="">Perguntas Frequentes</a>
+        <a href="#" class="BotaoModal"><img src="../assets/img/Icon-Indique.png" alt="">Indique e ganhe</a>
+        <a href="#" class="BotaoModal"><img src="../assets/img/Icon-Chat.png" alt="">Fale conosco</a>
+        <a href="#" class="BotaoModal"><img src="../assets/img/Icon-Terms.png" alt="">Termos</a>
+      </nav>
+      <a href="#" class="BotaoModal" id="Sair"><img src="../assets/img/Icon-Leave.png" alt="">Sair</a>
+    </aside>
+
+    <main class="conteudo">
+      <h1>Suas Faturas</h1>
+      <label class="instalacao">Instalação:
+        <select id="instalacaoNumero" aria-label="Número da instalação">
+          <option value="30014365849">30014365849</option>
+        </select>
+      </label>
+
+      <aside class="aviso-cemig">
+        <strong class="cemig-logo">CEMIG</strong>
+        <div>
+          <strong>Você continuará recebendo as faturas da CEMIG.</strong>
+          <p>Não é necessário pagar as duas. A Bulbe já realiza esse pagamento, e você recebe o desconto na sua fatura.</p>
+        </div>
+      </aside>
+
+      <section class="fatura-atual">
+        <div class="linha-titulo"><h2>Fatura do mês</h2><span id="statusFatura" class="status">Carregando</span></div>
+        <p class="legenda">Valor da fatura:</p>
+        <div class="linha-valor">
+          <strong id="valorFatura">R$ 0,00</strong>
+          <span class="energia-e" aria-hidden="true">e<span class="raios"></span></span>
+        </div>
+        <p class="vencimento">▣ Vencimento: <strong id="vencimento">--/--</strong></p>
+
+        <div class="economia">
+          <img src="../assets/img/Home-Economizou.png" alt="">
+          <span>Você economizou <strong id="economiaValor">R$ 0,00</strong> esse mês</span>
+        </div>
+
+        <div class="saldo-checkin">
+          <span class="moedas" aria-hidden="true"></span>
+          <div><small>Saldo de desconto do check-in</small><strong id="saldoCheckin">R$ 0,00</strong></div>
+          <button id="aplicarDesconto" type="button" disabled>Aplicar desconto</button>
+        </div>
+        <p id="mensagemDesconto" class="mensagem" role="status"></p>
+      </section>
+
+
 <script src="../assets/js/template.js"></script>
 </body>
 </html>
