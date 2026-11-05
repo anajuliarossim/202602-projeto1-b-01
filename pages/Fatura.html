@@ -51,14 +51,18 @@
       <a href="#" class="BotaoModal" id="Sair"><img src="../assets/img/Icon-Leave.png" alt="">Sair</a>
     </aside>
 
-    <main class="conteudo">
-      <h1>Suas Faturas</h1>
-      <label class="instalacao">Instalação:
-        <select id="instalacaoNumero" aria-label="Número da instalação">
-          <option value="30014365849">30014365849</option>
-        </select>
-      </label>
+    <div class="inicio-faturas">
 
+    <h1>Suas Faturas</h1>
+
+    <label class="instalacao">
+      Instalação:
+    <select id="instalacaoNumero" aria-label="Número da instalação">
+      <option value="30014365849">30014365849</option>
+    </select>
+    </label>
+
+</div>
       <aside class="aviso-cemig">
         <strong class="cemig-logo">CEMIG</strong>
         <div>
@@ -82,7 +86,12 @@
         </div>
 
         <div class="saldo-checkin">
-          <span class="moedas" aria-hidden="true"></span>
+          <svg class="moedas" viewBox="0 0 48 48" aria-hidden="true">
+            <ellipse cx="24" cy="12" rx="17" ry="7" fill="#ffbb33"/>
+            <path d="M7 12v24c0 4 8 7 17 7s17-3 17-7V12" fill="#f59e0b"/>
+            <path d="M7 20c0 4 8 7 17 7s17-3 17-7 M7 29c0 4 8 7 17 7s17-3 17-7" fill="none" stroke="#ffd45c" stroke-width="3"/>
+          </svg>
+
           <div><small>Saldo de desconto do check-in</small><strong id="saldoCheckin">R$ 0,00</strong></div>
           <button id="aplicarDesconto" type="button" disabled>Aplicar desconto</button>
         </div>

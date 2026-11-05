@@ -50,7 +50,7 @@ if (document.body.classList.contains("pagina-home") || /^home(?:\(\d+\))?\.html$
 const paginasFooter = {
     btnInicio: { destino: "Home.html", ativo: "../assets/img/Icone-Inicio-Azul.png" },
     btnFaturas: { destino: "Fatura.html", ativo: "../assets/img/Icone-Fatura-Azul.png" },
-    btnConsumo: { destino: "Consumo.html", ativo: "../assets/img/Icone-Consumo-Azul.png" }
+    btnConsumo: { destino: "Consumo_Cliente.html", ativo: "../assets/img/Icone-Consumo-Azul.png" }
 };
 
 for (const [id, config] of Object.entries(paginasFooter)) {
