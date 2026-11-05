@@ -624,6 +624,27 @@ width: 100%;
 .pagina-faturas .botao-pagar { width: 100%; padding: 12px; margin-top: 12px; border: 0; border-radius: 9px; background: #113b92; color: white; font-weight: 700; }
 .pagina-faturas .botao-pagar:disabled { opacity: .6; cursor: not-allowed; }
 
+/* Histórico */
+.pagina-faturas .filtros { display: flex; gap: 7px; margin: 11px 0; }
+.pagina-faturas .filtros button { flex: 1; padding: 8px 5px; border: 0; border-radius: 20px; background: #e9edf5; color: #415579; font-size: 11px; }
+.pagina-faturas .filtros .ativo { color: white; background: var(--azul); }
+.pagina-faturas .linha-historico { display: flex; justify-content: space-between; gap: 10px; padding: 11px 0; border-top: 1px solid var(--borda-fatura); }
+.pagina-faturas .linha-historico div { display: grid; gap: 3px; }
+.pagina-faturas .linha-historico strong { font-size: 12px; color: var(--texto-fatura); }
+.pagina-faturas .linha-historico small { color: #74839c; font-size: 10px; }
+.pagina-faturas .linha-historico span { justify-self: start; padding: 3px 9px; border-radius: 20px; font-size: 10px; }
+.pagina-faturas .linha-historico .paga { color: #15824b; background: #e1f8eb; }
+.pagina-faturas .linha-historico .pendente { color: #c36728; background: #fff2df; }
+.pagina-faturas .linha-historico > strong { white-space: nowrap; }
+
+@media (max-width: 350px) {
+  .pagina-faturas .conteudo { padding-inline: 9px; }
+  .pagina-faturas .saldo-checkin { flex-wrap: wrap; }
+  .pagina-faturas #aplicarDesconto { width: 100%; }
+  .pagina-faturas .cemig-logo { font-size: 17px; }
+}
+
+
 .corpo{
   background-color: var(--cor-primaria);
 }
