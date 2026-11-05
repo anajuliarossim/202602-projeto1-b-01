@@ -2165,6 +2165,7 @@ body.telaOnboarding.onboardingBulbe {
   position: fixed;
   bottom: 0;
   left: 0;
+}
 
 .app > .corpo {
   display: flex;
@@ -2189,7 +2190,6 @@ body.telaOnboarding.onboardingBulbe {
 .TelaCheia > main {
   flex: 1 0 auto;
 }
-
 .TelaCheia + .menu-footer {
   position: static;
 }
