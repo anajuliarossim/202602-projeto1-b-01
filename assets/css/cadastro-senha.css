@@ -1,0 +1,105 @@
+/* Etapa 3 do cadastro: define senha, sem interferir nas demais páginas. */
+.pagina-senha {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: #fff;
+}
+.pagina-senha .topo-branco {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  width: 100%;
+  min-height: 76px;
+  padding: 10px 16px;
+  border-bottom: 5px solid #a4b3c1;
+}
+.pagina-senha .topo-branco a { grid-column: 1; display: flex; align-items: center; justify-content: center; }
+.pagina-senha .topo-branco .seta-retorno {
+  display: block; margin: 0; width: 28px; height: 28px; object-fit: contain;
+}
+.pagina-senha .topo-branco .logo-azul-center {
+  grid-column: 2; justify-self: center;
+  display: block; width: 112px; max-width: 100%; height: auto;
+  max-height: 44px; margin: 0; object-fit: contain;
+}
+.pagina-senha main.blank {
+  flex: 1 0 auto; width: 100%; max-width: 600px;
+  margin: 0 auto; padding: 24px 16px 20px;
+}
+.pagina-senha .seguimento-cadastro {
+  display: flex; align-items: center; justify-content: space-between; gap: 5px;
+  margin: 0 0 26px;
+}
+.pagina-senha .seguimento-cadastro p {
+  flex: 0 0 45px; width: 45px; height: 36px; margin: 0;
+  padding: 3px 0; text-align: center;
+}
+.pagina-senha .seguimento-cadastro .seta-avanço {
+  margin: 0; font-size: 20px; line-height: 1;
+}
+.pagina-senha .titulo-cadastro {
+  display: block; margin: 0 0 8px;
+  color: #08068d; font-size: 24px; font-weight: 700; line-height: 1.3;
+}
+.pagina-senha .subtitulo-cadastro {
+  margin: 0 0 28px; color: #526579; font-size: 13px; line-height: 1.5;
+}
+.pagina-senha .input-group { position: relative; margin: 0 0 20px; }
+.pagina-senha .input-group label {
+  position: absolute; z-index: 1; top: -10px; left: 12px; bottom: auto;
+  margin: 0; padding: 0 4px; background: #fff;
+  color: #536679; font-size: 13px; font-weight: 600; line-height: 20px;
+}
+.pagina-senha .input-group input {
+  display: block; width: 100%; min-height: 56px;
+  padding: 16px 87px 16px 14px;
+  border: 1px solid #a8b2bf; border-radius: 6px;
+  color: #1f2937; font: 400 14px/1.3 'Poppins', sans-serif;
+  background-color: #fff;
+}
+.pagina-senha .input-group input:focus-visible {
+  border-color: #08068d; outline: 2px solid #b6c7fc; outline-offset: 1px;
+}
+.pagina-senha .alternar-senha {
+  position: absolute; top: 9px; right: 8px;
+  min-width: 68px; min-height: 38px; padding: 0 6px;
+  border: 0; background: transparent; color: #08068d;
+  font: 600 12px/1 'Poppins', sans-serif;
+  cursor: pointer;
+}
+.pagina-senha .alternar-senha:focus-visible {
+  outline: 2px solid #08068d; border-radius: 4px;
+}
+.pagina-senha .senha-requisitos {
+  margin: -12px 0 32px; color: #526579; font-size: 12px;
+}
+.pagina-senha .mensagem-senha {
+  min-height: 18px; margin: -12px 0 0;
+  color: #b42318; font-size: 12px; line-height: 1.4;
+}
+.pagina-senha footer {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  width: 100%; padding: 10px 16px 18px;
+}
+.pagina-senha #back-cadastro,
+.pagina-senha #next-cadastro {
+  display: flex; flex: 1 1 0; align-items: center; justify-content: center;
+  width: auto; max-width: 270px; min-height: 50px;
+  margin: 0; padding: 12px 14px;
+  font: 600 14px/1.3 'Poppins', sans-serif;
+  text-decoration: none; border-radius: 8px;
+}
+.pagina-senha #back-cadastro {
+  color: #08068d; background: #fff; border: 1px solid #cbd5e1;
+}
+.pagina-senha #next-cadastro {
+  color: #fff; background: #08068d; border: 1px solid #08068d; cursor: pointer;
+}
+@media (max-width: 340px) {
+  .pagina-senha .seguimento-cadastro p { flex-basis: 40px; width: 40px; }
+  .pagina-senha .seguimento-cadastro .seta-avanço { font-size: 18px; }
+}
