@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulbe | Definir senha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/cadastro-senha.css">
+  <script src="../assets/js/validar-senha.js" defer></script>
+</head>
+<body class="body-blank pagina-senha">
+  <header class="topo-branco">
+    <a href="Cadastro2.html" aria-label="Voltar para endereço">
+      <img src="../assets/img/Seta-Retorno.png" alt="" class="seta-retorno">
+    </a>
+    <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center">
+  </header>
+
+  <main class="blank">
+    <div class="seguimento-cadastro" aria-label="Etapa 3 de 4">
+      <p>1</p><span class="seta-avanço" aria-hidden="true">→</span>
+      <p>2</p><span class="seta-avanço" aria-hidden="true">→</span>
+      <p class="seguimento-atual" aria-current="step">3</p><span class="seta-avanço" aria-hidden="true">→</span>
+      <p>4</p>
+    </div>
+
+    <h1 class="titulo-cadastro">Crie sua senha</h1>
+    <p class="subtitulo-cadastro">Defina uma senha para acessar sua conta Bulbe com segurança.</p>
+
+    <form id="form-cadastro-senha" action="Cadastro3.html" autocomplete="on">
+      <div class="input-group">
+        <label for="nova-senha">Senha<i class="requirido" aria-hidden="true">*</i></label>
+        <input type="password" id="nova-senha" name="nova-senha"
+               placeholder="Digite sua senha" autocomplete="new-password"
+               minlength="8" maxlength="64" required
+               autocapitalize="none" spellcheck="false"
+               aria-describedby="senha-requisitos">
+        <button type="button" class="alternar-senha" data-alternar-senha="nova-senha"
+                aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+      </div>
+      <p id="senha-requisitos" class="senha-requisitos">Sua senha deve ter pelo menos 8 caracteres.</p>
+
+      <div class="input-group">
+        <label for="confirmar-senha">Confirmar senha<i class="requirido" aria-hidden="true">*</i></label>
+        <input type="password" id="confirmar-senha" name="confirmar-senha"
+               placeholder="Digite a senha novamente" autocomplete="new-password"
+               minlength="8" maxlength="64" required
+               autocapitalize="none" spellcheck="false"
+               aria-describedby="mensagem-confirmacao">
+        <button type="button" class="alternar-senha" data-alternar-senha="confirmar-senha"
+                aria-label="Mostrar confirmação da senha" aria-pressed="false">Mostrar</button>
+      </div>
+      <p id="mensagem-confirmacao" class="mensagem-senha" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer id="footer2-cadastro">
+    <a href="Cadastro2.html" id="back-cadastro">Voltar</a>
+    <button type="submit" form="form-cadastro-senha" id="next-cadastro">Próximo</button>
+  </footer>
+</body>
+</html>

@@ -8,28 +8,244 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Estilos exclusivos desta página: não alteram as outras telas do projeto. -->
+  <style>
+    .pagina-cadastro3 {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    /* O body usa flex/align-items:center: o cabeçalho precisa ocupar
+       toda a largura, enquanto o logo permanece centralizado. */
+    .pagina-cadastro3 .topo-branco {
+      width: 100%;
+      align-self: stretch;
+      min-height: 76px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      align-items: center;
+      padding: 10px 16px;
+      border-bottom: 5px solid #a4b3c1;
+      background-color: #fff;
+    }
+
+    .pagina-cadastro3 .topo-branco a {
+      grid-column: 1;
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pagina-cadastro3 .topo-branco .seta-retorno {
+      display: block;
+      width: 28px;
+      height: 28px;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    .pagina-cadastro3 .topo-branco .logo-azul-center {
+      grid-column: 2;
+      justify-self: center;
+      display: block;
+      width: 112px;
+      max-width: 100%;
+      height: auto;
+      max-height: 44px;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    .pagina-cadastro3 main.blank {
+      width: 100%;
+      max-width: 600px;
+      padding: 24px 16px 18px;
+      margin: 0 auto;
+      flex: 1 0 auto;
+    }
+
+    .pagina-cadastro3 .titulo-cadastro {
+      margin-top: 0;
+    }
+
+    .pagina-cadastro3 .subtitulo-cadastro {
+      margin-bottom: 20px;
+    }
+
+    .pagina-cadastro3 .contrato-box {
+      display: block;
+      padding: 0;
+      margin-bottom: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .pagina-cadastro3 .contrato-box summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 15px;
+      cursor: pointer;
+      list-style: none;
+      color: #25364b;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .pagina-cadastro3 .contrato-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .pagina-cadastro3 .contrato-box summary:focus-visible {
+      outline: 3px solid #f2ae00;
+      outline-offset: -3px;
+    }
+
+    .pagina-cadastro3 .contrato-box[open] summary {
+      color: var(--cor-primaria, #08068d);
+    }
+
+    .pagina-cadastro3 .abertura-contrato {
+      display: inline-block;
+      flex-shrink: 0;
+      color: var(--cor-primaria, #08068d);
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+      transition: transform .2s ease;
+    }
+
+    .pagina-cadastro3 .contrato-box[open] .abertura-contrato {
+      transform: rotate(45deg);
+    }
+
+    .pagina-cadastro3 .conteudo-contrato {
+      padding: 12px 15px 15px;
+      border-top: 1px solid #e8edf4;
+      color: #3e4d5b;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-wrap: break-word;
+    }
+
+    .pagina-cadastro3 .conteudo-contrato p {
+      color: inherit;
+      margin: 0 0 12px;
+    }
+
+    .pagina-cadastro3 .conteudo-contrato p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pagina-cadastro3 .conteudo-contrato strong {
+      color: #24364f;
+      font-weight: 600;
+    }
+
+    .pagina-cadastro3 footer {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* Cancela os 100px de margem que o CSS geral aplica ao botão. */
+    .pagina-cadastro3 #contratar {
+      width: calc(100% - 32px);
+      max-width: 568px;
+      margin: 12px auto 16px;
+    }
+
+    /* Indicador com quatro etapas, sem cortar na largura de 375px. */
+    .pagina-cadastro3 .seguimento-cadastro {
+      margin: 0 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+    }
+    .pagina-cadastro3 .seguimento-cadastro p {
+      margin: 0;
+      width: 45px;
+      height: 36px;
+      padding: 3px 0;
+      text-align: center;
+      flex: 0 0 45px;
+    }
+    .pagina-cadastro3 .seguimento-cadastro .seta-avanço {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    @media (max-width: 375px) {
+      .pagina-cadastro3 .contrato-box summary {
+        font-size: 13px;
+        padding: 12px 14px;
+      }
+      .pagina-cadastro3 .conteudo-contrato {
+        font-size: 12px;
+        padding: 12px 14px 14px;
+      }
+    }
+  </style>
 </head>
-<body class="body-blank">
+<body class="body-blank pagina-cadastro3">
   <header class="topo-branco">
-    <a href="Acesso.html"><img src="../assets/img/Seta-Retorno.png" alt="Voltar para Inicial" class="seta-retorno"></a>
+    <a href="CadastroSenha.html"><img src="../assets/img/Seta-Retorno.png" alt="Voltar para definir senha" class="seta-retorno"></a>
     <img src="../assets/img/Logo-Bulbe-Azul.png" alt="Logo Bulbe" class="logo-azul-center">
   </header>
   <main class="blank">
     <div class="seguimento-cadastro">
-        <p>1</p><span class="seta-avanço">→</span><p>2</p><span class="seta-avanço">→</span><p class="seguimento-atual">3</p>
+        <p>1</p><span class="seta-avanço">→</span><p>2</p><span class="seta-avanço">→</span><p>3</p><span class="seta-avanço">→</span><p class="seguimento-atual" aria-current="step">4</p>
     </div>
     <h1 class="titulo-cadastro">Leia e concorde com os termos para contratar</h1>
     <p class="subtitulo-cadastro">Conheça os principais pontos antes de contratar</p>
 
-        <div class="contrato-box">
-          <p>Quando a economia começa?</p><p class="abertura-contrato">›</p>
-        </div>
-        <div class="contrato-box">
-          <p>Como funciona o pagamento?</p><p class="abertura-contrato">›</p>
-        </div>
-        <div class="contrato-box">
-          <p>Outras condições?</p><p class="abertura-contrato">›</p>
-        </div>
+    <!-- Cada caixa abre e fecha ao tocar no título. -->
+    <details class="contrato-box">
+      <summary>
+        <span>Quando a economia começa?</span>
+        <span class="abertura-contrato" aria-hidden="true"></span>
+      </summary>
+      <div class="conteudo-contrato">
+        <p>Sua economia começa depois que sua instalação é conectada e a energia da Bulbe passa a ser compensada na sua conta. A partir daí, o desconto é aplicado sobre a energia fornecida pela Bulbe e você consegue acompanhar na fatura quanto economizou no mês.</p>
+        <p>O desconto pode chegar a até 15%, de acordo com as condições da sua contratação. Enquanto a conexão ainda está sendo concluída, continue pagando normalmente sua conta da CEMIG.</p>
+      </div>
+    </details>
+
+    <details class="contrato-box">
+      <summary>
+        <span>Como funciona o pagamento?</span>
+        <span class="abertura-contrato" aria-hidden="true"></span>
+      </summary>
+      <div class="conteudo-contrato">
+        <p>Sua fatura pode ser paga pelas opções disponíveis no app, como PIX, boleto ou PIX Automático.</p>
+        <p>Nos primeiros meses, enquanto a conexão com a Bulbe está sendo finalizada, você ainda pode receber a conta da CEMIG. Isso faz parte do período de transição, por isso é importante continuar acompanhando e pagando as faturas indicadas até que sua nova conta Bulbe esteja ativa.</p>
+        <p>No app, você poderá visualizar o valor da fatura, o desconto aplicado, o vencimento e os detalhes do cálculo.</p>
+      </div>
+    </details>
+
+    <details class="contrato-box">
+      <summary>
+        <span>Outras condições</span>
+        <span class="abertura-contrato" aria-hidden="true"></span>
+      </summary>
+      <div class="conteudo-contrato">
+        <p>Antes de concluir sua contratação, é importante conhecer algumas condições do serviço.</p>
+        <p>A contratação está sujeita à análise dos dados informados e à elegibilidade da instalação. Durante o processo, podem ser solicitados dados do titular e uma conta de luz para realizar a conexão.</p>
+        <p>Também é importante manter seus dados atualizados e acompanhar as comunicações enviadas pela Bulbe durante o período de conexão e início do serviço.</p>
+        <p><strong>A Bulbe enviará sua fatura automaticamente por e-mail, WhatsApp, SMS e também pelo aplicativo</strong>, facilitando o acompanhamento dos vencimentos, valores e pagamentos.</p>
+        <p>Ao continuar, você confirma que leu e concorda com o <strong>Termo de Adesão</strong>, os <strong>Termos Gerais de Uso</strong> e a <strong>Política de Privacidade</strong>, onde estão detalhadas as regras do serviço, responsabilidades das partes e o tratamento dos seus dados pessoais.</p>
+      </div>
+    </details>
   </main>
   <footer>
     <a href="Cartão.html" id="contratar">Concordar e contratar</a>
