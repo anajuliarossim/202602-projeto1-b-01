@@ -86,10 +86,7 @@ function atualizarValores() {
   pegar('totalPagar').textContent = dinheiro(total);
   pegar('descontoCheckin').textContent = `- ${dinheiro(desconto)}`;
   pegar('linhaDescontoCheckin').hidden = desconto === 0;
-
-  const botao = pegar('aplicarDesconto');
-  botao.disabled = !podeDescontar || saldo === 0;
-  botao.textContent = desconto > 0 ? 'Remover desconto' : 'Aplicar desconto';
+  pegar('aplicarDesconto').textContent = 'Aplicar desconto';
 }
 
 function mostrarFatura(fatura) {
@@ -117,7 +114,6 @@ function mostrarFatura(fatura) {
   pegar('valorIluminacao').textContent = dinheiro(detalhes.iluminacaoPublica);
   pegar('descontoBulbe').textContent = `- ${dinheiro(detalhes.descontoBulbe)}`;
 
-  pegar('pagarAgora').disabled = fatura.status !== 'aberta';
   atualizarValores();
 }
 
@@ -201,12 +197,6 @@ async function iniciarPagamento() {
     botao.disabled = false;
   }
 }
-
-// Botão do desconto.
-pegar('aplicarDesconto').addEventListener('click', function () {
-  descontoAtivo = !descontoAtivo;
-  atualizarValores();
-});
 
 // Notificações do cabeçalho.
 pegar('notificacoesBotao').addEventListener('click', function () {
