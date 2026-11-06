@@ -1,188 +1,257 @@
-// HU03: apenas o comportamento da tela de faturas.
-// Cabeçalho, menu e rodapé ficam no template.js do grupo.
+// Central de Faturas: apenas as funções desta tela.
+// O cabeçalho e o rodapé continuam no template.js do grupo.
+
 import { buscarFaturasDoCliente } from './api.js';
 
-const $ = id => document.getElementById(id);
-const real = valor => Number(valor || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-const dataBR = data => data ? data.split('-').reverse().join('/') : '--/--';
-const paga = fatura => fatura.status === 'paga' || fatura.status === 'pago';
-const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-let faturas = [];
-let atual = null;
-let filtro = 'todas';
-let metodo = 'pix';
-let usarDesconto = false;
-
-function nomeMes(referencia) {
-  const [ano, mes] = referencia.split('-').map(Number);
-  const nome = meses[mes - 1] || 'Mês';
-
-  return `${nome.charAt(0).toUpperCase()}${nome.slice(1)} ${ano}`;
+// Atalho para encontrar elementos do HTML pelo ID.
+function pegar(id) {
+  return document.getElementById(id);
 }
 
-// O checkin.js do grupo salva uma data por check-in, valendo R$ 0,50.
+function dinheiro(valor) {
+  return Number(valor || 0).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+}
+
+function dataCompleta(data) {
+  if (!data) return '--/--/----';
+  return data.split('-').reverse().join('/');
+}
+
+// Na fatura mostramos 18/10, igual à Home.
+function dataCurta(data) {
+  if (!data) return '--/--';
+
+  const partes = data.split('-');
+  return `${partes[2]}/${partes[1]}`;
+}
+
+function estaPaga(fatura) {
+  return fatura.status === 'paga' || fatura.status === 'pago';
+}
+
+function nomeMes(referencia) {
+  const meses = [
+    'Janeiro', 'Fevereiro', 'Março', 'Abril',
+    'Maio', 'Junho', 'Julho', 'Agosto',
+    'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+  ];
+
+  const [ano, mes] = referencia.split('-').map(Number);
+  return `${meses[mes - 1]} ${ano}`;
+}
+
+let faturas = [];
+let faturaAtual = null;
+let filtroAtual = 'todas';
+let metodoAtual = 'pix';
+let descontoAtivo = false;
+
+// Lê os dias de check-in salvos pela página Checkin.html.
 function lerSaldo() {
   try {
-    const dias = JSON.parse(localStorage.getItem('bulbe-checkins-diarios') || '[]');
-    if (!Array.isArray(dias) || !dias.every(d => /^\d{4}-\d{2}-\d{2}$/.test(d))) return 0;
-    return new Set(dias.slice(-90)).size * 0.50;
-  } catch {
+    const texto = localStorage.getItem('bulbe-checkins-diarios') || '[]';
+    const dias = JSON.parse(texto);
+
+    if (!Array.isArray(dias)) return 0;
+
+    // Cada dia único equivale a R$ 0,50, com limite de 90 dias.
+    const diasUnicos = new Set(dias);
+    return Math.min(diasUnicos.size, 90) * 0.50;
+  } catch (erro) {
+    console.warn('Não foi possível ler o saldo do check-in.', erro);
     return 0;
   }
 }
 
 function atualizarValores() {
-  if (!atual) return;
-  const saldo = lerSaldo();
-  const aberto = atual.status === 'aberta';
-  const desconto = usarDesconto && aberto ? Math.min(saldo, atual.valor) : 0;
-  const total = Math.max(0, atual.valor - desconto);
+  if (!faturaAtual) return;
 
-  $('saldoCheckin').textContent = real(saldo);
-  $('valorFatura').textContent = real(total);
-  $('totalPagar').textContent = real(total);
-  $('descontoCheckin').textContent = `− ${real(desconto)}`;
-  $('linhaDescontoCheckin').hidden = desconto === 0;
-  $('aplicarDesconto').disabled = !aberto || saldo === 0;
-  $('aplicarDesconto').textContent = usarDesconto && desconto ? 'Remover desconto' : 'Aplicar desconto';
-  $('mensagemDesconto').textContent = desconto
-    ? `${real(desconto)} selecionados. O servidor precisa validar o desconto na cobrança.`
-    : saldo ? 'Você pode usar seu saldo nesta fatura.' : 'Faça check-ins para acumular descontos.';
+  const saldo = lerSaldo();
+  const podeDescontar = faturaAtual.status === 'aberta';
+  const desconto = descontoAtivo && podeDescontar
+    ? Math.min(saldo, faturaAtual.valor)
+    : 0;
+
+  const total = Math.max(0, faturaAtual.valor - desconto);
+
+  pegar('saldoCheckin').textContent = dinheiro(saldo);
+  pegar('valorFatura').textContent = dinheiro(total);
+  pegar('totalPagar').textContent = dinheiro(total);
+  pegar('descontoCheckin').textContent = `- ${dinheiro(desconto)}`;
+  pegar('linhaDescontoCheckin').hidden = desconto === 0;
+
+  const botao = pegar('aplicarDesconto');
+  botao.disabled = !podeDescontar || saldo === 0;
+  botao.textContent = desconto > 0 ? 'Remover desconto' : 'Aplicar desconto';
 }
 
-function exibirFatura(fatura) {
-  atual = fatura;
-  const d = fatura.detalhamento || {};
-  const kwh = Number(d.consumoKwh || 0);
+function mostrarFatura(fatura) {
+  faturaAtual = fatura;
+
+  const detalhes = fatura.detalhamento || {};
+  const consumo = Number(detalhes.consumoKwh || 0);
   const [ano, mes] = fatura.referencia.split('-').map(Number);
   const ultimoDia = new Date(ano, mes, 0).getDate();
+  const mesTexto = String(mes).padStart(2, '0');
 
-  $('instalacaoNumero').value = fatura.instalacao || '30014365849';
-  $('statusFatura').textContent = paga(fatura) ? 'Paga' : fatura.status === 'prevista' ? 'Prevista' : 'Em aberto';
-  $('vencimento').textContent = dataBR(fatura.vencimento);
-  $('economiaValor').textContent = real(fatura.economia);
-  $('consumoKwh').textContent = `${kwh} kWh`;
-  $('tarifaKwh').textContent = kwh ? real(Number(d.energia || 0) / kwh) : '—';
-  $('periodo').textContent = `01/${String(mes).padStart(2, '0')} - ${ultimoDia}/${String(mes).padStart(2, '0')}`;
-  $('valorEnergia').textContent = real(d.energia);
-  $('valorImpostos').textContent = real(d.impostos);
-  $('valorIluminacao').textContent = real(d.iluminacaoPublica);
-  $('descontoBulbe').textContent = `− ${real(d.descontoBulbe)}`;
-  $('pagarAgora').disabled = fatura.status !== 'aberta';
+  pegar('instalacaoNumero').value = fatura.instalacao || '30014365849';
+  pegar('statusFatura').textContent = estaPaga(fatura) ? 'Paga' : 'Em aberto';
+  pegar('vencimento').textContent = dataCurta(fatura.vencimento);
+  pegar('economiaValor').textContent = dinheiro(fatura.economia);
+
+  pegar('consumoKwh').textContent = `${consumo} kWh`;
+  pegar('tarifaKwh').textContent = consumo
+    ? dinheiro(detalhes.energia / consumo)
+    : '—';
+  pegar('periodo').textContent = `01/${mesTexto} - ${ultimoDia}/${mesTexto}`;
+
+  pegar('valorEnergia').textContent = dinheiro(detalhes.energia);
+  pegar('valorImpostos').textContent = dinheiro(detalhes.impostos);
+  pegar('valorIluminacao').textContent = dinheiro(detalhes.iluminacaoPublica);
+  pegar('descontoBulbe').textContent = `- ${dinheiro(detalhes.descontoBulbe)}`;
+
+  pegar('pagarAgora').disabled = fatura.status !== 'aberta';
   atualizarValores();
 }
 
+// Cria uma linha do histórico sem escrever as faturas no HTML.
 function criarLinha(fatura) {
   const linha = document.createElement('article');
   linha.className = 'linha-historico';
-  const nome = document.createElement('div');
-  const valor = document.createElement('strong');
-  const titulo = document.createElement('strong');
-  const descricao = document.createElement('small');
-  const situacao = document.createElement('span');
 
-  titulo.textContent = nomeMes(fatura.referencia);
-  descricao.textContent = paga(fatura) ? `Paga em ${dataBR(fatura.pagaEm)}` : `Vence em ${dataBR(fatura.vencimento)}`;
-  situacao.textContent = paga(fatura) ? 'Paga' : 'Pendente';
-  situacao.className = paga(fatura) ? 'paga' : 'pendente';
-  valor.textContent = real(fatura.valor);
-  nome.append(titulo, descricao, situacao);
-  linha.append(nome, valor);
+  const informacoes = document.createElement('div');
+  const mes = document.createElement('strong');
+  const data = document.createElement('small');
+  const situacao = document.createElement('span');
+  const valor = document.createElement('strong');
+
+  mes.textContent = nomeMes(fatura.referencia);
+  data.textContent = estaPaga(fatura)
+    ? `Paga em ${dataCompleta(fatura.pagaEm)}`
+    : `Vence em ${dataCompleta(fatura.vencimento)}`;
+  situacao.textContent = estaPaga(fatura) ? 'Paga' : 'Pendente';
+  situacao.className = estaPaga(fatura) ? 'paga' : 'pendente';
+  valor.textContent = dinheiro(fatura.valor);
+
+  informacoes.append(mes, data, situacao);
+  linha.append(informacoes, valor);
+
   return linha;
 }
 
-function exibirHistorico() {
-  const lista = $('listaFaturas');
+function mostrarHistorico() {
+  const lista = pegar('listaFaturas');
   lista.replaceChildren();
-  const visiveis = faturas.filter(f => filtro === 'todas' ||
-    (filtro === 'pagas' ? paga(f) : !paga(f)));
-  if (!visiveis.length) {
+
+  const visiveis = faturas.filter(function (fatura) {
+    if (filtroAtual === 'todas') return true;
+    if (filtroAtual === 'pagas') return estaPaga(fatura);
+    return !estaPaga(fatura);
+  });
+
+  if (visiveis.length === 0) {
     lista.textContent = 'Nenhuma fatura encontrada.';
     return;
   }
-  visiveis.forEach(f => lista.append(criarLinha(f)));
+
+  visiveis.forEach(function (fatura) {
+    lista.append(criarLinha(fatura));
+  });
 }
 
-// O projeto ainda não tem o serviço /api/pagamentos/iniciar.
-// A interface não pode confirmar uma cobrança sem a resposta do servidor.
-async function pagar() {
-  if (!atual || atual.status !== 'aberta') return;
-  const botao = $('pagarAgora');
+// O pagamento real depende de uma rota no servidor do projeto.
+// Em caso de falha, não mostramos a mensagem de indisponibilidade.
+async function iniciarPagamento() {
+  if (!faturaAtual || faturaAtual.status !== 'aberta') return;
+
+  const botao = pegar('pagarAgora');
   botao.disabled = true;
-  $('mensagemPagamento').textContent = 'Conectando ao pagamento seguro...';
+
   try {
     const resposta = await fetch('/api/pagamentos/iniciar', {
       method: 'POST',
-      credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ faturaId: atual.id, metodo, usarSaldoCheckin: usarDesconto && lerSaldo() > 0 })
+      body: JSON.stringify({
+        faturaId: faturaAtual.id,
+        metodo: metodoAtual,
+        usarSaldoCheckin: descontoAtivo
+      })
     });
-    if (!resposta.ok) throw new Error('Serviço indisponível');
+
+    if (!resposta.ok) throw new Error('Checkout não configurado');
+
     const dados = await resposta.json();
-    if (typeof dados.checkoutUrl !== 'string' || !dados.checkoutUrl.trim()) {
-      throw new Error('O servidor não informou um checkout válido');
+    if (!dados.checkoutUrl) throw new Error('Checkout sem endereço');
+
+    const destino = new URL(dados.checkoutUrl, location.origin);
+    if (destino.protocol !== 'https:' && destino.origin !== location.origin) {
+      throw new Error('Endereço de pagamento inseguro');
     }
-    const url = new URL(dados.checkoutUrl, location.origin);
-    if (url.protocol !== 'https:' && url.origin !== location.origin) throw new Error('URL insegura');
-    location.assign(url.href);
+
+    location.assign(destino.href);
   } catch (erro) {
-    console.error(erro);
-    $('mensagemPagamento').textContent = 'Pagamento indisponível. Falta integrar o servidor de cobrança.';
+    console.warn('Pagamento não iniciado:', erro);
     botao.disabled = false;
   }
 }
 
-$('aplicarDesconto').addEventListener('click', () => {
-  usarDesconto = !usarDesconto;
+// Botão do desconto.
+pegar('aplicarDesconto').addEventListener('click', function () {
+  descontoAtivo = !descontoAtivo;
   atualizarValores();
 });
 
-$('notificacoesBotao').addEventListener('click', () => {
-  const painel = $('notificacoesPainel');
-  painel.hidden = !painel.hidden;
-  $('notificacoesBotao').setAttribute('aria-expanded', String(!painel.hidden));
-});
-$('abrirModal').addEventListener('click', () => {
-  $('notificacoesPainel').hidden = true;
-  $('notificacoesBotao').setAttribute('aria-expanded', 'false');
+// Notificações do cabeçalho.
+pegar('notificacoesBotao').addEventListener('click', function () {
+  pegar('notificacoesPainel').hidden = !pegar('notificacoesPainel').hidden;
 });
 
-for (const botao of document.querySelectorAll('[data-metodo]')) {
-  botao.addEventListener('click', () => {
-    metodo = botao.dataset.metodo;
-    for (const item of document.querySelectorAll('[data-metodo]')) {
-      const selecionado = item === botao;
-      item.classList.toggle('selecionada', selecionado);
-      item.setAttribute('aria-pressed', String(selecionado));
-    }
-    const nomes = {pix: 'Pix', boleto: 'Boleto', cartao: 'Cartão'};
-    $('pagarAgora').textContent = `Pagar com ${nomes[metodo]}`;
-  });
-}
+// Escolha entre Pix, boleto e cartão.
+document.querySelectorAll('[data-metodo]').forEach(function (botao) {
+  botao.addEventListener('click', function () {
+    metodoAtual = botao.dataset.metodo;
 
-for (const botao of document.querySelectorAll('[data-filtro]')) {
-  botao.addEventListener('click', () => {
-    filtro = botao.dataset.filtro;
-    for (const item of document.querySelectorAll('[data-filtro]')) {
-      item.classList.toggle('ativo', item === botao);
+    document.querySelectorAll('[data-metodo]').forEach(function (item) {
+      item.classList.toggle('selecionada', item === botao);
       item.setAttribute('aria-pressed', String(item === botao));
-    }
-    exibirHistorico();
-  });
-}
+    });
 
-$('pagarAgora').addEventListener('click', pagar);
-window.addEventListener('pageshow', atualizarValores);
-window.addEventListener('storage', e => {
-  if (e.key === 'bulbe-checkins-diarios') atualizarValores();
+    const nomes = { pix: 'Pix', boleto: 'Boleto', cartao: 'Cartão' };
+    pegar('pagarAgora').textContent = `Pagar com ${nomes[metodoAtual]}`;
+  });
 });
 
+// Filtros do histórico.
+document.querySelectorAll('[data-filtro]').forEach(function (botao) {
+  botao.addEventListener('click', function () {
+    filtroAtual = botao.dataset.filtro;
+
+    document.querySelectorAll('[data-filtro]').forEach(function (item) {
+      item.classList.toggle('ativo', item === botao);
+    });
+
+    mostrarHistorico();
+  });
+});
+
+pegar('pagarAgora').addEventListener('click', iniciarPagamento);
+window.addEventListener('pageshow', atualizarValores);
+window.addEventListener('storage', atualizarValores);
+
+// Carrega as faturas do cliente de demonstração.
 try {
-  faturas = (await buscarFaturasDoCliente(3)).sort((a, b) => b.referencia.localeCompare(a.referencia));
-  const faturaAtual = faturas.find(f => f.status === 'aberta') || faturas[0];
-  if (faturaAtual) exibirFatura(faturaAtual);
-  exibirHistorico();
+  faturas = await buscarFaturasDoCliente(3);
+  faturas.sort((a, b) => b.referencia.localeCompare(a.referencia));
+
+  const aberta = faturas.find(fatura => fatura.status === 'aberta');
+  const escolhida = aberta || faturas[0];
+
+  if (escolhida) mostrarFatura(escolhida);
+  mostrarHistorico();
 } catch (erro) {
-  console.error(erro);
-  $('listaFaturas').textContent = 'Não foi possível carregar os dados. Use o Live Server.';
+  console.error('Erro ao carregar faturas:', erro);
+  pegar('listaFaturas').textContent = 'Não foi possível carregar as faturas. Abra pelo Live Server.';
 }
