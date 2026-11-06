@@ -56,6 +56,10 @@ function lerSaldo() {
     const dias = JSON.parse(texto);
 
     if (!Array.isArray(dias)) return 0;
+    // Saldo inicial usado na demonstração
+      if (dias.length === 0) {
+        return 10;
+}
 
     // Cada dia único equivale a R$ 0,50, com limite de 90 dias.
     const diasUnicos = new Set(dias);

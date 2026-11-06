@@ -24,18 +24,16 @@
     "clienteId": 3,
     "instalacao": "30014365849",
     "referencia": "2026-10",
-    "vencimento": "2026-10-18",
+    "vencimento": "2026-10-25",
     "valor": 187.42,
     "economia": 37.4,
-    "status": "aberta",
-    "pixCopiaECola": null,
     "detalhamento": {
-      "consumoKwh": 320,
-      "energia": 214.1,
-      "impostos": 31.4,
-      "iluminacaoPublica": 12.6,
-      "descontoBulbe": 70.68
-    }
+    "consumoKwh": 320,
+    "energia": 180.82,
+    "impostos": 31.4,
+    "iluminacaoPublica": 12.6,
+    "descontoBulbe": 37.4
+}
   },
   {
     "id": 302,
