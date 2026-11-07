@@ -60,6 +60,7 @@
 2. Abra a pasta no VS Code.
 3. Instale a extensão **Live Server** (o VS Code vai sugerir automaticamente).
 4. Clique com o botão direito em `index.html` e escolha **Open with Live Server**.
+5. Na página inicial, clique em **Abrir apresentação interativa** para navegar pelas telas. Também é possível abrir `pages/Apresentacao.html` diretamente pelo Live Server.
 
 > Abrir o `index.html` direto no navegador (duplo clique) não funciona: o `fetch` dos arquivos JSON exige um servidor.
 
