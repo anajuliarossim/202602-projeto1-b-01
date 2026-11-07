@@ -2196,7 +2196,7 @@ body.pagina-home {
   --home-marinho: #08068d;
   --home-verde: #00a86b;
   width: 100%;
-  max-width: 430px;
+  max-width: 375px;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
@@ -2296,7 +2296,7 @@ body.pagina-home {
 .pagina-home .home-dica h2 { margin-bottom: 5px; color: #fff; font-size: 23px; }
 .pagina-home .home-dica p { font-size: 10px; color: #d8e1ff; line-height: 1.45; }
 .pagina-home .home-dica strong { display: block; margin-top: 3px; color: #fff; font-size: 10px; }
-.pagina-home .menu-footer { left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; box-shadow: 0 -2px 12px #10205b15; }
+.pagina-home .menu-footer { left: 50%; transform: translateX(-50%); width: 100%; max-width: 375px; box-shadow: 0 -2px 12px #10205b15; }
 @media (hover: hover) {
   .pagina-home .home-botao:hover, .pagina-home .home-pill:hover { filter: brightness(.95); }
 }
