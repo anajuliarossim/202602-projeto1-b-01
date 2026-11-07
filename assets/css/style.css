@@ -1043,7 +1043,7 @@ body.pagina-blog {
   width: 10px;
   height: 10px;
   border-radius: 3px;
-  background: #17b9a5;
+  background: var(--azul);
 }
 
 /* Código de barras: mesmo desenho utilizado na Home */
