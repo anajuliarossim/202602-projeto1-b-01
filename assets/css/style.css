@@ -582,7 +582,7 @@ body.pagina-blog {
 /* 1. Página e espaçamento */
 .pagina-faturas {
   --azul: #08068d;
-  --texto-fatura: #102a6c;
+  --texto-fatura: var(--azul);
   --borda-fatura: #d6e1f5;
 
   background: #f2f4f8;
@@ -695,21 +695,21 @@ body.pagina-blog {
   padding: 3px 7px;
   border-radius: 20px;
   background: #bedbff;
-  color: #062b7d;
+  color: var(--azul);
   font-size: 8px;
   font-weight: 600;
 }
 
 .pagina-faturas .aviso-cemig h2 {
   margin: 6px 0;
-  color: #063aaf;
+  color: var(--azul);
   font-size: 14px;
   line-height: 1.3;
 }
 
 .pagina-faturas .aviso-cemig p {
   margin: 0;
-  color: #4b6b8e;
+  color: var(--azul);
   font-size: 9px;
   line-height: 1.45;
 }
@@ -741,7 +741,7 @@ body.pagina-blog {
   padding: 5px 10px;
   border-radius: 20px;
   background: #e8edff;
-  color: #0f40a2;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -749,7 +749,7 @@ body.pagina-blog {
   display: block;
   width: 100%;
   margin: 12px 0 4px;
-  color: #8692ad;
+  color: var(--azul);
   font-size: 13px;
   text-align: left;
 }
@@ -850,7 +850,7 @@ body.pagina-blog {
 
 .pagina-faturas .saldo-checkin small {
   display: block;
-  color: #7383a1;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -912,7 +912,7 @@ body.pagina-blog {
 }
 
 .pagina-faturas .detalhes summary small {
-  color: #71809b;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -930,7 +930,7 @@ body.pagina-blog {
 
 .pagina-faturas .resumo-consumo small {
   display: block;
-  color: #72809c;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -978,7 +978,7 @@ body.pagina-blog {
 
 .pagina-faturas .pagamentos > p {
   margin: 4px 0 14px;
-  color: #7886a1;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -1000,7 +1000,7 @@ body.pagina-blog {
 }
 
 .pagina-faturas .forma.selecionada {
-  border-color: #697fff;
+  border-color: var(--azul);
   background: #ebf0ff;
 }
 
@@ -1025,7 +1025,7 @@ body.pagina-blog {
 }
 
 .pagina-faturas .texto-forma small {
-  color: #7886a1;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -1053,9 +1053,9 @@ body.pagina-blog {
   margin: 2px 4px;
   background: repeating-linear-gradient(
     90deg,
-    #08068d 0 2px,
+    var(--azul) 0 2px,
     transparent 2px 4px,
-    #08068d 4px 5px,
+    var(--azul) 4px 5px,
     transparent 5px 8px
   );
 }
@@ -1078,7 +1078,7 @@ body.pagina-blog {
   padding: 13px;
   border: 0;
   border-radius: 9px;
-  background: #113b92;
+  background: var(--azul);
   color: white;
   font-weight: 700;
 }
@@ -1101,7 +1101,7 @@ body.pagina-blog {
   border: 0;
   border-radius: 20px;
   background: #e9edf5;
-  color: #415579;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -1129,7 +1129,7 @@ body.pagina-blog {
 }
 
 .pagina-faturas .linha-historico small {
-  color: #74839c;
+  color: var(--azul);
   font-size: 10px;
 }
 
