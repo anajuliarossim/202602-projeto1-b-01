@@ -489,7 +489,8 @@ width: 100%;
   width: 100%;
 }
 .noticia{
-  width: 90vw;
+  width: 100%;
+  max-width: 343px;
   height: auto;
 
   background-color: var(--cor-fundo);
@@ -529,6 +530,21 @@ width: 100%;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
+}
+
+body.pagina-blog {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.pagina-blog #body-noticias {
+  flex: 1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 16px;
 }
 
 #InfoFooter{
@@ -2687,4 +2703,73 @@ body.telaOnboarding.onboardingBulbe {
 }
 .TelaCheia + .menu-footer {
   position: static;
+}
+
+/* Limita todas as telas ao viewport de 375px do iPhone SE. */
+body {
+  width: 100%;
+  max-width: 375px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.menu-footer,
+.pagina-home .menu-footer,
+.pagina-faturas .menu-footer,
+.pagina-mapa .menu-footer,
+.tela-checkin .menu-footer {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100vw, 375px);
+}
+
+.TelaCheia + .menu-footer {
+  left: auto;
+  transform: none;
+  width: 100%;
+}
+
+#Start-Top {
+  padding: clamp(24px, 8vh, 56px) 24px 12px;
+}
+
+#Start-Top img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  padding: 0;
+  margin: 0 auto;
+}
+
+#Start-Main {
+  padding: 18px 24px 24px;
+}
+
+#TempoDeCalculo,
+#ConsumoMensal {
+  width: 100%;
+  max-width: 100%;
+}
+
+#confirmar-entrar {
+  left: 50%;
+  width: min(calc(100vw - 24px), 351px);
+  margin-left: 0;
+  transform: translateX(-50%);
+  bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-height: 700px) {
+  .onboardingBulbe .onboardingImg {
+    height: 48dvh;
+  }
+
+  #IlustraOnb01 {
+    height: calc(100% - 32px);
+  }
 }
