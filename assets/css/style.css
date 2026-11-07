@@ -1707,6 +1707,10 @@ body.pagina-mapa {
   color: var(--cor-primaria);
 }
 
+.pagina-mapa .mapa-indicador p {
+  color: var(--cor-primaria);
+}
+
 .pagina-mapa .mapa-indicador h2 {
   margin: 0;
   font-size: 11px;
