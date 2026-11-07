@@ -2034,6 +2034,34 @@ body.tela-checkin {
   margin: 0 auto;
 }
 
+.tela-checkin .topo {
+  grid-template-columns: 44px 32px minmax(0, 1fr) 32px 32px;
+  grid-template-areas:
+    "voltar menu logo not perfil"
+    "faixa faixa faixa faixa faixa";
+}
+
+.tela-checkin .checkin-voltar {
+  display: flex;
+  grid-area: voltar;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  justify-self: start;
+}
+
+.tela-checkin .checkin-voltar img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.tela-checkin .topo .logo-cabecalho {
+  margin-right: 0;
+}
+
 .tela-checkin .menu-footer {
   left: 50%;
   transform: translateX(-50%);
