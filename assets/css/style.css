@@ -2243,6 +2243,7 @@ body.pagina-home {
 .pagina-home .home-valor > span:first-child { font-size: 19px; }
 .pagina-home .home-raios { width: 22px; height: 25px; margin-left: 6px; background: linear-gradient(155deg, transparent 40%, #00c78b 43% 53%, transparent 56%) top / 100% 40% no-repeat, linear-gradient(10deg, transparent 40%, #0db5ed 43% 53%, transparent 56%) center / 100% 40% no-repeat, linear-gradient(35deg, transparent 40%, #ffc300 43% 53%, transparent 56%) bottom / 100% 40% no-repeat; }
 .pagina-home .home-conteudo .home-vencimento { display: flex; gap: 7px; align-items: center; color: var(--home-azul); font-size: 12px; margin-bottom: 17px; }
+.pagina-home .home-vencimento strong { font-weight: 700; }
 .pagina-home .home-calendario { width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 2px; background: linear-gradient(currentColor, currentColor) 0 3px / 100% 2px no-repeat; }
 .pagina-home .home-economia-mes { display: flex; align-items: center; gap: 9px; min-height: 53px; padding: 8px 12px; border-radius: 10px; background: #e5fbf1; }
 .pagina-home .home-icone-economia { width: 39px; height: 37px; flex: none; }
