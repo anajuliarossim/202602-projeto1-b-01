@@ -258,6 +258,31 @@
       margin: 20px 0 8px;
       display: none; /* escondido por padrão; ative se tiver a imagem */
     }
+
+    body {
+      width: 100%;
+      max-width: 375px;
+      margin: 0 auto;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 375px;
+    }
+
+    @media (max-width: 375px) {
+      .corpo {
+        padding: 20px 16px 32px;
+      }
+
+      .titulo-pagina h1 {
+        font-size: 1.35rem;
+      }
+
+      .mini-quadro .valor {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>

@@ -489,7 +489,8 @@ width: 100%;
   width: 100%;
 }
 .noticia{
-  width: 90vw;
+  width: 100%;
+  max-width: 343px;
   height: auto;
 
   background-color: var(--cor-fundo);
@@ -531,6 +532,21 @@ width: 100%;
   text-decoration: none;
 }
 
+body.pagina-blog {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.pagina-blog #body-noticias {
+  flex: 1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 16px;
+}
+
 #InfoFooter{
   display: flex;
   justify-content: center;
@@ -566,7 +582,7 @@ width: 100%;
 /* 1. Página e espaçamento */
 .pagina-faturas {
   --azul: #08068d;
-  --texto-fatura: #102a6c;
+  --texto-fatura: var(--azul);
   --borda-fatura: #d6e1f5;
 
   background: #f2f4f8;
@@ -679,21 +695,21 @@ width: 100%;
   padding: 3px 7px;
   border-radius: 20px;
   background: #bedbff;
-  color: #062b7d;
+  color: var(--azul);
   font-size: 8px;
   font-weight: 600;
 }
 
 .pagina-faturas .aviso-cemig h2 {
   margin: 6px 0;
-  color: #063aaf;
+  color: var(--azul);
   font-size: 14px;
   line-height: 1.3;
 }
 
 .pagina-faturas .aviso-cemig p {
   margin: 0;
-  color: #4b6b8e;
+  color: var(--azul);
   font-size: 9px;
   line-height: 1.45;
 }
@@ -725,7 +741,7 @@ width: 100%;
   padding: 5px 10px;
   border-radius: 20px;
   background: #e8edff;
-  color: #0f40a2;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -733,7 +749,7 @@ width: 100%;
   display: block;
   width: 100%;
   margin: 12px 0 4px;
-  color: #8692ad;
+  color: var(--azul);
   font-size: 13px;
   text-align: left;
 }
@@ -834,7 +850,7 @@ width: 100%;
 
 .pagina-faturas .saldo-checkin small {
   display: block;
-  color: #7383a1;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -896,7 +912,7 @@ width: 100%;
 }
 
 .pagina-faturas .detalhes summary small {
-  color: #71809b;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -914,7 +930,7 @@ width: 100%;
 
 .pagina-faturas .resumo-consumo small {
   display: block;
-  color: #72809c;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -962,7 +978,7 @@ width: 100%;
 
 .pagina-faturas .pagamentos > p {
   margin: 4px 0 14px;
-  color: #7886a1;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -984,7 +1000,7 @@ width: 100%;
 }
 
 .pagina-faturas .forma.selecionada {
-  border-color: #697fff;
+  border-color: var(--azul);
   background: #ebf0ff;
 }
 
@@ -1009,7 +1025,7 @@ width: 100%;
 }
 
 .pagina-faturas .texto-forma small {
-  color: #7886a1;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -1027,7 +1043,7 @@ width: 100%;
   width: 10px;
   height: 10px;
   border-radius: 3px;
-  background: #17b9a5;
+  background: var(--azul);
 }
 
 /* Código de barras: mesmo desenho utilizado na Home */
@@ -1037,9 +1053,9 @@ width: 100%;
   margin: 2px 4px;
   background: repeating-linear-gradient(
     90deg,
-    #08068d 0 2px,
+    var(--azul) 0 2px,
     transparent 2px 4px,
-    #08068d 4px 5px,
+    var(--azul) 4px 5px,
     transparent 5px 8px
   );
 }
@@ -1062,7 +1078,7 @@ width: 100%;
   padding: 13px;
   border: 0;
   border-radius: 9px;
-  background: #113b92;
+  background: var(--azul);
   color: white;
   font-weight: 700;
 }
@@ -1085,7 +1101,7 @@ width: 100%;
   border: 0;
   border-radius: 20px;
   background: #e9edf5;
-  color: #415579;
+  color: var(--azul);
   font-size: 11px;
 }
 
@@ -1113,7 +1129,7 @@ width: 100%;
 }
 
 .pagina-faturas .linha-historico small {
-  color: #74839c;
+  color: var(--azul);
   font-size: 10px;
 }
 
@@ -1691,6 +1707,10 @@ body.pagina-mapa {
   color: var(--cor-primaria);
 }
 
+.pagina-mapa .mapa-indicador p {
+  color: var(--cor-primaria);
+}
+
 .pagina-mapa .mapa-indicador h2 {
   margin: 0;
   font-size: 11px;
@@ -2018,6 +2038,34 @@ body.tela-checkin {
   margin: 0 auto;
 }
 
+.tela-checkin .topo {
+  grid-template-columns: 44px 32px minmax(0, 1fr) 32px 32px;
+  grid-template-areas:
+    "voltar menu logo not perfil"
+    "faixa faixa faixa faixa faixa";
+}
+
+.tela-checkin .checkin-voltar {
+  display: flex;
+  grid-area: voltar;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  justify-self: start;
+}
+
+.tela-checkin .checkin-voltar img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.tela-checkin .topo .logo-cabecalho {
+  margin-right: 0;
+}
+
 .tela-checkin .menu-footer {
   left: 50%;
   transform: translateX(-50%);
@@ -2152,7 +2200,7 @@ body.pagina-home {
   --home-marinho: #08068d;
   --home-verde: #00a86b;
   width: 100%;
-  max-width: 430px;
+  max-width: 375px;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
@@ -2195,6 +2243,7 @@ body.pagina-home {
 .pagina-home .home-valor > span:first-child { font-size: 19px; }
 .pagina-home .home-raios { width: 22px; height: 25px; margin-left: 6px; background: linear-gradient(155deg, transparent 40%, #00c78b 43% 53%, transparent 56%) top / 100% 40% no-repeat, linear-gradient(10deg, transparent 40%, #0db5ed 43% 53%, transparent 56%) center / 100% 40% no-repeat, linear-gradient(35deg, transparent 40%, #ffc300 43% 53%, transparent 56%) bottom / 100% 40% no-repeat; }
 .pagina-home .home-conteudo .home-vencimento { display: flex; gap: 7px; align-items: center; color: var(--home-azul); font-size: 12px; margin-bottom: 17px; }
+.pagina-home .home-vencimento strong { font-weight: 700; }
 .pagina-home .home-calendario { width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 2px; background: linear-gradient(currentColor, currentColor) 0 3px / 100% 2px no-repeat; }
 .pagina-home .home-economia-mes { display: flex; align-items: center; gap: 9px; min-height: 53px; padding: 8px 12px; border-radius: 10px; background: #e5fbf1; }
 .pagina-home .home-icone-economia { width: 39px; height: 37px; flex: none; }
@@ -2252,7 +2301,7 @@ body.pagina-home {
 .pagina-home .home-dica h2 { margin-bottom: 5px; color: #fff; font-size: 23px; }
 .pagina-home .home-dica p { font-size: 10px; color: #d8e1ff; line-height: 1.45; }
 .pagina-home .home-dica strong { display: block; margin-top: 3px; color: #fff; font-size: 10px; }
-.pagina-home .menu-footer { left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; box-shadow: 0 -2px 12px #10205b15; }
+.pagina-home .menu-footer { left: 50%; transform: translateX(-50%); width: 100%; max-width: 375px; box-shadow: 0 -2px 12px #10205b15; }
 @media (hover: hover) {
   .pagina-home .home-botao:hover, .pagina-home .home-pill:hover { filter: brightness(.95); }
 }
@@ -2687,4 +2736,73 @@ body.telaOnboarding.onboardingBulbe {
 }
 .TelaCheia + .menu-footer {
   position: static;
+}
+
+/* Limita todas as telas ao viewport de 375px do iPhone SE. */
+body {
+  width: 100%;
+  max-width: 375px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.menu-footer,
+.pagina-home .menu-footer,
+.pagina-faturas .menu-footer,
+.pagina-mapa .menu-footer,
+.tela-checkin .menu-footer {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100vw, 375px);
+}
+
+.TelaCheia + .menu-footer {
+  left: auto;
+  transform: none;
+  width: 100%;
+}
+
+#Start-Top {
+  padding: clamp(24px, 8vh, 56px) 24px 12px;
+}
+
+#Start-Top img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  padding: 0;
+  margin: 0 auto;
+}
+
+#Start-Main {
+  padding: 18px 24px 24px;
+}
+
+#TempoDeCalculo,
+#ConsumoMensal {
+  width: 100%;
+  max-width: 100%;
+}
+
+#confirmar-entrar {
+  left: 50%;
+  width: min(calc(100vw - 24px), 351px);
+  margin-left: 0;
+  transform: translateX(-50%);
+  bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-height: 700px) {
+  .onboardingBulbe .onboardingImg {
+    height: 48dvh;
+  }
+
+  #IlustraOnb01 {
+    height: calc(100% - 32px);
+  }
 }
