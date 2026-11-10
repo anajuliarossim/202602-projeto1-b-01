@@ -27,6 +27,7 @@
     "vencimento": "2026-10-25",
     "valor": 187.42,
     "economia": 37.4,
+    "status": "aberta",
     "detalhamento": {
     "consumoKwh": 320,
     "energia": 180.82,
