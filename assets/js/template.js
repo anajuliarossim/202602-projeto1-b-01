@@ -1,4 +1,4 @@
-// template.js - menu lateral e navegação inferior (Home / Faturas / Consumo)
+// template.js — menu lateral e navegação compartilhada (Início, Faturas, Consumo e Mapa).
 
 const abrirModal = document.getElementById("abrirModal");
 const fecharModal = document.getElementById("fecharModal");
@@ -35,29 +35,36 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Detecta a página aberta; a classe da Home também funciona em prévias.
-const nomePagina = decodeURIComponent(window.location.pathname.split("/").pop()).toLowerCase();
+// A aba ativa é determinada pela página real, não pelo botão clicado anteriormente.
+const nomePagina = decodeURIComponent(window.location.pathname.split("/").pop() || "").toLowerCase();
 let abaAtual = null;
 
-if (document.body.classList.contains("pagina-home") || /^home(?:\(\d+\))?\.html$/.test(nomePagina)) {
-    abaAtual = "btnInicio";
-} else if (document.body.classList.contains("pagina-faturas") || /^faturas?\.html$/.test(nomePagina)) {
+if (nomePagina === "mapa.html" || document.body.classList.contains("pagina-mapa")) {
+    abaAtual = "btnMapa";
+} else if (nomePagina === "fatura.html" || nomePagina === "faturas.html" || document.body.classList.contains("pagina-faturas")) {
     abaAtual = "btnFaturas";
-} else if (/^consumo(?:_cliente)?\.html$/.test(nomePagina) || document.querySelector('main[data-tela="consumo"]')) {
+} else if (/^(consumo|economia)(?:_cliente)?\.html$/.test(nomePagina)
+        || /^calculadora(?:_inicial)?\.html$/.test(nomePagina)
+        || document.querySelector('main[data-tela="consumo"], main[data-tela="economia"]')) {
     abaAtual = "btnConsumo";
+} else if (document.body.classList.contains("pagina-home")
+        || /^home(?:\(\d+\))?\.html$/.test(nomePagina)
+        || nomePagina === "checkin.html") {
+    abaAtual = "btnInicio";
 }
 
 const paginasFooter = {
     btnInicio: { destino: "Home.html", ativo: "../assets/img/Icone-Inicio-Azul.png" },
     btnFaturas: { destino: "Fatura.html", ativo: "../assets/img/Icone-Fatura-Azul.png" },
-    btnConsumo: { destino: "Consumo_Cliente.html", ativo: "../assets/img/Icone-Consumo-Azul.png" }
+    btnConsumo: { destino: "Consumo_Cliente.html", ativo: "../assets/img/Icone-Consumo-Azul.png" },
+    btnMapa: { destino: "Mapa.html", ativo: "../assets/img/Icone-Mapa-Azul.png" }
 };
 
 for (const [id, config] of Object.entries(paginasFooter)) {
     const botao = document.getElementById(id);
     if (!botao) continue;
 
-    // Se uma página só tiver a versão cinza, cria a versão azul automaticamente.
+    // Compatibilidade com outras páginas que ainda tenham apenas um ícone cinza.
     const imagens = Array.from(botao.querySelectorAll("img"));
     if (imagens.length === 1) {
         imagens[0].classList.add("icone-footer", "icone-cinza");

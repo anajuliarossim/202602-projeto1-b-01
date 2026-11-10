@@ -2688,3 +2688,30 @@ body.telaOnboarding.onboardingBulbe {
 .TelaCheia + .menu-footer {
   position: static;
 }
+
+/* Navegação inferior compartilhada — quatro abas com espaço igual.
+   As duas imagens existem em assets/img; a classe .ativo é gerenciada por template.js. */
+.menu-footer > .button-template {
+  flex: 1 1 25%;
+  min-width: 0;
+  padding-inline: 2px;
+}
+
+.menu-footer > .button-template .icone-footer {
+  width: auto;
+  height: 40px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.menu-footer > .button-template.ativo .icone-azul {
+  display: block;
+  height: 40px;
+}
+
+@media (max-width: 340px) {
+  .menu-footer { padding-left: 6px; padding-right: 6px; }
+  .menu-footer > .button-template .icone-footer,
+  .menu-footer > .button-template.ativo .icone-azul { height: 36px; }
+}
