@@ -66,7 +66,16 @@ function atualizarValores() {
   pegar('totalPagar').textContent = dinheiro(total);
   pegar('descontoCheckin').textContent = `- ${dinheiro(desconto)}`;
   pegar('linhaDescontoCheckin').hidden = desconto === 0;
-  pegar('aplicarDesconto').textContent = 'Aplicar desconto';
+  
+  const botao = pegar('aplicarDesconto');
+
+    botao.disabled = !podeDescontar || (saldo === 0 && !descontoAtivo);
+
+    if (desconto > 0) {
+      botao.textContent = 'Remover desconto';
+    } else {
+      botao.textContent = 'Aplicar desconto';
+    }
 }
 
 function mostrarFatura(fatura) {
@@ -177,6 +186,23 @@ async function iniciarPagamento() {
     botao.disabled = false;
   }
 }
+
+  // Aplicar ou remover o desconto do check-in
+pegar('aplicarDesconto').addEventListener('click', function () {
+
+  if (!faturaAtual || faturaAtual.status !== 'aberta') {
+    return;
+  }
+
+  if (lerSaldo() <= 0) {
+    return;
+  }
+
+  descontoAtivo = !descontoAtivo;
+
+  atualizarValores();
+
+});
 
 // Notificações do cabeçalho.
 pegar('notificacoesBotao').addEventListener('click', function () {
