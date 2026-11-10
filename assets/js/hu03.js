@@ -2,6 +2,7 @@
 // O cabeçalho e o rodapé continuam no template.js do grupo.
 
 import { buscarFaturasDoCliente } from './api.js';
+import { formatarSaldoCheckin, lerSaldoCheckin } from './saldo-checkin.js';
 
 // Atalho para encontrar elementos do HTML pelo ID.
 function pegar(id) {
@@ -49,31 +50,10 @@ let filtroAtual = 'todas';
 let metodoAtual = 'pix';
 let descontoAtivo = false;
 
-// Lê os dias de check-in salvos pela página Checkin.html.
-function lerSaldo() {
-  try {
-    const texto = localStorage.getItem('bulbe-checkins-diarios') || '[]';
-    const dias = JSON.parse(texto);
-
-    if (!Array.isArray(dias)) return 0;
-    // Saldo inicial usado na demonstração
-      if (dias.length === 0) {
-        return 10;
-}
-
-    // Cada dia único equivale a R$ 0,50, com limite de 90 dias.
-    const diasUnicos = new Set(dias);
-    return Math.min(diasUnicos.size, 90) * 0.50;
-  } catch (erro) {
-    console.warn('Não foi possível ler o saldo do check-in.', erro);
-    return 0;
-  }
-}
-
 function atualizarValores() {
   if (!faturaAtual) return;
 
-  const saldo = lerSaldo();
+  const saldo = lerSaldoCheckin();
   const podeDescontar = faturaAtual.status === 'aberta';
   const desconto = descontoAtivo && podeDescontar
     ? Math.min(saldo, faturaAtual.valor)
@@ -81,7 +61,7 @@ function atualizarValores() {
 
   const total = Math.max(0, faturaAtual.valor - desconto);
 
-  pegar('saldoCheckin').textContent = dinheiro(saldo);
+  pegar('saldoCheckin').textContent = formatarSaldoCheckin(saldo);
   pegar('valorFatura').textContent = dinheiro(total);
   pegar('totalPagar').textContent = dinheiro(total);
   pegar('descontoCheckin').textContent = `- ${dinheiro(desconto)}`;
