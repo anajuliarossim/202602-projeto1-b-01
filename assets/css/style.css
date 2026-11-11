@@ -49,6 +49,7 @@ main[data-tela="consumo"]{
 }
 
 .topo {
+  position: relative;
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr) 40px 40px;
   grid-template-areas:
@@ -87,12 +88,13 @@ main {
 }
 
 .topo .logo-cabecalho {
+  position: absolute;
+  top: 20px;
+  left: 50%;
   width: 100%;
   max-width: 100px;
   height: auto;
-  justify-self: center;
-  margin-right: -50px;
-  grid-area: logo;
+  transform: translateX(-50%);
 }
 
 .topo .menu-cabecalho {
