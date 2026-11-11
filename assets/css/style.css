@@ -1187,14 +1187,14 @@ body.pagina-blog {
   background-color: var(--cor-primaria);
 }
 #Start-Top{
-  padding: 100px;
+  padding: clamp(24px, 7vh, 48px) 16px;
   display: flex;
   justify-content: center;
 }
 #Start-Top img{
-  width: 100vw;
+  width: 100%;
+  max-width: 220px;
   height: auto;
-  padding: 7vh;
 }
 #Start-Main{
   display: grid;
@@ -1203,7 +1203,7 @@ body.pagina-blog {
 }
 
 #TempoDeCalculo, #ConsumoMensal{
-  width: 350px;
+  width: min(350px, 100%);
   height: 50px;
 }
 
@@ -2266,11 +2266,11 @@ body.pagina-home {
 .pagina-home .home-icone-pix { width: 27px; height: 27px; }
 .pagina-home .home-codigo { width: 25px; height: 23px; flex: none; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 4px, currentColor 4px 5px, transparent 5px 8px); }
 .pagina-home .home-link-fatura { align-self: flex-end; display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; }
-.pagina-home .home-aviso { display: grid; grid-template-columns: 35% minmax(0, 1fr); align-items: center; gap: 8px; padding: 12px 12px 12px 5px; border: 1px solid #cee1fa; border-radius: 17px; background: linear-gradient(120deg, #e8f7ff, #d5e7fd); }
-.pagina-home .home-img-faturas { width: 100%; height: 116px; }
-.pagina-home .home-etiqueta { display: inline-block; padding: 3px 7px; border-radius: 20px; color: #062b7d; background: #bedbff; font-size: 8px; font-weight: 600; }
-.pagina-home .home-aviso h2 { margin: 6px 0; font-size: 14px; color: #063aaf; }
-.pagina-home .home-aviso p { color: #4b6b8e; font-size: 9px; line-height: 1.45; }
+.pagina-home .home-aviso { display: grid; grid-template-columns: 32% minmax(0, 1fr); align-items: center; gap: 6px; padding: 8px 10px 8px 4px; border: 1px solid #cee1fa; border-radius: 17px; background: linear-gradient(120deg, #e8f7ff, #d5e7fd); }
+.pagina-home .home-img-faturas { width: 100%; height: 90px; }
+.pagina-home .home-etiqueta { display: inline-block; padding: 3px 7px; border-radius: 20px; color: #062b7d; background: #bedbff; font-size: 7px; font-weight: 600; }
+.pagina-home .home-aviso h2 { margin: 4px 0; font-size: 12px; color: #063aaf; }
+.pagina-home .home-aviso p { color: #4b6b8e; font-size: 8px; line-height: 1.35; }
 .pagina-home .home-economia { padding: 5px 8px 0; }
 .pagina-home .home-economia-topo { display: grid; grid-template-columns: 25% minmax(0, 1fr); align-items: center; gap: 7px; }
 .pagina-home .home-img-porquinho { width: 100%; height: 86px; }
@@ -2766,3 +2766,20 @@ body.telaOnboarding.onboardingBulbe {
   .menu-footer > .button-template .icone-footer,
   .menu-footer > .button-template.ativo .icone-azul { height: 36px; }
 }
+
+/* Referência comum para as telas do protótipo: iPhone SE (375 × 667 px). */
+html { min-height: 100%; background: #e9ebf1; }
+body {
+  width: 100%;
+  max-width: 375px;
+  margin-inline: auto;
+}
+body.telaOnboarding.onboardingBulbe { max-width: 375px; }
+
+.menu-footer {
+  left: 50%;
+  width: 100%;
+  max-width: 375px;
+  transform: translateX(-50%);
+}
+.modalLateral { left: max(0px, calc((100% - 375px) / 2)); }
