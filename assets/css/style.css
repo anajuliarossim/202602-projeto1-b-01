@@ -359,7 +359,8 @@ width: 100%;
   max-width: 28ch;
   margin: 0 auto 16px;
 
-  font-size: 1.5rem;
+  font-size: 21px;
+  font-family: var(--fonte);
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
@@ -1216,7 +1217,7 @@ body.pagina-cliente main {
 }
 
 /* Tipografia e cartões */
-h1 { font-size: 1.4rem; color: var(--cor-primaria); text-align: center; margin-bottom: 8px; }
+h1 { font-family: var(--fonte); font-size: 21px; color: var(--cor-primaria); text-align: center; margin-bottom: 8px; }
 .sub { text-align: center; color: #5b6477; font-size: .9rem; margin-bottom: 20px; }
 .card-info { display: flex; gap: 12px; align-items: center; background: #eaf1ff;
   border: 1px solid #9db8ff; border-radius: 12px; padding: 14px; box-shadow: 0 0 0 3px #f3f7ff; }
@@ -1541,7 +1542,7 @@ label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-pr
   justify-content: start;
   margin-top: -20px;
 
-  font-size: x-large;
+  font-size: 21px;
 }
 .subtitulo-cadastro{
   font-size: small;
@@ -1632,7 +1633,7 @@ body.pagina-mapa {
 .pagina-mapa .mapa-pertencimento h1 {
   margin: 0;
   color: var(--cor-primaria);
-  font-size: 20px;
+  font-size: 21px;
   text-align: center;
 }
 
@@ -1807,7 +1808,7 @@ body.pagina-mapa {
 .checkin-introducao h1 {
   margin: 0 0 8px;
   color: var(--cor-primaria);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .checkin-introducao p {
@@ -2310,7 +2311,7 @@ body.pagina-home {
 }
 @media (max-width: 360px) {
   .pagina-home .home-conteudo { padding-inline: 13px; gap: 20px; }
-  .pagina-home .home-conteudo h1 { font-size: 19px; }
+  .pagina-home .home-conteudo h1 { font-size: 21px; }
   .pagina-home .home-saldo { padding-inline: 8px; gap: 7px; }
   .pagina-home .home-aviso h2 { font-size: 12px; }
   .pagina-home .home-checkin h2 { font-size: 17px; }
@@ -2415,7 +2416,8 @@ body.pagina-home {
     max-width: 28ch;
 
     color: #191927;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: 21px;
+    font-family: var(--fonte);
     font-weight: 700;
     line-height: 1.3;
 }
@@ -2556,7 +2558,7 @@ body.telaOnboarding.onboardingBulbe {
 }
 .onboardingBulbe .onboardingContent h1 {
   max-width: 28ch; margin: 0 auto 12px; color: #24243b;
-  font-size: clamp(19px, 5.2vw, 24px); font-weight: 700; line-height: 1.3;
+  font-size: 21px; font-family: var(--fonte); font-weight: 700; line-height: 1.3;
 }
 .onboardingBulbe .onboardingContent p {
   max-width: 38ch; margin: 0 auto; padding: 0;
@@ -2596,7 +2598,7 @@ body.telaOnboarding.onboardingBulbe {
 @media (max-height: 700px) {
   .onboardingBulbe .onboardingImg { height: 48vh; height: 48dvh; }
   .onboardingBulbe .onboardingContent { padding: 16px 14px; }
-  .onboardingBulbe .onboardingContent h1 { margin-bottom: 10px; font-size: 20px; }
+  .onboardingBulbe .onboardingContent h1 { margin-bottom: 10px; font-size: 21px; }
   .onboardingBulbe .onboardingContent p { font-size: 13px; }
   .onboardingBulbe .indicadorTelas { margin: 6px 0; }
 }
