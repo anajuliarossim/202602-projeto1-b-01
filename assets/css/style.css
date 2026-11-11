@@ -1241,6 +1241,33 @@ label {margin-top:50px; font-size: .85rem; font-weight: 600; color: var(--cor-pr
 .abas a { padding: 4px 18px; border-bottom: 2px solid transparent; color: #5b6477; font-size: .9rem; text-decoration: none; }
 .abas a[aria-current="page"] { color: var(--cor-primaria); border-color: var(--cor-primaria); font-weight: 600; }
 
+main[data-tela="consumo"] .instalacao,
+main[data-tela="economia"] .instalacao,
+.pagina-cliente main .instalacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid #d6e1f5;
+  border-radius: 11px;
+  font-size: 13px;
+}
+
+main[data-tela="consumo"] .instalacao select,
+main[data-tela="economia"] .instalacao select,
+.pagina-cliente main .instalacao select {
+  width: 150px;
+  max-width: 55%;
+  border: 0;
+  background: transparent;
+  color: var(--cor-primaria);
+  font: inherit;
+  font-weight: 600;
+}
+
 /* Gráfico de barras (só CSS) */
 .painel { border: 1px solid #d6dbe6; border-radius: 12px; padding: 16px;
   box-shadow: 0 2px 8px rgba(8,6,141,.08); }

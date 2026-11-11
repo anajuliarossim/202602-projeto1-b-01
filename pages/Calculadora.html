@@ -11,6 +11,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <style>
+    .calculadora .campo {
+      margin-bottom: 20px;
+    }
+
+    .calculadora .campo label {
+      display: block;
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #444;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .calculadora .campo input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #d0d7e2;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .calculadora .campo #TempoDeCalculo,
+    .calculadora .campo #ConsumoMensal {
+      width: 100%;
+      height: auto;
+    }
+
+    .calculadora .campo input:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(8, 6, 141, 0.12);
+    }
+
+    .calculadora .campo input::placeholder {
+      color: #aaa;
+    }
+
     .calculadora .btn-confirmar {
       width: 100%;
       padding: 16px;
