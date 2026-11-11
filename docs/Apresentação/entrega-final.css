@@ -1,0 +1,259 @@
+/* Estilos da apresentação (slides de 1920 x 1080 que se ajustam à tela). */
+* {
+    box-sizing: border-box;
+    margin: 0
+}
+
+html,
+body {
+    height: 100%;
+    background: #050458;
+    color: #fff;
+    font-family: Poppins, system-ui, sans-serif;
+    overflow: hidden
+}
+
+:root {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+#stage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1920px;
+    height: 1080px;
+    transform-origin: center
+}
+
+.s {
+    position: absolute;
+    inset: 0;
+    padding: 56px 80px;
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(160deg, #08068d, #050458 70%)
+}
+
+.s.on {
+    display: flex
+}
+
+.tag {
+    align-self: flex-start;
+    background: #2f6bff;
+    border-radius: 99px;
+    padding: 4px 18px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px
+}
+
+h2 {
+    font-size: 52px;
+    font-weight: 700
+}
+
+.sub {
+    font-size: 24px;
+    color: #b9c6ff;
+    margin: 6px 0 22px
+}
+
+.row {
+    display: flex;
+    gap: 44px;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px
+}
+
+figcaption {
+    font-size: 24px;
+    font-weight: 500
+}
+
+.ph {
+    position: relative;
+    width: 395px;
+    padding: 10px;
+    border-radius: 44px;
+    background: #0b0b1f;
+    box-shadow: 0 20px 50px #0008;
+    border: 2px solid #3a4aa8
+}
+
+.sc {
+    width: 375px;
+    height: 667px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 32px;
+    background: #fff;
+    scrollbar-width: thin
+}
+
+.sc img {
+    display: block;
+    width: 375px
+}
+
+.ft {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 375px;
+    border-radius: 0 0 32px 32px;
+    pointer-events: none
+}
+
+.cover {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px
+}
+
+.lg {
+    width: 300px
+}
+
+h1 {
+    font-size: 96px
+}
+
+.lead {
+    font-size: 38px;
+    max-width: 1200px;
+    color: #dfe6ff
+}
+
+.meta {
+    font-size: 26px;
+    color: #9fb0ff
+}
+
+.cols {
+    display: flex;
+    gap: 32px;
+    margin-top: 36px
+}
+
+.card {
+    flex: 1;
+    background: #ffffff14;
+    border: 1px solid #ffffff30;
+    border-radius: 24px;
+    padding: 32px
+}
+
+.card h3 {
+    font-size: 34px;
+    margin-bottom: 10px
+}
+
+.card p {
+    font-size: 28px;
+    line-height: 1.45;
+    color: #e6ebff
+}
+
+.hu b {
+    font-size: 40px;
+    color: #7fa6ff
+}
+
+.hu small {
+    display: block;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #9fb0ff
+}
+
+#nav {
+    position: fixed;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 5;
+    font-size: 14px
+}
+
+#nav button {
+    background: #ffffff22;
+    color: #fff;
+    border: 0;
+    border-radius: 99px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    cursor: pointer
+}
+
+.sc iframe {
+    display: block;
+    width: 375px;
+    height: 667px;
+    border: 0;
+    background: #fff
+}
+
+.side {
+    width: 780px;
+    padding-top: 10px
+}
+
+.side h3 {
+    font-size: 30px;
+    margin: 34px 0 14px
+}
+
+.btns,
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px
+}
+
+.side button {
+    font: inherit;
+    font-size: 24px;
+    background: #ffffff1f;
+    color: #fff;
+    border: 1px solid #ffffff40;
+    border-radius: 99px;
+    padding: 10px 26px;
+    cursor: pointer
+}
+
+.side button:hover {
+    background: #2f6bff
+}
+
+.team {
+    font-size: 32px;
+    color: #fff;
+    margin-top: 6px
+}
+
+.team b {
+    color: #7fa6ff;
+    font-weight: 600
+}
+
+.hint {
+    font-size: 24px;
+    color: #b9c6ff;
+    margin-top: 34px;
+    line-height: 1.5
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Bulbe Jornada · Sprint Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="entrega-final.css">
+</head>
+
+<body>
+    <div id="stage">
+        <section class="s cover"><img class="lg"
+                src="../../assets/img/Logo-Bulbe-Branca.png"
+                alt="Bulbe">
+            <h1>Bulbe Jornada</h1>
+            <p class="lead">Do primeiro acesso à primeira economia: um app que explica etapas, faturas e pagamentos para
+                o novo cliente.</p>
+            <p class="team"><b>Equipe</b> · Ana Júlia Rossi · Luiz Balestrassi · Bernardo Neto · Giovanni Loschi</p>
+            <p class="meta">Sprint Review · Squad B-01 · Ciência de Dados I · Ibmec BH</p>
+        </section>
+        <section class="s"><span class="tag">O app</span>
+            <h2>Uma jornada clara para quem acabou de aderir</h2>
+            <div class="cols">
+                <div class="card">
+                    <h3>Sérgio, 45</h3>
+                    <p>Chegou por indicação e quer reduzir despesas. Pergunta: “de onde vem o desconto?”</p>
+                </div>
+                <div class="card">
+                    <h3>Maria, 39</h3>
+                    <p>Conheceu a Bulbe nas redes e quer guardar mais por mês. Pergunta: “a empresa é real? Como sei que
+                        estou economizando?”</p>
+                </div>
+            </div>
+            <div class="cols four">
+                <div class="card hu"><b>HU01</b>
+                    <p>Entender a origem do desconto</p><small>Onboarding</small>
+                </div>
+                <div class="card hu"><b>HU02</b>
+                    <p>Acompanhar a economia</p><small>Calculadora, Economia, Check-in, Consumo</small>
+                </div>
+                <div class="card hu"><b>HU03</b>
+                    <p>Faturas claras</p><small>Home, Fatura, Cartão</small>
+                </div>
+                <div class="card hu"><b>HU04</b>
+                    <p>Confiança na Bulbe</p><small>Mapa e Usinas</small>
+                </div>
+            </div>
+        </section>
+        <section class="s" id="live"><span class="tag">Demonstração</span>
+            <h2>Navegue pelo app</h2>
+            <p class="sub">Comece pelo Acesso e use o app como o cliente usaria: toque nos botões, preencha os
+                formulários e avance</p>
+            <div class="row">
+                <figure>
+                    <div class="ph">
+                        <div class="sc"><iframe id="fr" title="App Bulbe"></iframe></div>
+                    </div>
+                    <figcaption id="cur">Acesso</figcaption>
+                </figure>
+                <div class="side">
+                    <div class="btns"><button id="rs">↺ Reiniciar no Acesso</button><button id="bk">← Voltar</button>
+                    </div>
+                    <h3>Ir direto para</h3>
+                    <div class="chips"><button data-p="Acesso.html">Acesso</button><button
+                            data-p="Entrar.html">Entrar</button><button data-p="Cadastro1.html">Cadastro</button><button
+                            data-p="Onboarding-1.html">Onboarding</button><button
+                            data-p="Home.html">Home</button><button data-p="Fatura.html">Faturas</button><button
+                            data-p="Checkin.html">Check-in</button><button
+                            data-p="Consumo_Cliente.html">Consumo</button><button
+                            data-p="Economia_Cliente.html">Economia</button><button
+                            data-p="Calculadora.html">Calculadora</button><button
+                            data-p="Mapa.html">Mapa</button><button data-p="Blog.html">Usinas</button></div>
+                    <p class="hint">Dica: em Primeiro acesso, siga o cadastro até o cartão. Ao chegar na Home, o
+                        onboarding abre sozinho após 2 segundos.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="nav"><button id="p" aria-label="Anterior">‹</button><span id="c"></span><button id="n"
+            aria-label="Próximo">›</button></div>
+    <script src="app-embutido.js"></script>
+    <script src="entrega-final.js"></script>
+</body>
+
+</html>
