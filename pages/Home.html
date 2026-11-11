@@ -39,12 +39,8 @@
           </div>
 
           <nav class="opcoesModal">
-              <a href="Mapa.html" class="BotaoModal">
-                  <img src="../assets/img/Icon-Map.png" alt="">
-                  <span>Mapa da Bulbe</span>
-              </a>
 
-              <a href="Blog.html" class="BotaoModal">
+<a href="Blog.html" class="BotaoModal">
                   <img src="../assets/img/Icon-Blog.png" alt="">
                   <span>Nossas Usinas</span>
               </a>
@@ -82,8 +78,8 @@
           <span class="home-status">em aberto</span>
         </div>
         <p class="home-legenda">Valor da fatura:</p>
-        <p class="home-valor"><span>R$</span> 148,90 <span class="home-raios" aria-hidden="true"></span></p>
-        <p class="home-vencimento"><span class="home-calendario" aria-hidden="true"></span>Vencimento: 25/10</p>
+        <p class="home-valor"><span>R$</span> 187,42 <span class="home-raios" aria-hidden="true"></span></p>
+        <p class="home-vencimento"><span class="home-calendario" aria-hidden="true"></span>Vencimento: <strong>25/10</strong></p>
 
         <div class="home-economia-mes">
           <img src="../assets/img/Home-Economizou.png" alt="" class="home-icone-economia">
@@ -92,7 +88,7 @@
         </div>
         <div class="home-saldo">
           <span class="home-moedas" aria-hidden="true"></span>
-          <div><p>Saldo de desconto do check-in</p><strong>R$ 10,00</strong></div>
+          <div><p>Saldo de desconto do check-in</p><strong id="saldoCheckinHome">R$ 10,00</strong></div>
           <!-- Conecte este botão à sua lógica de desconto. -->
           <button type="button" id="aplicarDescontoHome" class="home-pill">Aplicar desconto <span aria-hidden="true">›</span></button>
         </div>
@@ -147,21 +143,24 @@
     </main>
   </div>
     <footer class="menu-footer" aria-label="Navegação principal">
-        <button type="button" class="button-template ativo" id="btnInicio" aria-label="Início" aria-current="page">
+        <button type="button" class="button-template" id="btnInicio" aria-label="Início">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Inicio-Cinza.png" alt="">
             <img class="icone-footer icone-azul" src="../assets/img/Icone-Inicio-Azul.png" alt="">
         </button>
-
         <button type="button" class="button-template" id="btnFaturas" aria-label="Faturas">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Fatura-Cinza.png" alt="">
-            <img class="icone-footer icone-azul icone-maior" src="../assets/img/Icone-Fatura-Azul.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Fatura-Azul.png" alt="">
         </button>
-
         <button type="button" class="button-template" id="btnConsumo" aria-label="Consumo">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Consumo-Cinza.png" alt="">
             <img class="icone-footer icone-azul" src="../assets/img/Icone-Consumo-Azul.png" alt="">
         </button>
+        <button type="button" class="button-template" id="btnMapa" aria-label="Mapa">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Mapa-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Mapa-Azul.png" alt="">
+        </button>
     </footer>
     <script src="../assets/js/template.js"></script>
+    <script type="module" src="../assets/js/saldo-checkin-home.js"></script>
 </body>
 </html> 

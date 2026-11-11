@@ -1,0 +1,598 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #172033;
+  background: #f3f5fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --azul: #08068d;
+  --amarelo: #f2ae00;
+  --texto-suave: #697386;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 74% 14%, rgba(8, 6, 141, 0.08), transparent 34rem),
+    #f3f5fa;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #e8a700;
+  outline-offset: 3px;
+}
+
+.apresentacao {
+  height: 100%;
+}
+
+.cabecalho-apresentacao {
+  height: 76px;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e9f0;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--azul);
+  text-decoration: none;
+}
+
+.marca-icone {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--azul);
+  color: white;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.marca strong,
+.marca small {
+  display: block;
+}
+
+.marca strong {
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+.marca small {
+  margin-top: 2px;
+  color: var(--texto-suave);
+  font-size: 11px;
+}
+
+.abrir-tela {
+  padding: 10px 15px;
+  border: 1px solid #dfe3ed;
+  border-radius: 10px;
+  background: white;
+  color: var(--azul);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.abrir-tela:hover {
+  border-color: var(--azul);
+}
+
+.conteudo-apresentacao {
+  display: grid;
+  grid-template-columns: minmax(245px, 310px) minmax(0, 1fr);
+  height: calc(100% - 76px);
+  min-width: 0;
+}
+
+.painel-telas {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 29px 20px 24px max(24px, 5vw);
+  border-right: 1px solid #e6e9f0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.painel-titulo {
+  margin-bottom: 17px;
+}
+
+.sobretitulo {
+  margin: 0 0 8px;
+  color: #7772c4;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.painel-titulo h1 {
+  margin: 0;
+  color: #171d36;
+  font-size: 21px;
+  letter-spacing: -0.03em;
+}
+
+.painel-titulo > p:last-child {
+  margin: 7px 0 0;
+  color: var(--texto-suave);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.lista-telas {
+  min-width: 0;
+  overflow: auto;
+  padding-right: 7px;
+}
+
+.grupo-telas + .grupo-telas {
+  margin-top: 17px;
+}
+
+.grupo-telas h2 {
+  margin: 0 0 7px 10px;
+  color: #8a91a1;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.item-tela {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #475066;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.item-tela:hover {
+  background: #f0f1f8;
+}
+
+.item-tela[aria-current="true"] {
+  background: #eeedff;
+  color: var(--azul);
+  font-weight: 700;
+}
+
+.numero-tela {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  place-items: center;
+  border: 1px solid #e5e7ee;
+  border-radius: 7px;
+  background: white;
+  color: #7d8494;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.item-tela[aria-current="true"] .numero-tela {
+  border-color: var(--azul);
+  background: var(--azul);
+  color: white;
+}
+
+.nome-tela {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.area-apresentacao {
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  place-items: center;
+  padding: 20px 24px;
+}
+
+.slide {
+  display: flex;
+  width: min(100%, 700px);
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho-slide {
+  display: flex;
+  width: min(100%, 440px);
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.seletor-tela-label,
+.seletor-tela {
+  display: none;
+}
+
+.etapa-slide {
+  margin: 0 0 4px;
+  color: #7772c4;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cabecalho-slide h2 {
+  margin: 0;
+  color: #171d36;
+  font-size: 19px;
+  letter-spacing: -0.025em;
+}
+
+.botao-icone {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  border: 1px solid #e2e5ed;
+  border-radius: 10px;
+  background: white;
+  color: #464d61;
+  cursor: pointer;
+}
+
+.botao-icone:hover {
+  border-color: #b7b4e8;
+  color: var(--azul);
+}
+
+.botao-icone svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.celular {
+  width: min(100%, 390px);
+  height: min(66vh, 650px);
+  min-height: 0;
+  overflow: hidden;
+  flex: 0 1 650px;
+  border: 7px solid #202333;
+  border-radius: 31px;
+  background: white;
+  box-shadow: 0 22px 60px rgba(27, 31, 57, 0.2), 0 4px 12px rgba(27, 31, 57, 0.1);
+}
+
+.celular iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: white;
+}
+
+.controles-slide {
+  display: grid;
+  width: min(100%, 440px);
+  flex: 0 0 auto;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.botao-navegacao {
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid #e0e3ec;
+  border-radius: 10px;
+  background: white;
+  color: #3d4558;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.botao-navegacao:hover:not(:disabled) {
+  border-color: #a7a4da;
+  color: var(--azul);
+}
+
+.botao-navegacao:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.botao-proxima {
+  justify-self: end;
+  border-color: var(--azul);
+  background: var(--azul);
+  color: white;
+}
+
+.botao-proxima:hover:not(:disabled) {
+  border-color: #2422a8;
+  background: #2422a8;
+  color: white;
+}
+
+.contador {
+  margin: 0;
+  color: #71798b;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.dica-teclado {
+  flex: 0 0 auto;
+  margin: 11px 0 0;
+  color: #858b99;
+  font-size: 10px;
+  text-align: center;
+}
+
+.slide:fullscreen {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  padding: 20px;
+  background:
+    radial-gradient(ellipse at 74% 14%, rgba(8, 6, 141, 0.08), transparent 34rem),
+    #f3f5fa;
+}
+
+.slide:fullscreen .celular {
+  height: min(70vh, 760px);
+}
+
+@media (max-width: 760px) {
+  .cabecalho-apresentacao {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .conteudo-apresentacao {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .painel-telas {
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid #e6e9f0;
+  }
+
+  .painel-titulo {
+    margin-bottom: 11px;
+  }
+
+  .painel-titulo h1 {
+    font-size: 18px;
+  }
+
+  .painel-titulo > p:last-child {
+    display: none;
+  }
+
+  .lista-telas {
+    display: flex;
+    max-height: 175px;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    padding: 1px 0 5px;
+  }
+
+  .grupo-telas {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .grupo-telas + .grupo-telas {
+    margin-top: 0;
+  }
+
+  .grupo-telas h2 {
+    margin: 0 0 4px 4px;
+  }
+
+  .itens-grupo {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 1px 2px 4px;
+  }
+
+  .item-tela {
+    width: auto;
+    flex: 0 0 auto;
+    gap: 6px;
+    padding: 5px 7px;
+  }
+
+  .numero-tela {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+
+  .nome-tela {
+    max-width: 115px;
+    font-size: 10px;
+  }
+
+  .area-apresentacao {
+    padding: 19px 14px 24px;
+  }
+
+  .slide {
+    min-height: 0;
+  }
+
+  .celular {
+    width: min(100%, 390px);
+    height: min(64vh, 650px);
+    min-height: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    min-width: 0;
+  }
+
+  .cabecalho-apresentacao,
+  .painel-telas {
+    display: none;
+  }
+
+  .conteudo-apresentacao {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .area-apresentacao {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .slide {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cabecalho-slide {
+    position: absolute;
+    z-index: 2;
+    top: env(safe-area-inset-top, 0px);
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 52px;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0;
+    padding: 7px 10px;
+    background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+  }
+
+  .cabecalho-slide > div {
+    display: none;
+  }
+
+  .seletor-tela-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .seletor-tela {
+    display: block;
+    width: min(100%, 290px);
+    min-width: 0;
+    height: 37px;
+    margin-right: auto;
+    padding: 0 10px;
+    border: 1px solid rgba(8, 6, 141, 0.2);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--azul);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .celular {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .controles-slide {
+    position: absolute;
+    z-index: 2;
+    bottom: env(safe-area-inset-bottom, 0px);
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 9px 10px;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.96) 28%);
+  }
+
+  .botao-navegacao {
+    min-height: 37px;
+  }
+
+  .dica-teclado {
+    display: none;
+  }
+
+  .slide:fullscreen {
+    padding: 0;
+  }
+
+  .slide:fullscreen .celular {
+    height: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

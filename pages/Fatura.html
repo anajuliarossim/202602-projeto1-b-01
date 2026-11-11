@@ -56,8 +56,8 @@
       </div>
 
       <nav class="opcoesModal">
-        <a class="BotaoModal" href="Mapa.html"><img src="../assets/img/Icon-Map.png" alt="">Mapa da Bulbe</a>
-        <a class="BotaoModal" href="Blog.html"><img src="../assets/img/Icon-Blog.png" alt="">Blog</a>
+
+<a class="BotaoModal" href="Blog.html"><img src="../assets/img/Icon-Blog.png" alt="">Blog</a>
         <a class="BotaoModal" href="#"><img src="../assets/img/Icon-Question.png" alt="">Perguntas Frequentes</a>
         <a class="BotaoModal" href="#"><img src="../assets/img/Icon-Indique.png" alt="">Indique e ganhe</a>
         <a class="BotaoModal" href="#"><img src="../assets/img/Icon-Chat.png" alt="">Fale conosco</a>
@@ -97,31 +97,31 @@
       <section class="fatura-atual">
         <div class="linha-titulo">
           <h2>Fatura do mês</h2>
-          <span class="status" id="statusFatura">Carregando...</span>
+          <span class="status" id="statusFatura">Em aberto</span>
         </div>
 
         <p class="legenda">Valor da fatura:</p>
 
         <div class="linha-valor">
-          <strong id="valorFatura">R$ 0,00</strong>
+          <strong id="valorFatura">R$ 187,42</strong>
           <span class="energia-e" aria-hidden="true">e<span class="raios"></span></span>
         </div>
 
         <p class="vencimento">
           <span class="calendario" aria-hidden="true"></span>
-          Vencimento: <strong id="vencimento">--/--</strong>
+          Vencimento: <strong id="vencimento">25/10</strong>
         </p>
 
         <div class="economia">
           <img src="../assets/img/Home-Economizou.png" alt="">
-          <span>Você economizou <strong id="economiaValor">R$ 0,00</strong> esse mês</span>
+          <span>Você economizou <strong id="economiaValor">R$ 37,40</strong> esse mês</span>
         </div>
 
         <div class="saldo-checkin">
           <span class="moedas" aria-hidden="true"></span>
           <div>
             <small>Saldo de desconto do check-in</small>
-            <strong id="saldoCheckin">R$ 0,00</strong>
+            <strong id="saldoCheckin">R$ 10,00</strong>
           </div>
           <button type="button" id="aplicarDesconto">Aplicar desconto</button>
         </div>
@@ -135,16 +135,16 @@
         </summary>
 
         <div class="resumo-consumo">
-          <div><small>Consumo</small><strong id="consumoKwh">-- kWh</strong></div>
-          <div><small>Tarifa (kWh)</small><strong id="tarifaKwh">R$ 0,00</strong></div>
-          <div><small>Período</small><strong id="periodo">--</strong></div>
+          <div><small>Consumo</small><strong id="consumoKwh">320 kWh</strong></div>
+          <div><small>Tarifa (kWh)</small><strong id="tarifaKwh">R$ 0,57</strong></div>
+          <div><small>Período</small><strong id="periodo">01/10 - 31/10</strong></div>
         </div>
 
         <div class="valores-fatura">
-          <p>Energia <strong id="valorEnergia">R$ 0,00</strong></p>
-          <p>Impostos <strong id="valorImpostos">R$ 0,00</strong></p>
-          <p>Iluminação pública <strong id="valorIluminacao">R$ 0,00</strong></p>
-          <p>Desconto Bulbe <strong id="descontoBulbe">R$ 0,00</strong></p>
+          <p>Energia <strong id="valorEnergia">R$ 180,82</strong></p>
+          <p>Impostos <strong id="valorImpostos">R$ 31,40</strong></p>
+          <p>Iluminação pública <strong id="valorIluminacao">R$ 12,60</strong></p>
+          <p>Desconto Bulbe <strong id="descontoBulbe">- R$ 37,40</strong></p>
           <p id="linhaDescontoCheckin" hidden>
             Desconto check-in <strong id="descontoCheckin">R$ 0,00</strong>
           </p>
@@ -152,7 +152,7 @@
 
         <p class="total-detalhes">
           <strong>Total a pagar</strong>
-          <strong id="totalPagar">R$ 0,00</strong>
+          <strong id="totalPagar">R$ 187,42</strong>
         </p>
       </details>
 
@@ -205,16 +205,23 @@
 
   <!-- Rodapé compartilhado com o grupo -->
   <footer class="menu-footer" aria-label="Navegação principal">
-    <button class="button-template" id="btnInicio" type="button" aria-label="Início">
-      <img src="../assets/img/Icone-Inicio-Cinza.png" alt="">
-    </button>
-    <button class="button-template" id="btnFaturas" type="button" aria-label="Faturas">
-      <img src="../assets/img/Icone-Fatura-Cinza.png" alt="">
-    </button>
-    <button class="button-template" id="btnConsumo" type="button" aria-label="Consumo">
-      <img src="../assets/img/Icone-Consumo-Cinza.png" alt="">
-    </button>
-  </footer>
+        <button type="button" class="button-template" id="btnInicio" aria-label="Início">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Inicio-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Inicio-Azul.png" alt="">
+        </button>
+        <button type="button" class="button-template" id="btnFaturas" aria-label="Faturas">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Fatura-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Fatura-Azul.png" alt="">
+        </button>
+        <button type="button" class="button-template" id="btnConsumo" aria-label="Consumo">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Consumo-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Consumo-Azul.png" alt="">
+        </button>
+        <button type="button" class="button-template" id="btnMapa" aria-label="Mapa">
+            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Mapa-Cinza.png" alt="">
+            <img class="icone-footer icone-azul" src="../assets/img/Icone-Mapa-Azul.png" alt="">
+        </button>
+    </footer>
 
   <script src="../assets/js/template.js"></script>
 </body>
