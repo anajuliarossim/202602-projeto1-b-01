@@ -2738,10 +2738,6 @@ body.telaOnboarding.onboardingBulbe {
 .TelaCheia > main {
   flex: 1 0 auto;
 }
-.TelaCheia + .menu-footer {
-  position: static;
-}
-
 /* Navegação inferior compartilhada — quatro abas com espaço igual.
    As duas imagens existem em assets/img; a classe .ativo é gerenciada por template.js. */
 .menu-footer > .button-template {
@@ -2779,9 +2775,10 @@ body {
 body.telaOnboarding.onboardingBulbe { max-width: 375px; }
 
 .menu-footer {
+  position: fixed;
+  bottom: 0;
   left: 50%;
-  width: 100%;
-  max-width: 375px;
+  width: min(100%, 375px);
   transform: translateX(-50%);
 }
 .modalLateral { left: max(0px, calc((100% - 375px) / 2)); }
