@@ -194,7 +194,9 @@ pegar('aplicarDesconto').addEventListener('click', function () {
     return;
   }
 
-  if (lerSaldo() <= 0) {
+  const saldo = lerSaldoCheckin();
+
+  if (saldo <= 0 && !descontoAtivo) {
     return;
   }
 
@@ -204,7 +206,7 @@ pegar('aplicarDesconto').addEventListener('click', function () {
 
 });
 
-// Notificações do cabeçalho.
+// Notificações do cabeçalho .
 pegar('notificacoesBotao').addEventListener('click', function () {
   pegar('notificacoesPainel').hidden = !pegar('notificacoesPainel').hidden;
 });
