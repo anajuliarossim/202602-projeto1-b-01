@@ -10,6 +10,73 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    .calculadora .campo {
+      margin-bottom: 20px;
+    }
+
+    .calculadora .campo label {
+      display: block;
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #444;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .calculadora .campo input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #d0d7e2;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .calculadora .campo #TempoDeCalculo,
+    .calculadora .campo #ConsumoMensal {
+      width: 100%;
+      height: auto;
+    }
+
+    .calculadora .campo input:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(8, 6, 141, 0.12);
+    }
+
+    .calculadora .campo input::placeholder {
+      color: #aaa;
+    }
+
+    .calculadora .btn-confirmar {
+      width: 100%;
+      padding: 16px;
+      background: var(--cor-primaria);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .calculadora .btn-confirmar:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(8, 6, 141, 0.3);
+    }
+
+    .calculadora .btn-confirmar:active {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
   <div class="corpo">
@@ -39,8 +106,12 @@
           </div>
 
           <nav class="opcoesModal">
+              <a href="Mapa.html" class="BotaoModal">
+                  <img src="../assets/img/Icon-Map.png" alt="">
+                  <span>Mapa da Bulbe</span>
+              </a>
 
-<a href="Blog.html" class="BotaoModal">
+              <a href="Blog.html" class="BotaoModal">
                   <img src="../assets/img/Icon-Blog.png" alt="">
                   <span>Blog</span>
               </a>
@@ -85,30 +156,29 @@
           <label for="ConsumoMensal">Insira o Média de consumo MENSAL de energia: </label>
           <input id="ConsumoMensal" name="consumo" type="number" placeholder="Ex:330 Kwh" min="1" required></input><br>
         </div> 
-        <img src="../assets/img/UtsX1.jpg" alt="Banner Bulbe calculadora" class="ImgBanner">
       <p class="avisoCalculadora">Esse calculo é apenas uma aproximação, 
         dessa forma pode sofrer alterações devido fatores externos
         (descontos, cupons, etc.)</p>
-        <button type ="submit" class="btn-confirmar">Confirmar</button>
+        <button type="submit" class="btn-confirmar">
+          <i class="fa-solid fa-calculator"></i> Calcular Economia
+        </button>
       </form>
       </main>
   </div>
   <footer class="menu-footer" aria-label="Navegação principal">
-        <button type="button" class="button-template" id="btnInicio" aria-label="Início">
+        <button type="button" class="button-template ativo" id="btnInicio" aria-label="Início" aria-current="page">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Inicio-Cinza.png" alt="">
             <img class="icone-footer icone-azul" src="../assets/img/Icone-Inicio-Azul.png" alt="">
         </button>
+
         <button type="button" class="button-template" id="btnFaturas" aria-label="Faturas">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Fatura-Cinza.png" alt="">
             <img class="icone-footer icone-azul" src="../assets/img/Icone-Fatura-Azul.png" alt="">
         </button>
+
         <button type="button" class="button-template" id="btnConsumo" aria-label="Consumo">
             <img class="icone-footer icone-cinza" src="../assets/img/Icone-Consumo-Cinza.png" alt="">
             <img class="icone-footer icone-azul" src="../assets/img/Icone-Consumo-Azul.png" alt="">
-        </button>
-        <button type="button" class="button-template" id="btnMapa" aria-label="Mapa">
-            <img class="icone-footer icone-cinza" src="../assets/img/Icone-Mapa-Cinza.png" alt="">
-            <img class="icone-footer icone-azul" src="../assets/img/Icone-Mapa-Azul.png" alt="">
         </button>
     </footer>
   <script src="../assets/js/template.js"></script>

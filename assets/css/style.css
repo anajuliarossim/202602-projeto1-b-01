@@ -328,7 +328,7 @@ p {
 .btn-confirmar {
   width: 100%;
   height: 52px;
-  background: #0a2558;
+  background: var(--cor-primaria);
   border: none;
   border-radius: 26px;
   color: white;
@@ -1395,6 +1395,33 @@ label {
 .abas a[aria-current="page"] {
   color: var(--cor-primaria);
   border-color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+main[data-tela="consumo"] .instalacao,
+main[data-tela="economia"] .instalacao,
+.pagina-cliente main .instalacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid #d6e1f5;
+  border-radius: 11px;
+  font-size: 13px;
+}
+
+main[data-tela="consumo"] .instalacao select,
+main[data-tela="economia"] .instalacao select,
+.pagina-cliente main .instalacao select {
+  width: 150px;
+  max-width: 55%;
+  border: 0;
+  background: transparent;
+  color: var(--cor-primaria);
+  font: inherit;
   font-weight: 600;
 }
 
