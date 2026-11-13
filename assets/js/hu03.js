@@ -194,7 +194,7 @@ pegar('aplicarDesconto').addEventListener('click', function () {
     return;
   }
 
-  if (lerSaldo() <= 0) {
+  if (lerSaldoCheckin() <= 0) {
     return;
   }
 

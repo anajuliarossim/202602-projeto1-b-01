@@ -4080,3 +4080,7 @@ main.calculadora {
   text-align: center;
   text-decoration: none;
 }
+
+/* Sem rolagem horizontal: o conteúdo acompanha a largura da janela, inclusive quando há barra de rolagem vertical. */
+html { overflow-x: hidden; }
+.TelaCheia > main { width: 100%; }
